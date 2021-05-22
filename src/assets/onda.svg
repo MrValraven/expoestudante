@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="598.421" height="315.375" viewBox="0 0 598.421 315.375">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        filter: url(#Caminho_109);
+      }
+    </style>
+    <filter id="Caminho_109" x="0" y="0" width="598.421" height="315.375" filterUnits="userSpaceOnUse">
+      <feOffset dx="20" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="25" result="blur"/>
+      <feFlood flood-color="#030b6c"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g class="cls-2" transform="matrix(1, 0, 0, 1, 0, 0)">
+    <path id="Caminho_109-2" data-name="Caminho 109" class="cls-1" d="M289.106,1104.441S182.77,938.815,89.023,939.066s-173.507,90.608-248.338,165.374Z" transform="translate(214.31 -864.07)"/>
+  </g>
+</svg>
