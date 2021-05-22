@@ -11,9 +11,13 @@
           <svg id="inicio" width="25px" height="25px" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m256 488a229.844 229.844 0 0 1 -141.467-48.108 233.557 233.557 0 0 1 -82.025-121.445 24 24 0 1 1 46.235-12.894 185.25 185.25 0 0 0 65.083 96.312 182.236 182.236 0 0 0 112.174 38.135c101.458 0 184-82.542 184-184s-82.542-184-184-184a182.241 182.241 0 0 0 -112.175 38.135 185.254 185.254 0 0 0 -65.082 96.312 24 24 0 1 1 -46.235-12.894 233.559 233.559 0 0 1 82.025-121.444 232.008 232.008 0 0 1 373.467 183.891 232 232 0 0 1 -232 232z" fill="#8690fa"/><path d="m56 224a24 24 0 0 1 -23.964-22.669l-8-144a24 24 0 1 1 47.924-2.662l6.32 113.761 106.941-31.454a24 24 0 1 1 13.543 46.048l-135.995 40a23.947 23.947 0 0 1 -6.769.976z" fill="#5153ff"/></svg>
           <router-link class="navLink" to="/">Home</router-link>
         </li>
-        <li>
+        <li class="sobre" @mouseover="hovered = true" @mouseleave="hovered = false" >
           <svg id="sobre" width="25px" height="25px" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m208 232a23.928 23.928 0 0 1 -16.971-7.029l-160-160a24 24 0 0 1 33.942-33.942l160 160a24 24 0 0 1 -16.971 40.971z" fill="#8690fa"/><path d="m48 200a24 24 0 0 1 -24-24v-128a24 24 0 0 1 24-24h128a24 24 0 0 1 0 48h-104v104a24 24 0 0 1 -24 24z" fill="#5153ff"/><path d="m304 232a24 24 0 0 1 -16.971-40.971l160-160a24 24 0 0 1 33.942 33.942l-160 160a23.928 23.928 0 0 1 -16.971 7.029z" fill="#8690fa"/><path d="m464 200a24 24 0 0 1 -24-24v-104h-104a24 24 0 0 1 0-48h128a24 24 0 0 1 24 24v128a24 24 0 0 1 -24 24z" fill="#5153ff"/><path d="m48 488a24 24 0 0 1 -16.971-40.971l160-160a24 24 0 0 1 33.942 33.942l-160 160a23.928 23.928 0 0 1 -16.971 7.029z" fill="#8690fa"/><path d="m176 488h-128a24 24 0 0 1 -24-24v-128a24 24 0 0 1 48 0v104h104a24 24 0 0 1 0 48z" fill="#5153ff"/><path d="m464 488a23.928 23.928 0 0 1 -16.971-7.029l-160-160a24 24 0 0 1 33.942-33.942l160 160a24 24 0 0 1 -16.971 40.971z" fill="#8690fa"/><path d="m464 488h-128a24 24 0 0 1 0-48h104v-104a24 24 0 0 1 48 0v128a24 24 0 0 1 -24 24z" fill="#5153ff"/></svg>
-          <router-link class="navLink" :to="{ name: 'Sobre' }">Sobre</router-link>
+          <a class="navLink">Sobre</a>
+          <div class="subMenu" v-if="hovered">
+            <router-link to="/sobre/onde">Onde</router-link>
+            <router-link to="/sobre/porque">Porquê</router-link>
+          </div>
         </li>
         <li>
           <svg id="expo" width="25px" height="25px" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m464 168h-416a24 24 0 0 1 0-48h416a24 24 0 0 1 0 48z" fill="#8690fa"/><path d="m336.02 264a24 24 0 0 1 -14.42-43.2l102.4-76.8-102.4-76.8a24 24 0 0 1 28.8-38.4l128 96a24 24 0 0 1 0 38.4l-128 96a23.893 23.893 0 0 1 -14.38 4.8z" fill="#5153ff"/><path d="m464 392h-416a24 24 0 0 1 0-48h416a24 24 0 0 1 0 48z" fill="#8690fa"/><path d="m175.98 488a23.884 23.884 0 0 1 -14.381-4.8l-128-96a24 24 0 0 1 0-38.4l128-96a24 24 0 1 1 28.8 38.4l-102.399 76.8 102.4 76.8a24 24 0 0 1 -14.42 43.2z" fill="#5153ff"/></svg>
@@ -42,6 +46,11 @@
 import { defineComponent } from 'vue';
 export default defineComponent({
   name: 'Navbar',
+  data() {
+    return {
+      hovered: false,
+    }
+  }
 });
 </script>
 
@@ -51,7 +60,6 @@ $fontSize: 20px;
 $textColor: #7179F4;
 $underlineColor: #596FF0;
 
-//robot black
 .header {
   position: relative;
 	z-index: 10;
@@ -101,6 +109,20 @@ $underlineColor: #596FF0;
         align-items: center;
         flex-direction: column;
 
+        .subMenu {
+          transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+          a {
+            color: $textColor;
+            font-size: $fontSize;
+            font-weight: bold;
+
+            &.router-link-exact-active {
+              border-bottom: 2px solid $underlineColor;
+            }
+          }
+        }
+
         .navLink {
           color: $textColor;
           font-size: $fontSize;
@@ -110,6 +132,27 @@ $underlineColor: #596FF0;
             border-bottom: 2px solid $underlineColor;
           }
         }  
+      }
+
+      .sobre:hover {
+
+        .subMenu {
+          position: absolute;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          background-color: white;
+          padding: 0px 20px 20px 20px;
+          top: calc(100% - 20px);
+          width: max-content;
+          border-radius: 0px 0px 16px 16px;
+
+          a {
+            padding: 5px;
+            color: $textColor;
+          }
+        }
       }
     }
   }
