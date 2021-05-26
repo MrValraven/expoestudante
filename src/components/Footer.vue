@@ -41,7 +41,6 @@ footer {
 	color: $textColor;
 	background-color: $backgroundColor;
     z-index: 200;
-    border: 2px solid red;
 
     .container {
         width: 70%;

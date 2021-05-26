@@ -5,10 +5,9 @@
   <Navbar v-if="!mobileMode" class="navbar" />
   <div v-if="!activatedNavbar" class="pageContent">
     <section class="hero">
-      <h1>EXPO ESTUDANTE</h1>
+      <img src="@/assets/contactos.png" alt="">
     </section>
-    <section class="future" style='background: url("@/assets/backgrounds/backgroundHomepage.png");'>
-      <img src="@/assets/backgrounds/backgroundHomepage.png" alt="">
+    <section class="future" :style="style">
       <div class="datas"> 
         <h2>Início</h2>
         <h1>
@@ -26,7 +25,8 @@
         <div>
           <h1>É agora</h1>
           <svg id="arrows" height="50px" width="50px" viewBox="0 0 512 512"  xmlns="http://www.w3.org/2000/svg"><g fill="#5153ff"><path d="m320 424a24 24 0 0 1 -16.971-40.971l127.03-127.029-127.03-127.029a24 24 0 0 1 33.942-33.942l144 144a24 24 0 0 1 0 33.942l-144 144a23.928 23.928 0 0 1 -16.971 7.029z"/><path d="m184 424a24 24 0 0 1 -16.971-40.971l127.03-127.029-127.03-127.029a24 24 0 0 1 33.942-33.942l144 144a24 24 0 0 1 0 33.942l-144 144a23.928 23.928 0 0 1 -16.971 7.029z"/><path d="m48 424a24 24 0 0 1 -16.971-40.971l127.03-127.029-127.03-127.029a24 24 0 0 1 33.942-33.942l144 144a24 24 0 0 1 0 33.942l-144 144a23.928 23.928 0 0 1 -16.971 7.029z"/></g></svg>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut, quas! Pariatur obcaecati quibusdam minima illum placeat quis ex illo corrupti numquam provident. Ea repudiandae nemo id? Quaerat officiis reiciendis reprehenderit sapiente alias tenetur, itaque neque, ad at molestias accusamus laudantium voluptates architecto facilis nulla nam delectus corrupti saepe sequi quod iste autem. Tenetur pariatur distinctio inventore voluptatem beatae modi cum.</p>
+          <p>O teu futuro não é amanhã, é contruído hoje, por isso trazemos-te um summit único, pensado e programado especialmente a pensar em ti e no teu futuro. Durante os 6 dias poderás encontrar e criar oportunidades para o teu futuro. Vamos encurtar distância entre ti e as empresas. Vamos ajudar-te a dar este next step na tua carreira.
+</p>
         </div> 
       </div>
 
@@ -44,35 +44,10 @@
      
       <div class="fastLinks">
         <ul>
-          <li>
-            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 600 315.375">
-              <g class="cls-2">
-                <path id="Caminho_109-2" data-name="Caminho 109" class="cls-1" d="M289.106,1104.441S182.77,938.815,89.023,939.066s-173.507,90.608-248.338,165.374Z" transform="translate(214.31 -864.07)"/>
-              </g>
-            </svg>
-            <router-link to="/">Programa</router-link>
-          </li>
-          <li>
-             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 598.421 315.375">
-              <g class="cls-2" transform="matrix(1, 0, 0, 1, 0, 0)">
-                <path id="Caminho_109-2" data-name="Caminho 109" class="cls-1" d="M289.106,1104.441S182.77,938.815,89.023,939.066s-173.507,90.608-248.338,165.374Z" transform="translate(214.31 -864.07)"/>
-              </g>
-            </svg>
-            <router-link to="/">Inscrições</router-link></li>
-          <li>
-             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 598.421 315.375">
-              <g class="cls-2" transform="matrix(1, 0, 0, 1, 0, 0)">
-                <path id="Caminho_109-2" data-name="Caminho 109" class="cls-1" d="M289.106,1104.441S182.77,938.815,89.023,939.066s-173.507,90.608-248.338,165.374Z" transform="translate(214.31 -864.07)"/>
-              </g>
-            </svg>
-            <router-link to="/">Acreditações</router-link></li>
-          <li>
-             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 598.421 315.375">
-              <g class="cls-2" transform="matrix(1, 0, 0, 1, 0, 0)">
-                <path id="Caminho_109-2" data-name="Caminho 109" class="cls-1" d="M289.106,1104.441S182.77,938.815,89.023,939.066s-173.507,90.608-248.338,165.374Z" transform="translate(214.31 -864.07)"/>
-              </g>
-            </svg>
-            <router-link to="/">Contatos</router-link></li>
+          <li><router-link to="/">Programa</router-link></li>
+          <li><router-link to="/">Inscrições</router-link></li>
+          <li><router-link to="/">Acreditações</router-link></li>
+          <li><router-link to="/">Contatos</router-link></li>
         </ul>
       </div>
     </section>
@@ -96,6 +71,7 @@ export default defineComponent({
       activatedNavbar: false,
       isAtTop: true,
       mobileMode: false,
+      backgroundImage: '',
     }
   },
   components: {
@@ -136,6 +112,12 @@ export default defineComponent({
       }
     },
   },
+  computed: {
+      style () :String {
+        this.backgroundImage = this.mobileMode ? this.getImgURL("mobile/homepage.png") : this.getImgURL("homepage.png");
+        return `background-image: url(${this.backgroundImage})`;
+      }
+    },
 });
 </script>
 
@@ -145,44 +127,56 @@ $primaryColor: #5A68E0;
 $darkerPrimaryColor: #7179F4;
 $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
 
-
 .hero {
-  height: 60vh;
+  position: relative;
+  height: 50vh;
   width: 100%;
-  z-index: -20;
+  z-index: -200;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: transparent;
+  background-color: none;
+  opacity: 1;
+
+   img {
+    position: absolute;
+    z-index: -15;
+    top: -25vh;
+    width: 100vw;
+  }
+}
+
+@media (max-width: 1015) {
+
+  .hero {
+    height: 100vh;
+  }
 }
 
 .future {
-  overflow: none;
-  
-  img {
-    position: absolute;
-    top: 50vh;
-    max-width: 100vw;
-    z-index: -15;
-  }
+  background-position: center;
+  background-size: cover;
+
 
   .datas {
     display: flex;
     align-items: center;
     width: 100%;
-    margin-left: 5vw;
+    margin-left: 3vw;
+    padding-top: 6vh;
     color: $primaryColor;
 
     h2 {
       font-size: 56px;
       font-weight: 300;
       font-style: italic;
+      padding-top: 6vh;
     }
 
     h1 {
       display: flex;
       align-items: center;
-      margin: 0px 20px 0px 20px;
+      margin: 6vh 20px 0px 20px;
       font-size: 56px;
       font-weight: bold;
       
@@ -256,7 +250,6 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    margin-top: 5vh;
 
     .localizacaoLink {
       display: flex;
@@ -264,7 +257,8 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
       align-items: center;
       color: #FFFFFF;
       opacity: 0.80;
-      margin-right: 150px;
+      margin-top: 10vh;
+      margin-right: 12vw;
       transition: all 0.2s $transitionEase;
 
       i {
@@ -318,24 +312,14 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
     display: flex;
     justify-content: flex-start;
     align-items: flex-end;
+    border: 2px solid red;
 
     li {
-      position: relative;
-      display: flex;
-      justify-content: flex-start;
-      align-items: flex-end;
-      padding: 100px;
+      padding: 80px;
+      margin-top: 20px;
+      margin-left: 5px;
 
-      svg {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 600px;
-        height: 310px;
-        fill: #FFFFFF;
-        stroke: #000;
-        z-index: -10;
-      }
+
 
       a {
         color: $darkerPrimaryColor;

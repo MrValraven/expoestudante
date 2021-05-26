@@ -11,37 +11,37 @@ const routes: Array<RouteRecordRaw> = [
     path: '/sobre/onde',
     name: 'Onde',
     
-    component: () => import(/* webpackChunkName: "about" */ '../views/Onde.vue')
+    component: () => import(/* webpackChunkName: "Onde" */ '../views/Onde.vue')
   },
   {
     path: '/sobre/porque',
     name: 'Porque',
     
-    component: () => import(/* webpackChunkName: "about" */ '../views/Porque.vue')
+    component: () => import(/* webpackChunkName: "Porque" */ '../views/Porque.vue')
   },
   {
     path: '/expo',
     name: 'Expo',
     
-    component: () => import(/* webpackChunkName: "about" */ '../views/Expo.vue')
+    component: () => import(/* webpackChunkName: "Expo" */ '../views/Expo.vue')
   },
   {
     path: '/inscricoes',
     name: 'Inscricoes',
     
-    component: () => import(/* webpackChunkName: "about" */ '../views/Inscricoes.vue')
+    component: () => import(/* webpackChunkName: "Inscricoes" */ '../views/Inscricoes.vue')
   },
   {
     path: '/oradores',
     name: 'Oradores',
     
-    component: () => import(/* webpackChunkName: "about" */ '../views/Oradores.vue')
+    component: () => import(/* webpackChunkName: "Oradores" */ '../views/Oradores.vue')
   },
   {
-    path: '/contatos',
-    name: 'Contatos',
+    path: '/contactos',
+    name: 'Contactos',
     
-    component: () => import(/* webpackChunkName: "about" */ '../views/Contatos.vue')
+    component: () => import(/* webpackChunkName: "Contactos" */ '../views/Contatos.vue')
   },
 ]
 

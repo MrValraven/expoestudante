@@ -1,5 +1,6 @@
 <template>
     <nav class="mobileNav">
+        <img src="@/assets/mobile/navbar.png" alt="">
         <transition-group
         v-if="isActive" 
         appear
@@ -15,9 +16,7 @@
         <div class="burger" @click="toggleClass()">
             <div v-if="!isActive" class="burgerText">MENU</div>
             <div class="drawing" :class="newClass">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
+                <svg id="palco" height="50" viewBox="0 0 512 512" width="50" xmlns="http://www.w3.org/2000/svg"><path d="m256 216a24 24 0 0 1 -24-24v-144a24 24 0 0 1 48 0v144a24 24 0 0 1 -24 24z" fill="#8690fa"/><path d="m320 136a23.926 23.926 0 0 1 -16.971-7.029l-47.029-47.03-47.029 47.03a24 24 0 0 1 -33.942-33.942l64-64a24 24 0 0 1 33.942 0l64 64a24 24 0 0 1 -16.971 40.971z" fill="#5153ff"/><path d="m256 488a24 24 0 0 1 -24-24v-144a24 24 0 0 1 48 0v144a24 24 0 0 1 -24 24z" fill="#8690fa"/><path d="m256 488a23.926 23.926 0 0 1 -16.971-7.029l-64-64a24 24 0 0 1 33.942-33.942l47.029 47.03 47.029-47.03a24 24 0 0 1 33.942 33.942l-64 64a23.926 23.926 0 0 1 -16.971 7.029z" fill="#5153ff"/><path d="m464 280h-144a24 24 0 0 1 0-48h144a24 24 0 0 1 0 48z" fill="#8690fa"/><path d="m400 344a24 24 0 0 1 -16.971-40.971l47.03-47.029-47.03-47.029a24 24 0 0 1 33.942-33.942l64 64a24 24 0 0 1 0 33.942l-64 64a23.926 23.926 0 0 1 -16.971 7.029z" fill="#8690fa"/><path d="m400 344a24 24 0 0 1 -16.971-40.971l47.03-47.029-47.03-47.029a24 24 0 0 1 33.942-33.942l64 64a24 24 0 0 1 0 33.942l-64 64a23.926 23.926 0 0 1 -16.971 7.029z" fill="#5153ff"/><path d="m192 280h-144a24 24 0 0 1 0-48h144a24 24 0 0 1 0 48z" fill="#8690fa"/><path d="m112 344a23.926 23.926 0 0 1 -16.971-7.029l-64-64a24 24 0 0 1 0-33.942l64-64a24 24 0 0 1 33.942 33.942l-47.03 47.029 47.03 47.029a24 24 0 0 1 -16.971 40.971z" fill="#8690fa"/><path d="m112 344a23.926 23.926 0 0 1 -16.971-7.029l-64-64a24 24 0 0 1 0-33.942l64-64a24 24 0 0 1 33.942 33.942l-47.03 47.029 47.03 47.029a24 24 0 0 1 -16.971 40.971z" fill="#5153ff"/></svg>
             </div>
         </div>
        
@@ -31,12 +30,8 @@ export default defineComponent({
     setup() {
         const navLinks = [
             {id: 0, routeName: "Home", routeText: "Home"},
-            {id: 1, routeName: "Noticias", routeText: "Noticias"},
-            {id: 2, routeName: "Discursos", routeText: "Discursos"},
-            {id: 3, routeName: "Eventos", routeText: "Eventos"},
-            {id: 4, routeName: "Associacao", routeText: "Associação"},
-            {id: 5, routeName: "Servicos", routeText: "Serviços"},
-            {id: 6, routeName: "Contactos", routeText: "Contactos"},
+            {id: 1, routeName: "Onde", routeText: "Sobre"},
+            {id: 2, routeName: "Contactos", routeText: "Contactos"},
         ]
         const beforeEnter: any = (el: any) => {
             el.style.opacity = 0;
@@ -82,6 +77,15 @@ body {
 	opacity: 1;
 	color: #000;
 	padding: 35px 100px 0;
+
+    .bgImage {
+      position: absolute;
+      top: -8vh;
+      width: 100%;
+      height: 50vh;
+      z-index: -1000;
+    }
+
     .navLinks {
         position: absolute;
         right: 0px;
