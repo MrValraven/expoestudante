@@ -43,7 +43,7 @@
          </div>
       </div>
     </section>
-    <section class="travel">
+    <section class="travel" v-if="after29">
       <h1>Como chegar lá?</h1>
       <ul>
         <li><a @click="meioDeTransporte = transportes[0].titulo; primeiroParagrafo = transportes[0].primeiroParagrafo; segundoParagrafo = transportes[0].segundoParagrafo;"   >De carro</a></li>
@@ -74,6 +74,7 @@ export default defineComponent({
       activatedNavbar: false,
       isAtTop: true,
       mobileMode: false,
+      after29: false,
       meioDeTransporte: "",
       primeiroParagrafo: "",
       segundoParagrafo: "",

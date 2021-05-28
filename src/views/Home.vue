@@ -5,9 +5,9 @@
   <Navbar v-if="!mobileMode" class="navbar" />
   <div v-if="!activatedNavbar" class="pageContent">
     <section class="hero">
-      <img src="@/assets/contactos.png" alt="">
     </section>
-    <section class="future" :style="style">
+    <section class="future">
+      <img src="@/assets/backgrounds/backgroundHomepage.png" alt="" v-if="!mobileMode">
       <div class="datas"> 
         <h2>Início</h2>
         <h1>
@@ -25,8 +25,7 @@
         <div>
           <h1>É agora</h1>
           <svg id="arrows" height="50px" width="50px" viewBox="0 0 512 512"  xmlns="http://www.w3.org/2000/svg"><g fill="#5153ff"><path d="m320 424a24 24 0 0 1 -16.971-40.971l127.03-127.029-127.03-127.029a24 24 0 0 1 33.942-33.942l144 144a24 24 0 0 1 0 33.942l-144 144a23.928 23.928 0 0 1 -16.971 7.029z"/><path d="m184 424a24 24 0 0 1 -16.971-40.971l127.03-127.029-127.03-127.029a24 24 0 0 1 33.942-33.942l144 144a24 24 0 0 1 0 33.942l-144 144a23.928 23.928 0 0 1 -16.971 7.029z"/><path d="m48 424a24 24 0 0 1 -16.971-40.971l127.03-127.029-127.03-127.029a24 24 0 0 1 33.942-33.942l144 144a24 24 0 0 1 0 33.942l-144 144a23.928 23.928 0 0 1 -16.971 7.029z"/></g></svg>
-          <p>O teu futuro não é amanhã, é contruído hoje, por isso trazemos-te um summit único, pensado e programado especialmente a pensar em ti e no teu futuro. Durante os 6 dias poderás encontrar e criar oportunidades para o teu futuro. Vamos encurtar distância entre ti e as empresas. Vamos ajudar-te a dar este next step na tua carreira.
-</p>
+          <p>O teu futuro não é amanhã, é contruído hoje, por isso trazemos-te um summit único, pensado e programado especialmente a pensar em ti e no teu futuro. Durante os 6 dias poderás encontrar e criar oportunidades para o teu futuro. Vamos encurtar distância entre ti e as empresas. Vamos ajudar-te a dar este next step na tua carreira.</p>
         </div> 
       </div>
 
@@ -42,7 +41,7 @@
         <h1>Surpresas</h1>
       </div>
      
-      <div class="fastLinks">
+      <div class="fastLinks" v-if="after29">
         <ul>
           <li><router-link to="/">Programa</router-link></li>
           <li><router-link to="/">Inscrições</router-link></li>
@@ -72,6 +71,7 @@ export default defineComponent({
       isAtTop: true,
       mobileMode: false,
       backgroundImage: '',
+      after29: false,
     }
   },
   components: {
@@ -114,7 +114,7 @@ export default defineComponent({
   },
   computed: {
       style () :String {
-        this.backgroundImage = this.mobileMode ? this.getImgURL("mobile/homepage.png") : this.getImgURL("homepage.png");
+        this.backgroundImage = this.mobileMode ? this.getImgURL("mobile/homepage.png") : this.getImgURL("backgrounds/backgroundHomepage.png");
         return `background-image: url(${this.backgroundImage})`;
       }
     },
@@ -129,7 +129,7 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
 
 .hero {
   position: relative;
-  height: 50vh;
+  height: 70vh;
   width: 100%;
   z-index: -200;
   display: flex;
@@ -137,13 +137,6 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
   align-items: center;
   background-color: none;
   opacity: 1;
-
-   img {
-    position: absolute;
-    z-index: -15;
-    top: -25vh;
-    width: 100vw;
-  }
 }
 
 @media (max-width: 1015) {
@@ -154,8 +147,16 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .future {
+  z-index: 10;
   background-position: center;
   background-size: cover;
+
+  img {
+    position: absolute;
+    z-index: -15;
+    top: 60vh;
+    width: 100vw;
+  }
 
 
   .datas {
@@ -163,20 +164,18 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
     align-items: center;
     width: 100%;
     margin-left: 3vw;
-    padding-top: 6vh;
     color: $primaryColor;
 
     h2 {
       font-size: 56px;
       font-weight: 300;
       font-style: italic;
-      padding-top: 6vh;
     }
 
     h1 {
       display: flex;
       align-items: center;
-      margin: 6vh 20px 0px 20px;
+      margin: 0vh 20px 0px 20px;
       font-size: 56px;
       font-weight: bold;
       
@@ -257,7 +256,7 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
       align-items: center;
       color: #FFFFFF;
       opacity: 0.80;
-      margin-top: 10vh;
+      margin-top: 5vh;
       margin-right: 12vw;
       transition: all 0.2s $transitionEase;
 

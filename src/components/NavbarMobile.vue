@@ -1,6 +1,5 @@
 <template>
     <nav class="mobileNav">
-        <img src="@/assets/mobile/navbar.png" alt="">
         <transition-group
         v-if="isActive" 
         appear
@@ -67,16 +66,16 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-body {
-		overflow-x: hidden;
-	}
+
 .mobileNav {
     position: absolute;
 	z-index: 10;
 	width: 100%;
 	opacity: 1;
 	color: #000;
-	padding: 35px 100px 0;
+    max-width: 100vw;
+    overflow: hidden;
+    height: 70px;
 
     .bgImage {
       position: absolute;
@@ -91,7 +90,8 @@ body {
         right: 0px;
         height: 100vh;
         top: 0vh;
-        background-color: #6d1112;
+        background-color: transparent;
+        filter: opacity(0.4);
         display: none;
         flex-direction: column;
         align-items: center;
@@ -105,7 +105,8 @@ body {
             font-size: 20px;
             text-transform: uppercase;
             a {
-                color: white;
+                opacity: 1;
+                color: black;
             }
         }
 	}
@@ -121,32 +122,13 @@ body {
         align-items: center;
         cursor: pointer;
         position: fixed;
-        top: 20px;
+        top: 10px;
         right: 20px;
+        border-radius: 50%;
         .burgerText {
+            color: white;
             font-size: 20px;
             letter-spacing: 3px;
-        }
-        .drawing div{
-            width: 35px;
-            height: 3px;
-            margin: 5px;
-            background-color: black;
-            transition: all 0.3s ease;
-        }
-         .toggle {
-            .line1 {
-                background-color: white;
-                transform: rotate(-45deg) translate(-5px, 6px);
-            }
-            .line2 {
-                opacity: 0;
-            }
-            .line3 {
-                background-color: white;
-                transform: rotate(45deg) translate(-5px, -6px);
-            }
-            
         }
     }
 }

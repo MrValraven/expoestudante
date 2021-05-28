@@ -6,12 +6,13 @@
   <div v-if="!activatedNavbar" class="pageContent">
 
     <section class="hero">
-      <img src="@/assets/contactos.png" alt="">
-      <div class="ondeEstamos">
+      <img src="@/assets/contactos.png" alt="" v-if="!mobileMode"> 
+      <img src="@/assets/mobile/homepage.png" alt="" v-if="mobileMode"> 
+      <div class="ondeEstamos" @click="scrollToElement('body')">
         <h1>Onde estamos</h1>
-        <h2>Em baixo</h2>
+        <h2 v-if="!mobileMode">Em baixo</h2>
+        <svg  v-if="mobileMode" id="arrows" height="50px" width="50px" viewBox="0 0 512 512"  xmlns="http://www.w3.org/2000/svg"><g fill="#5153ff"><path d="m320 424a24 24 0 0 1 -16.971-40.971l127.03-127.029-127.03-127.029a24 24 0 0 1 33.942-33.942l144 144a24 24 0 0 1 0 33.942l-144 144a23.928 23.928 0 0 1 -16.971 7.029z"/><path d="m184 424a24 24 0 0 1 -16.971-40.971l127.03-127.029-127.03-127.029a24 24 0 0 1 33.942-33.942l144 144a24 24 0 0 1 0 33.942l-144 144a23.928 23.928 0 0 1 -16.971 7.029z"/><path d="m48 424a24 24 0 0 1 -16.971-40.971l127.03-127.029-127.03-127.029a24 24 0 0 1 33.942-33.942l144 144a24 24 0 0 1 0 33.942l-144 144a23.928 23.928 0 0 1 -16.971 7.029z"/></g></svg>
       </div>
-        
     </section>
     <section class="localization">
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3119.375666243775!2d-7.909172784688498!3d38.5711960796222!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd19e56f2f19aec9%3A0xc41513d0faa3463b!2sAssocia%C3%A7%C3%A3o%20Acad%C3%A9mica%20da%20Universidade%20de%20%C3%89vora!5e0!3m2!1spt-PT!2spt!4v1621876289285!5m2!1spt-PT!2spt" :width="frameWidth" :height="frameHeight" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
@@ -124,6 +125,11 @@ export default defineComponent({
 
 $textColor: #7179F4;
 
+.pageContent {
+  max-width: 100vw;
+  overflow: hidden;
+}
+
 .hero {
   z-index: -15;
   position: relative;
@@ -162,6 +168,7 @@ $textColor: #7179F4;
 
 
 .localization {
+  max-width: 100%;
   margin-top: 12vh;
   margin-bottom: 6vh;
   display: flex;
@@ -169,6 +176,7 @@ $textColor: #7179F4;
 }
 
 .contacts {
+  max-width: 100%;
   display: flex;
   justify-content: space-evenly;
 
@@ -269,5 +277,94 @@ $textColor: #7179F4;
   }
 }
 
+@media (max-width: 1000px) {
+
+  .contacts {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    form {
+      margin-top: 50px;
+
+      input,
+      textarea {
+        width: 50vw;
+      }
+
+      .fButton {
+        width: 50vw;
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .hero {
+    height: 100vh;
+
+    svg {
+      width: 40px;
+      transform: rotate(90deg);
+    }
+
+    .ondeEstamos {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 0 30px 0;
+      flex-direction: row;
+    }
+
+    h1 {
+      font-size: 30px;
+      margin: 0;
+      margin-right: 10px;
+    }
+  }
+
+  .contacts {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .apoio {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      p {
+        padding: 0 50px 0 50px;
+        /* hyphens: auto; */
+      }
+      
+
+      .chegar {
+        h1 {
+          font-size: 30px;
+        }
+
+        svg {
+          width: 100px;
+        }
+      }
+    }
+
+    form {
+      margin-top: 50px;
+
+      input,
+      textarea {
+        width: 70vw;
+      }
+
+      .fButton {
+        width: 70vw;
+      }
+    }
+  }
+}
 
 </style>

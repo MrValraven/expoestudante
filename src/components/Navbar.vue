@@ -113,6 +113,8 @@ $underlineColor: #596FF0;
 	width: 100%;
 	opacity: 1;
 	color: #fff;
+  max-width: 100vw;
+  overflow: hidden;
   
   #nav {
     position: relative;
@@ -122,7 +124,7 @@ $underlineColor: #596FF0;
 
     .bgImage {
       position: absolute;
-      top: -8vh;
+      top: -15vh;
       width: 100%;
       height: 50vh;
       z-index: -1000;

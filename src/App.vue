@@ -21,12 +21,16 @@ $Azul-escuro: #0010FF;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  overflow: none;
+  max-width: 100vw;
 }
 
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  overflow: none;
+  max-width: 100vw;
 
    &::-webkit-scrollbar {
     width: 0.5rem;

@@ -63,6 +63,12 @@ button{
   transition: all .35s;
 }
 
+@media screen and (max-width: 1000px) {
+  .icon {
+    right: 50vw;
+  }
+}
+
 .icon svg{
   width: 30px;
   position: absolute;

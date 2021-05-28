@@ -3,15 +3,15 @@
 		<div class="container">
             <ul class="socials">
                 <p>@AAUE - ASSOCIAÇÃO ACADÉMICA DA UNIVERSIDADE DE ÉVORA <br> TODOS OS DIREITOS RESERVADOS <br> 2021</p>
-                <li><a href=""><i class="fab fa-linkedin"></i></a></li>
-                <li><a href=""><i class="fab fa-instagram"></i></a></li>
-                <li><a href=""><i class="fab fa-facebook-square"></i></a></li>
-                <li><a href=""><i class="fab fa-youtube"></i></a></li>
+                <li v-if="after29"><a href=""><i class="fab fa-linkedin"></i></a></li>
+                <li v-if="after29"><a href=""><i class="fab fa-instagram"></i></a></li>
+                <li v-if="after29"><a href=""><i class="fab fa-facebook-square"></i></a></li>
+                <li v-if="after29"><a href=""><i class="fab fa-youtube"></i></a></li>
             </ul>
 		</div>
         <div class="aaue">
             <img src="@/assets/logo.png" alt="">
-            <ul>
+            <ul v-if="after29">
                 <li><router-link to="/">Politica de Privacidade</router-link></li>
                 <li><router-link to="/">Politica de Cookies</router-link></li>
                 <li><router-link to="/">Termos e Condições</router-link></li>
@@ -26,6 +26,11 @@
 import { defineComponent } from 'vue';
 export default defineComponent({
   name: 'Footer',
+  data() {
+      return {
+          after29: false,
+      }
+  }
 });
 </script>
 
@@ -77,7 +82,6 @@ footer {
         justify-content: flex-end;
         align-items: center;
         width: 30%;
-        margin-right: 40px;
 
         img {
             width: 125px;
@@ -90,5 +94,21 @@ footer {
             font-weight: 800;
         }
     }    
+}
+
+@media (max-width: 500px ) {
+
+    footer .container .socials {
+    padding-left: 10px;
+    
+        p {
+            margin-right: 0;
+        }
+    }
+
+    .aaue img {
+        width: 100px;
+    }
+
 }
 </style>
