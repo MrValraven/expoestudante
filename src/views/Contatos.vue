@@ -28,7 +28,7 @@
         </div>
         <router-link to="/sobre/onde" class="directionsButton" @click="snapToElement('body')"><DirectionsButton /></router-link>
       </div>
-      <form action="">
+      <form action="https://formsubmit.co/expoestudante@aaue.pt" method="POST">
         <h1>Contacte-nos!</h1>
         <label for="nome">Nome *</label>
         <input type="text" placeholder="Nome" required>
@@ -199,6 +199,7 @@ $textColor: #7179F4;
       font-size: 20px;
       font-weight: 400;
       color: $textColor;
+      hyphens: auto;
 
       .fa-phone-alt {
         color: $textColor;

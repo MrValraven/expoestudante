@@ -5,7 +5,7 @@
   <Navbar v-if="!mobileMode" class="navbar" />
   <div v-if="!activatedNavbar" class="pageContent">
     <section class="hero">
-      <img src="@/assets/onde.png" alt="">
+      <img src="@/assets/onde.png" alt="" v-if="!mobileMode">
       <h2>Onde</h2>
       <h1>Vai ser a expo?</h1>
       <div class="info">
@@ -144,10 +144,10 @@ $blueTextColor: #0010FF;
 }
 
 .hero {
-   z-index: -15;
+  z-index: -15;
   position: relative;
-  height: 100vh;
   display: flex;
+  height: 100vh;
   justify-content: center;
   flex-direction: column;
 
@@ -156,10 +156,11 @@ $blueTextColor: #0010FF;
     z-index: -15;
     top: 0vh;
     width: 100vw;
+    height: 130vh;
   }
 
   h2 {
-    margin: 1vh 0 0 10vw;
+    margin: 0vh 0 0 10vw;
     text-transform: uppercase;
     font-size: 60px;
     font-weight: 800;
@@ -237,6 +238,55 @@ $blueTextColor: #0010FF;
       
     }
   }
+} 
+
+@media (max-width: 500px) {
+  .hero {
+    height: auto;
+
+    h1,
+    h2 {
+      margin-left: 20px;;
+    }
+
+    h2 {
+      font-size: 25px;
+      margin-top: 100px;
+    }
+
+    h1 {
+      font-size: 40px;
+    }
+
+    .info .fa-map-marker-alt {
+      height: 100px;
+      margin-left: 20px;
+      padding-top: 50px;
+      display: none;
+    }
+
+    .locais {
+      flex-direction: column;
+
+      ul li {
+        font-size: 12px;
+      }
+
+      .palcos {
+        width: 100vw;
+      }
+    }
+  }
+
+  .hero .info .infoText {
+      h1 {
+        font-size: 20px;
+      }
+    }
+
+    .hero .info .infoText .locais ul li[data-v-157381da] {
+      font-size: 16px;
+    }
 }
 
 .travel {

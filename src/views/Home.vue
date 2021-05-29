@@ -34,7 +34,7 @@
         <div class="novidades">
           <div class="surpresas">
             <h1>Não percas as novidades</h1>
-            <p>Ao longo do ano letivo iremos revelar os nossos speakers e empresas que irão dar vida à Expo'Estudante21</p>
+            <p>Ao longo do ano letivo iremos revelar os nossos speakers e empresas que irão dar vida à Expo'Estudante21.</p>
             <p>Contamos com a tua presença para levar este evento ao próximo nível , vais mesmo querer ficar de fora?</p>
           </div>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" id="business">
@@ -45,7 +45,7 @@
 
       <div class="localizacao">
         <h1 id="oportunidade">Não percas esta oportunidade em</h1>
-        <a href="https://www.google.com/maps/place/Associa%C3%A7%C3%A3o+Acad%C3%A9mica+da+Universidade+de+%C3%89vora/@38.5711961,-7.908017,18z/data=!3m1!4b1!4m5!3m4!1s0xd19e56f2f19aec9:0xc41513d0faa3463b!8m2!3d38.5711961!4d-7.9069841" target="_blank" rel="noopenner" class="localizacaoLink">
+        <a id="evora" href="https://www.google.com/maps/place/Associa%C3%A7%C3%A3o+Acad%C3%A9mica+da+Universidade+de+%C3%89vora/@38.5711961,-7.908017,18z/data=!3m1!4b1!4m5!3m4!1s0xd19e56f2f19aec9:0xc41513d0faa3463b!8m2!3d38.5711961!4d-7.9069841" target="_blank" rel="noopenner" class="localizacaoLink">
           <i class="fas fa-map-marker-alt"></i>
           <h1>Évora</h1>
         </a>
@@ -320,6 +320,7 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
         font-size: 1.1vw;
         font-weight: 300;
         font-style: italic;
+        hyphens: auto;
       }
     }
   }
@@ -340,6 +341,81 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
     .text {
       width: 30%;
     }
+  }
+
+  @media (max-width: 500px) {
+
+    .mainText {
+    
+    
+      h2 {
+        margin-left: 20px;
+        font-size: 40px;
+      }
+
+      div {
+        flex-direction: column;
+
+        h1 {
+        font-size: 70px;
+        margin-bottom: 5px;
+        }
+        .text {
+          margin-left: 30px;
+          width: 200px;
+        }
+
+        p {
+          font-size: 16px;
+          width: 200px;
+        }
+
+        #arrows {
+        display: none;
+        }
+      }
+
+      .novidades {
+        margin-top: 25px;
+        margin-left: 10px;
+
+        .surpresas {
+          margin-left: 50px;
+          width: 100vw;
+
+          h1 {
+            font-size: 40px;
+          }
+
+          p {
+            width: 70vw;
+            font-size: 16px;
+          }
+        }
+
+         #business {
+            width: 250px;
+            margin-right: 100px;
+            margin-left: 70px;
+        }
+
+      }
+    
+    }
+
+    .localizacao {
+      flex-direction: column;
+
+      h1 {
+        font-size: 20px;
+      }
+
+      #evora {
+        margin-top: 0;
+        font-size: 30px;
+      }
+    }
+    
 
   }
 

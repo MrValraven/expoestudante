@@ -67,6 +67,8 @@ export default defineComponent({
 
 <style lang="scss">
 
+$primaryColor: #5A68E0;
+
 .mobileNav {
     position: absolute;
 	z-index: 10;
@@ -90,8 +92,8 @@ export default defineComponent({
         right: 0px;
         height: 100vh;
         top: 0vh;
-        background-color: transparent;
-        filter: opacity(0.4);
+        background-image: linear-gradient(to bottom, #5153fb, #4cb2f2);
+        filter: opacity(0.9);
         display: none;
         flex-direction: column;
         align-items: center;
@@ -106,7 +108,7 @@ export default defineComponent({
             text-transform: uppercase;
             a {
                 opacity: 1;
-                color: black;
+                color: white;
             }
         }
 	}
@@ -114,6 +116,8 @@ export default defineComponent({
     .isActive {
         position: fixed;
         transform: translateX(0%);
+        height: 100vh;
+        margin-top: 0;
         display: flex;
         opacity: 1;
     }
