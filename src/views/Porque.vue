@@ -104,18 +104,29 @@ export default defineComponent({
 $textColor: #596FF0;
 $blueTextColor: #0010FF;
 
+.pageContent {
+  position: relative;
+  max-width: 100vw;
+  overflow: hidden;
+}
+
 .hero {
+   z-index: -15;
+  position: relative;
+  height: 100vh;
   display: flex;
+  justify-content: center;
   flex-direction: column;
 
   img {
     position: absolute;
     z-index: -15;
-    max-width: 100vw;
+    top: 0vh;
+    width: 100vw;
   }
 
   h2 {
-    margin: 10vh 0 0 10vw;
+    margin: 0vh 0 0 10vw;
     text-transform: uppercase;
     font-size: 60px;
     font-weight: 800;

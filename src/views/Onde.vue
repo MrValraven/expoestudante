@@ -137,20 +137,29 @@ $textColor: #596FF0;
 $headerTextColor: #7179F4;
 $blueTextColor: #0010FF;
 
-.hero {
-  display: flex;
-  flex-direction: column;
-  z-index: -15;
+.pageContent {
   position: relative;
+  max-width: 100vw;
+  overflow: hidden;
+}
+
+.hero {
+   z-index: -15;
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 
   img {
     position: absolute;
     z-index: -15;
-    max-width: 100vw;
+    top: 0vh;
+    width: 100vw;
   }
 
   h2 {
-    margin: 10vh 0 0 10vw;
+    margin: 1vh 0 0 10vw;
     text-transform: uppercase;
     font-size: 60px;
     font-weight: 800;
@@ -168,6 +177,7 @@ $blueTextColor: #0010FF;
   }
 
   .info {
+    width: 100%;
     display: flex;
     justify-content: center;
 
@@ -175,11 +185,13 @@ $blueTextColor: #0010FF;
       font-size: 100px;
       color: $textColor;
       opacity: 0.5;
+      margin-left: 15vw;
     }
 
     .infoText {
       display: flex;
       flex-direction: column;
+      width: 100%;
 
       h1 {
         margin: 0 0 0 25px;
@@ -190,6 +202,7 @@ $blueTextColor: #0010FF;
       }
       .locais {
         display: flex;
+        justify-content: space-around;
 
         ul {
 
@@ -209,11 +222,11 @@ $blueTextColor: #0010FF;
           align-items: center;
           flex-wrap: wrap;
           padding: 0;
+          margin-left: 0;
 
           li {
             width: 200px;
             display: flex;
-            justify-content: center;
             align-items: center;
             flex: 0 0 45%;
             margin: 0;

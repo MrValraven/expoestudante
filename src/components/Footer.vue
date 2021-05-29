@@ -85,6 +85,7 @@ footer {
 
         img {
             width: 125px;
+            margin-right: 40px;
         }
 
         ul li a{

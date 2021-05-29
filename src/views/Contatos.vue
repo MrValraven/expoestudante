@@ -8,7 +8,7 @@
     <section class="hero">
       <img src="@/assets/contactos.png" alt="" v-if="!mobileMode"> 
       <img src="@/assets/mobile/homepage.png" alt="" v-if="mobileMode"> 
-      <div class="ondeEstamos" @click="scrollToElement('body')">
+      <div class="ondeEstamos" @click="scrollToElement('.localization')">
         <h1>Onde estamos</h1>
         <h2 v-if="!mobileMode">Em baixo</h2>
         <svg  v-if="mobileMode" id="arrows" height="50px" width="50px" viewBox="0 0 512 512"  xmlns="http://www.w3.org/2000/svg"><g fill="#5153ff"><path d="m320 424a24 24 0 0 1 -16.971-40.971l127.03-127.029-127.03-127.029a24 24 0 0 1 33.942-33.942l144 144a24 24 0 0 1 0 33.942l-144 144a23.928 23.928 0 0 1 -16.971 7.029z"/><path d="m184 424a24 24 0 0 1 -16.971-40.971l127.03-127.029-127.03-127.029a24 24 0 0 1 33.942-33.942l144 144a24 24 0 0 1 0 33.942l-144 144a23.928 23.928 0 0 1 -16.971 7.029z"/><path d="m48 424a24 24 0 0 1 -16.971-40.971l127.03-127.029-127.03-127.029a24 24 0 0 1 33.942-33.942l144 144a24 24 0 0 1 0 33.942l-144 144a23.928 23.928 0 0 1 -16.971 7.029z"/></g></svg>
@@ -133,15 +133,16 @@ $textColor: #7179F4;
 .hero {
   z-index: -15;
   position: relative;
-  height: 90vh;
+  height: 100vh;
   display: flex;
   align-items: flex-end;
 
   img {
     position: absolute;
     z-index: -15;
-    top: -25vh;
+    top: 0vh;
     width: 100vw;
+    height: 100vh;
   }
 
   .ondeEstamos {
