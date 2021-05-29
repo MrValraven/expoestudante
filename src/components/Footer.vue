@@ -107,8 +107,10 @@ footer {
         }
     }
 
-    .aaue img {
+    footer .aaue img {
         width: 100px;
+        margin-right: 10px;
+
     }
 
 }
