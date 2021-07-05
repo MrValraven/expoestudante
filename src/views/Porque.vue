@@ -55,7 +55,6 @@ export default defineComponent({
       activatedNavbar: false,
       isAtTop: true,
       mobileMode: false,
-      after29: false,
     }
   },
   components: {
@@ -117,6 +116,7 @@ $blueTextColor: #0010FF;
   display: flex;
   justify-content: center;
   flex-direction: column;
+  padding-bottom: 15vh;
 
   img {
     position: absolute;

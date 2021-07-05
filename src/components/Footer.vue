@@ -3,24 +3,17 @@
 		<div class="container">
             <ul class="socials">
                 <p>@AAUE - ASSOCIAÇÃO ACADÉMICA DA UNIVERSIDADE DE ÉVORA <br> TODOS OS DIREITOS RESERVADOS <br> 2021</p>
-                <li v-if="after29"><a href=""><i class="fab fa-linkedin"></i></a></li>
-                <li v-if="after29"><a href=""><i class="fab fa-instagram"></i></a></li>
-                <li v-if="after29"><a href=""><i class="fab fa-facebook-square"></i></a></li>
-                <li v-if="after29"><a href=""><i class="fab fa-youtube"></i></a></li>
+                <li><a href="https://www.instagram.com/expoestudante/"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="https://www.facebook.com/ExpoEstudante"><i class="fab fa-facebook-square"></i></a></li>
             </ul>
 		</div>
         <div class="aaue">
             <img src="@/assets/logo.png" alt="">
-            <ul v-if="after29">
-                <li><router-link to="/">Politica de Privacidade</router-link></li>
-                <li><router-link to="/">Politica de Cookies</router-link></li>
-                <li><router-link to="/">Termos e Condições</router-link></li>
-                <li><router-link to="/">Contatos</router-link></li>
-            </ul>
         </div>
 		
 	</footer>
 </template>
+
 
 <script lang="ts">
 import { defineComponent } from 'vue';
