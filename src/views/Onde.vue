@@ -45,10 +45,10 @@
          <h1>Como chegar lá?</h1>
          <img  v-if="mobileMode" src="@/assets/mobile/porque.png" alt="">
         <ul class="meios">
-          <li><a @click="meioDeTransporte = getTitulo(0); primeiroParagrafo = getPrimeiroParagrafo(0); segundoParagrafo = getSegundoParagrafo(0);"  >De carro</a></li>
-          <li><a @click="meioDeTransporte = getTitulo(1); primeiroParagrafo = getPrimeiroParagrafo(1); segundoParagrafo = getSegundoParagrafo(1);"  >De autocarro</a></li>
-          <li><a @click="meioDeTransporte = getTitulo(2); primeiroParagrafo = getPrimeiroParagrafo(2); segundoParagrafo = getSegundoParagrafo(2);"  >De comboio</a></li>
-          <li><a @click="meioDeTransporte = getTitulo(3); primeiroParagrafo = getPrimeiroParagrafo(3); segundoParagrafo = getSegundoParagrafo(3);"  >A pé</a></li>
+          <li><a @click="meioDeTransporte = getTitulo(0); primeiroParagrafo = getPrimeiroParagrafo(0); segundoParagrafo = getSegundoParagrafo(0);"  >Rodoviária de Évora,<br>A pé</a></li>
+          <li><a @click="meioDeTransporte = getTitulo(1); primeiroParagrafo = getPrimeiroParagrafo(1); segundoParagrafo = getSegundoParagrafo(1);"  >Rodoviária de Évora,<br>De carro</a></li>
+          <li><a @click="meioDeTransporte = getTitulo(2); primeiroParagrafo = getPrimeiroParagrafo(2); segundoParagrafo = getSegundoParagrafo(2);"  >Estação de comboios,<br>A pé</a></li>
+          <li><a @click="meioDeTransporte = getTitulo(3); primeiroParagrafo = getPrimeiroParagrafo(3); segundoParagrafo = getSegundoParagrafo(3);"  >Estação de comboios,<br>De carro</a></li>
         </ul>
       </div>
     </section>
@@ -90,10 +90,11 @@ export default defineComponent({
       },
       ces: {
         transportes: [
-          {titulo: "Rodoviária de Évora - Colégio Espírito Santo | De carro (aprox. 7 minutos): " , primeiroParagrafo: "Saia da rodoviária pela 3ª saída da rotunda, para a  Av. São Sebastião. Na rotunda seguinte saia na 2ª saída para a Av. Túlio Espanca/ N114). Na seguinte rotunda saia na 3ª saída para a Av. Dom Nuno Álvares Pereira/IP2. Seguidamente saia na 1ª saída da próxima rotunda. Nas próximas duas rotundas saia na 2ª saída. Siga pela Av. Dom Manuel Trindade Salgueiro/ IP2, na rotunda saia na 1ª saída para a R. de José Estevão Cordovil.", segundoParagrafo: "Posteriormente vire à esquerda em direção ao Largo dos Colegiais e depois vire outra vez à esquerda para a R. do Cardeal Rei, o Colégio Espírito Santo encontra-se à esquerda (R. do Cardeal Rei 6, 7000-645 Évora)."},
           {titulo: "Rodoviária de Évora - Colégio Espírito Santo | A pé (aprox. 24 minutos): " , primeiroParagrafo: "Ao sair da rodoviária siga em direção à Av. De São Sebastião e continue pela Rua Serpa Pinto até chegar à Praça do Giraldo. Na praça do Giraldo siga pela R. da República e vire à esquerda na R. Miguel Bombarda. Ao passar pela pousada da juventude vai encontrar uma bifurcação, pode seguir por qualquer uma das ruas pois ambas vão dar à Rotunda Quadrada. Na Rotunda Quadrada, siga pela 3ª saída, no final da rua vire à direita e irá encontra uma pequena rotunda, siga pela segunda saída e irá encontrar o Colégio Espírito Santo à sua esquerda.", segundoParagrafo: ""},
-          {titulo: "Estação de Comboios - Colégio Espírito Santo | De carro (aprox. 8 minutos): " , primeiroParagrafo: "Siga em direção à rotunda e saia na 1ª saída em direção à Av. Combatentes da Grande Guerra. Vire à direita em direção à Av. Dinis Miranda/ IP2 e ao chegar à rotunda saia na 2ª saída em direção à R. Dr. António José de Almeida/ N18/N254. Nas próximas três rotundas saia na 2ª saída e irá chegar à Av. São João de Deus. Ao chegar ao final da rua irá encontrar uma outra rotunda perto de um posto de abastecimento BP e do Pingo Doce, saia na 4ª saída dessa rotunda pela Av. da Universidade/ N18.", segundoParagrafo: "Ao chegar à próxima rotunda pode sair na 1ª saída e estacionar no parque de estacionamento à sua direita e posteriormente ir até ao Colégio Espírito Santo a pé que são cerca de 2 minutos de distância, ou pode na sair na 3ª saída da rotunda e estacionar no parque dentro da universidade. Para tal ao sair na 3ª saída da rotunda suba a R. José Estevão Cordovil e quando chegar ao cimo da subida vire à esquerda em direção ao Largo dos Colegiais. Ao chegar ao final desta rua vire à esquerda em direção à R. do Cardeal Rei, o Colégio Espírito Santo encontra-se à sua esquerda. (Rua do Cardeal Rei 6, 7000-645 Évora)"},
+          {titulo: "Rodoviária de Évora - Colégio Espírito Santo | De carro (aprox. 7 minutos): " , primeiroParagrafo: "Saia da rodoviária pela 3ª saída da rotunda, para a  Av. São Sebastião. Na rotunda seguinte saia na 2ª saída para a Av. Túlio Espanca/ N114). Na seguinte rotunda saia na 3ª saída para a Av. Dom Nuno Álvares Pereira/IP2. Seguidamente saia na 1ª saída da próxima rotunda. Nas próximas duas rotundas saia na 2ª saída. Siga pela Av. Dom Manuel Trindade Salgueiro/ IP2, na rotunda saia na 1ª saída para a R. de José Estevão Cordovil.", segundoParagrafo: "Posteriormente vire à esquerda em direção ao Largo dos Colegiais e depois vire outra vez à esquerda para a R. do Cardeal Rei, o Colégio Espírito Santo encontra-se à esquerda (R. do Cardeal Rei 6, 7000-645 Évora)."},
           {titulo: "Estação de Comboios - Colégio Espírito Santo | A pé (aprox. 23 minutos): " , primeiroParagrafo: "Siga em direção à rotunda e saia na 1ª saída pela Av. Combatentes da Grande Guerra. Quando chegar ao final da rua siga pela Av. Fundação Calouste Gulbenkian e seguidamente pela R. da Rampa que se encontra à esquerda. Continue pela Tv. Peras e seguidamente vire à direita em direção à R. Miguel Bombarda. Ao chegar ao final da rua encontrará a Rotunda Quadrada, saia na 3ª saída da rotunda e siga em direção ao Largo dos Colegiais e, posteriormente, vire à esquerda em direção à r. do Cardeal Rei, o Colégio Espírito Santo encontra-se à sua esquerda. (Rua do Cardeal Rei 6, 7000-645 Évora).", segundoParagrafo: ""},
+          {titulo: "Estação de Comboios - Colégio Espírito Santo | De carro (aprox. 8 minutos): " , primeiroParagrafo: "Siga em direção à rotunda e saia na 1ª saída em direção à Av. Combatentes da Grande Guerra. Vire à direita em direção à Av. Dinis Miranda/ IP2 e ao chegar à rotunda saia na 2ª saída em direção à R. Dr. António José de Almeida/ N18/N254. Nas próximas três rotundas saia na 2ª saída e irá chegar à Av. São João de Deus. Ao chegar ao final da rua irá encontrar uma outra rotunda perto de um posto de abastecimento BP e do Pingo Doce, saia na 4ª saída dessa rotunda pela Av. da Universidade/ N18.", segundoParagrafo: "Ao chegar à próxima rotunda pode sair na 1ª saída e estacionar no parque de estacionamento à sua direita e posteriormente ir até ao Colégio Espírito Santo a pé que são cerca de 2 minutos de distância, ou pode na sair na 3ª saída da rotunda e estacionar no parque dentro da universidade. Para tal ao sair na 3ª saída da rotunda suba a R. José Estevão Cordovil e quando chegar ao cimo da subida vire à esquerda em direção ao Largo dos Colegiais. Ao chegar ao final desta rua vire à esquerda em direção à R. do Cardeal Rei, o Colégio Espírito Santo encontra-se à sua esquerda. (Rua do Cardeal Rei 6, 7000-645 Évora)"},
+          
         ],
       },
     }
@@ -281,9 +282,8 @@ $blueTextColor: #0010FF;
   img {
     position: absolute;
     z-index: -15;
-    top: -25vh;
+    bottom: 0;
     width: 100vw;
-    height: 130vh;
   }
 
   h2 {
@@ -389,19 +389,17 @@ $blueTextColor: #0010FF;
 } 
 
 @media screen and (max-width: 1600px){
-  .hero {
-    img {
-      top: -18vh;
-    }
-  }
-
   .travel {
 
     .meios {
       margin-top: 31vh;
 
       li {
-        margin-left: 20px;
+        margin-left: 35px;
+
+        &:nth-child(2) {
+          margin-left: 20px;
+        }
 
         &:last-child {
           margin-left: 30px;

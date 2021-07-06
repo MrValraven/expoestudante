@@ -93,7 +93,7 @@ $underlineColor: #596FF0;
     max-width: 108%;
     min-width: 100%;
     position: absolute;
-    top: -9.7vh;
+    top: -20.7vh;
     left: -4vw;
     z-index: -1000;
     overflow-x: hidden;

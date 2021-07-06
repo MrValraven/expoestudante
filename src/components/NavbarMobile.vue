@@ -125,7 +125,7 @@ $primaryColor: #5A68E0;
         display: flex;
         align-items: center;
         cursor: pointer;
-        position: fixed;
+        position: absolute;
         top: 10px;
         right: 20px;
         border-radius: 50%;

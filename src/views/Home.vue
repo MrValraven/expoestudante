@@ -138,7 +138,7 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .hero {
-  z-index: -2;
+  z-index: -10;
   position: relative;
   height: 100vh;
   display: flex;
@@ -223,8 +223,8 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
 
   img {
     position: absolute;
-    z-index: -2;
-    top: -23vh
+    z-index: -200;
+    bottom: -45vh;
   }
 
    .datas {
@@ -342,6 +342,31 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
 
   @media (max-width: 500px) {
 
+    .datas {
+      margin-top: -80px;
+      margin-left: 5px;
+
+      h2 {
+        font-size: 25px;
+        margin-right: 5px;
+      }
+
+      h1 {
+        font-size: 28px;
+        margin: 0;
+
+        span {
+          font-size: 11px;
+        }
+
+        hr {
+          width: 100px;
+          height: 0.1px;
+          border: solid 2px #0010ff;
+        }
+      }
+    }
+
     .mainText {
     
     
@@ -352,6 +377,7 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
 
       div {
         flex-direction: column;
+        margin-left: 70px;
 
         h1 {
         font-size: 70px;

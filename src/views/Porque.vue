@@ -121,7 +121,7 @@ $blueTextColor: #0010FF;
   img {
     position: absolute;
     z-index: -15;
-    top: 0vh;
+    top: 70vh;
     width: 100vw;
   }
 
