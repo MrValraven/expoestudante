@@ -66,4 +66,32 @@ $blueTextColor: #0010FF;
     
     }
 }
+
+@media (max-width: 500px) {
+  .directions {
+
+    h1 {
+      font-size: 36px;
+    }
+
+    .group {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      margin: 0;
+
+      .text {
+        font-size: 16px;
+        width: 80%;
+      }
+
+      svg {
+        height: 80px;
+        width: 80px;
+        margin: 20px 0 0 0;
+      }
+    }
+  }
+}
 </style>

@@ -9,27 +9,30 @@
       <h2>Onde</h2>
       <h1>Vai ser a expo?</h1>
       <div class="info">
-         <i class="fas fa-map-marker-alt"></i>
+         <i class="fas fa-map-marker-alt" v-if="!mobileMode"></i>
          <div class="infoText">
-           <h1>Aqui no google maps</h1>
+           <h1 id="googleMaps">Aqui no google maps</h1>
            <div class="locais">
-            <ul v-if="selectedBox == 'ces'">
-              <li>Colégio Espírito Santo</li>
-              <li>R. do Cardeal Rei 6</li>
-              <li>7000-645 Évora</li>
-            </ul>
-            <ul v-if="selectedBox == 'arena'">
-              <li>Arena de Évora</li>
-              <li>Av. Gen. Humberto Delgado</li>
-              <li>7005-158 Évora</li>
-            </ul>
+             <div class="locaisCont">
+               <i class="fas fa-map-marker-alt" v-if="mobileMode"></i>
+              <ul v-if="selectedBox == 'ces'">
+                <li>Colégio Espírito Santo</li>
+                <li>R. do Cardeal Rei 6</li>
+                <li>7000-645 Évora</li>
+              </ul>
+              <ul v-if="selectedBox == 'arena'">
+                <li>Arena de Évora</li>
+                <li>Av. Gen. Humberto Delgado</li>
+                <li>7005-158 Évora</li>
+              </ul>
+             </div>
             <div class="palcos">
               <ul>
-                <li :class="{selected: selectedBox == 'arena'}" @click="updateSelection()">
+                <li id="palcoli" :class="{selected: selectedBox == 'arena'}" @click="updateSelection()">
                     <svg id="palco" height="50px" width="50px" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m256 216a24 24 0 0 1 -24-24v-144a24 24 0 0 1 48 0v144a24 24 0 0 1 -24 24z"/><path d="m320 136a23.926 23.926 0 0 1 -16.971-7.029l-47.029-47.03-47.029 47.03a24 24 0 0 1 -33.942-33.942l64-64a24 24 0 0 1 33.942 0l64 64a24 24 0 0 1 -16.971 40.971z" fill="#5153ff"/><path d="m256 488a24 24 0 0 1 -24-24v-144a24 24 0 0 1 48 0v144a24 24 0 0 1 -24 24z"/><path d="m256 488a23.926 23.926 0 0 1 -16.971-7.029l-64-64a24 24 0 0 1 33.942-33.942l47.029 47.03 47.029-47.03a24 24 0 0 1 33.942 33.942l-64 64a23.926 23.926 0 0 1 -16.971 7.029z" fill="#5153ff"/><path d="m464 280h-144a24 24 0 0 1 0-48h144a24 24 0 0 1 0 48z"/><path d="m400 344a24 24 0 0 1 -16.971-40.971l47.03-47.029-47.03-47.029a24 24 0 0 1 33.942-33.942l64 64a24 24 0 0 1 0 33.942l-64 64a23.926 23.926 0 0 1 -16.971 7.029z"/><path d="m400 344a24 24 0 0 1 -16.971-40.971l47.03-47.029-47.03-47.029a24 24 0 0 1 33.942-33.942l64 64a24 24 0 0 1 0 33.942l-64 64a23.926 23.926 0 0 1 -16.971 7.029z" fill="#5153ff"/><path d="m192 280h-144a24 24 0 0 1 0-48h144a24 24 0 0 1 0 48z"/><path d="m112 344a23.926 23.926 0 0 1 -16.971-7.029l-64-64a24 24 0 0 1 0-33.942l64-64a24 24 0 0 1 33.942 33.942l-47.03 47.029 47.03 47.029a24 24 0 0 1 -16.971 40.971z"/><path d="m112 344a23.926 23.926 0 0 1 -16.971-7.029l-64-64a24 24 0 0 1 0-33.942l64-64a24 24 0 0 1 33.942 33.942l-47.03 47.029 47.03 47.029a24 24 0 0 1 -16.971 40.971z" fill="#5153ff"/></svg>
                     <p>Arena de Évora</p>
                 </li>
-                <li :class="{selected: selectedBox == 'ces'}" @click="updateSelection()">
+                <li id="palcoli" :class="{selected: selectedBox == 'ces'}" @click="updateSelection()">
                     <svg id="palco" height="50px" width="50px" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m256 216a24 24 0 0 1 -24-24v-144a24 24 0 0 1 48 0v144a24 24 0 0 1 -24 24z"/><path d="m320 136a23.926 23.926 0 0 1 -16.971-7.029l-47.029-47.03-47.029 47.03a24 24 0 0 1 -33.942-33.942l64-64a24 24 0 0 1 33.942 0l64 64a24 24 0 0 1 -16.971 40.971z" fill="#5153ff"/><path d="m256 488a24 24 0 0 1 -24-24v-144a24 24 0 0 1 48 0v144a24 24 0 0 1 -24 24z"/><path d="m256 488a23.926 23.926 0 0 1 -16.971-7.029l-64-64a24 24 0 0 1 33.942-33.942l47.029 47.03 47.029-47.03a24 24 0 0 1 33.942 33.942l-64 64a23.926 23.926 0 0 1 -16.971 7.029z" fill="#5153ff"/><path d="m464 280h-144a24 24 0 0 1 0-48h144a24 24 0 0 1 0 48z"/><path d="m400 344a24 24 0 0 1 -16.971-40.971l47.03-47.029-47.03-47.029a24 24 0 0 1 33.942-33.942l64 64a24 24 0 0 1 0 33.942l-64 64a23.926 23.926 0 0 1 -16.971 7.029z"/><path d="m400 344a24 24 0 0 1 -16.971-40.971l47.03-47.029-47.03-47.029a24 24 0 0 1 33.942-33.942l64 64a24 24 0 0 1 0 33.942l-64 64a23.926 23.926 0 0 1 -16.971 7.029z" fill="#5153ff"/><path d="m192 280h-144a24 24 0 0 1 0-48h144a24 24 0 0 1 0 48z"/><path d="m112 344a23.926 23.926 0 0 1 -16.971-7.029l-64-64a24 24 0 0 1 0-33.942l64-64a24 24 0 0 1 33.942 33.942l-47.03 47.029 47.03 47.029a24 24 0 0 1 -16.971 40.971z"/><path d="m112 344a23.926 23.926 0 0 1 -16.971-7.029l-64-64a24 24 0 0 1 0-33.942l64-64a24 24 0 0 1 33.942 33.942l-47.03 47.029 47.03 47.029a24 24 0 0 1 -16.971 40.971z" fill="#5153ff"/></svg>
                     <p>CES</p>
                 </li>
@@ -40,6 +43,7 @@
       </div>
       <div class="travel">
          <h1>Como chegar lá?</h1>
+         <img  v-if="mobileMode" src="@/assets/mobile/porque.png" alt="">
         <ul class="meios">
           <li><a @click="meioDeTransporte = getTitulo(0); primeiroParagrafo = getPrimeiroParagrafo(0); segundoParagrafo = getSegundoParagrafo(0);"  >De carro</a></li>
           <li><a @click="meioDeTransporte = getTitulo(1); primeiroParagrafo = getPrimeiroParagrafo(1); segundoParagrafo = getSegundoParagrafo(1);"  >De autocarro</a></li>
@@ -410,30 +414,42 @@ $blueTextColor: #0010FF;
 @media (max-width: 500px) {
   .hero {
     height: auto;
+    margin-top: 5vh;
 
-    h1,
-    h2 {
-      margin-left: 20px;;
+    h1 {
+      margin-left: 35px;
+      font-size: 40px;
+      margin-bottom: 50px;
     }
 
     h2 {
       font-size: 25px;
-      margin-top: 100px;
-    }
-
-    h1 {
-      font-size: 40px;
+      margin-top: 50px;
+      margin-left: 20px;
     }
 
     .info .fa-map-marker-alt {
       height: 100px;
-      margin-left: 20px;
-      padding-top: 50px;
-      display: none;
+      margin-left: 10px;
+      margin-right: 50px;
+      width: 10%;
+
     }
 
-    .locais {
+    .info .infoText .locais {
       flex-direction: column;
+      justify-content: normal;
+
+      .locaisCont {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        ul {
+          padding-left: 10px;
+          width: 70%;
+        }
+      }
 
       ul li {
         font-size: 12px;
@@ -441,6 +457,18 @@ $blueTextColor: #0010FF;
 
       .palcos {
         width: 100vw;
+        margin-top: 20px;
+
+        ul {
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: flex-start;
+
+          #palcoli {
+            margin-bottom: 30px;
+            margin-left: 15px;
+          }
+        }
       }
     }
   }
@@ -453,7 +481,25 @@ $blueTextColor: #0010FF;
 
     .hero .info .infoText .locais ul li[data-v-157381da] {
       font-size: 16px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      font-weight: 600;
+      width: 200px;
     }
+
+    #googleMaps {
+      margin-left: 33vw;
+    }
+  
+  .travel {
+    img {
+      max-width: 100vw;
+      z-index: -30000;
+      height: auto;
+      top: 75vh;
+    }
+  }
 }
 
 .travel {

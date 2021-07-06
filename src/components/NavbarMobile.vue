@@ -1,5 +1,6 @@
 <template>
     <nav class="mobileNav">
+        <img class="bgImage" src="@/assets/mobile/navbar.png" alt="">
         <transition-group
         v-if="isActive" 
         appear
@@ -71,19 +72,18 @@ $primaryColor: #5A68E0;
 
 .mobileNav {
     position: absolute;
-	z-index: 10;
+	z-index: 300;
 	width: 100%;
 	opacity: 1;
 	color: #000;
     max-width: 100vw;
-    overflow: hidden;
-    height: 70px;
+    overflow-x: hidden;
+    height: 200px;
+
 
     .bgImage {
       position: absolute;
-      top: -8vh;
       width: 100%;
-      height: 50vh;
       z-index: -1000;
     }
 
@@ -130,7 +130,7 @@ $primaryColor: #5A68E0;
         right: 20px;
         border-radius: 50%;
         .burgerText {
-            color: white;
+            color: $primaryColor;
             font-size: 20px;
             letter-spacing: 3px;
         }

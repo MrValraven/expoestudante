@@ -420,7 +420,7 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    z-index: 2;
+    z-index: 2000;
     cursor: pointer;
 
     #evora {
@@ -432,6 +432,7 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
       margin-top: 10vh;
       margin-right: 13vw;
       transition: all 0.2s $transitionEase;
+      z-index: 2000;
 
       i {
         font-size: 60px;
