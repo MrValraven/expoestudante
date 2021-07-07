@@ -11,6 +11,14 @@
         :class="isActive"
         >
             <li v-for="(navlink, index) in navLinks" :key="navlink.id" :data-index="index"><router-link :to="{ name: navlink.routeName }"> {{ navlink.routeText }}</router-link></li>
+            <li class="dropdown" @click="openSobre = !openSobre">
+                <svg id="sobre" width="25px" height="25px" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m208 232a23.928 23.928 0 0 1 -16.971-7.029l-160-160a24 24 0 0 1 33.942-33.942l160 160a24 24 0 0 1 -16.971 40.971z" fill="#8690fa"/><path d="m48 200a24 24 0 0 1 -24-24v-128a24 24 0 0 1 24-24h128a24 24 0 0 1 0 48h-104v104a24 24 0 0 1 -24 24z" fill="#5153ff"/><path d="m304 232a24 24 0 0 1 -16.971-40.971l160-160a24 24 0 0 1 33.942 33.942l-160 160a23.928 23.928 0 0 1 -16.971 7.029z" fill="#8690fa"/><path d="m464 200a24 24 0 0 1 -24-24v-104h-104a24 24 0 0 1 0-48h128a24 24 0 0 1 24 24v128a24 24 0 0 1 -24 24z" fill="#5153ff"/><path d="m48 488a24 24 0 0 1 -16.971-40.971l160-160a24 24 0 0 1 33.942 33.942l-160 160a23.928 23.928 0 0 1 -16.971 7.029z" fill="#8690fa"/><path d="m176 488h-128a24 24 0 0 1 -24-24v-128a24 24 0 0 1 48 0v104h104a24 24 0 0 1 0 48z" fill="#5153ff"/><path d="m464 488a23.928 23.928 0 0 1 -16.971-7.029l-160-160a24 24 0 0 1 33.942-33.942l160 160a24 24 0 0 1 -16.971 40.971z" fill="#8690fa"/><path d="m464 488h-128a24 24 0 0 1 0-48h104v-104a24 24 0 0 1 48 0v128a24 24 0 0 1 -24 24z" fill="#5153ff"/></svg>
+                <a class="navLink">Sobre</a>
+                <div class="subMenu" v-if="openSobre">
+                    <router-link to="/sobre/onde">Onde</router-link>
+                    <router-link to="/sobre/porque">Porquê</router-link>
+                </div>
+            </li>
         </transition-group>
 
         <div class="burger" @click="toggleClass()">
@@ -54,6 +62,7 @@ export default defineComponent({
             toggle: false,
             newClass: "",
             isActive: "",
+            openSobre: false,
         }
     },
     methods: {

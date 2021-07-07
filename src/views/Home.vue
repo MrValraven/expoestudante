@@ -9,7 +9,9 @@
       <img src="@/assets/mobile/homepage.png" alt="" v-if="mobileMode"> 
     </section>
     <section class="future">
-      <img src="@/assets/backgrounds/backgroundHomepage.png" alt="" v-if="!mobileMode">
+      <img id="futureBackground" src="@/assets/backgrounds/backgroundHomepage.png" alt="" v-if="!mobileMode">
+      <img id="futureBackground" src="@/assets/backgrounds/backgroundHomepage.png" alt="" v-if="mobileMode">
+
       <div class="datas"> 
         <h2>Início</h2>
         <h1>
@@ -25,8 +27,8 @@
         <h2>O futuro</h2>
         <div>
           <h1>É agora</h1>
-          <svg id="arrows" height="50px" width="50px" viewBox="0 0 512 512"  xmlns="http://www.w3.org/2000/svg"><g fill="#5153ff"><path d="m320 424a24 24 0 0 1 -16.971-40.971l127.03-127.029-127.03-127.029a24 24 0 0 1 33.942-33.942l144 144a24 24 0 0 1 0 33.942l-144 144a23.928 23.928 0 0 1 -16.971 7.029z"/><path d="m184 424a24 24 0 0 1 -16.971-40.971l127.03-127.029-127.03-127.029a24 24 0 0 1 33.942-33.942l144 144a24 24 0 0 1 0 33.942l-144 144a23.928 23.928 0 0 1 -16.971 7.029z"/><path d="m48 424a24 24 0 0 1 -16.971-40.971l127.03-127.029-127.03-127.029a24 24 0 0 1 33.942-33.942l144 144a24 24 0 0 1 0 33.942l-144 144a23.928 23.928 0 0 1 -16.971 7.029z"/></g></svg>
-          <div class="text">
+          <svg id="arrows" height="70px" width="70px" viewBox="0 0 512 512"  xmlns="http://www.w3.org/2000/svg"><g fill="#5153ff"><path d="m320 424a24 24 0 0 1 -16.971-40.971l127.03-127.029-127.03-127.029a24 24 0 0 1 33.942-33.942l144 144a24 24 0 0 1 0 33.942l-144 144a23.928 23.928 0 0 1 -16.971 7.029z"/><path d="m184 424a24 24 0 0 1 -16.971-40.971l127.03-127.029-127.03-127.029a24 24 0 0 1 33.942-33.942l144 144a24 24 0 0 1 0 33.942l-144 144a23.928 23.928 0 0 1 -16.971 7.029z"/><path d="m48 424a24 24 0 0 1 -16.971-40.971l127.03-127.029-127.03-127.029a24 24 0 0 1 33.942-33.942l144 144a24 24 0 0 1 0 33.942l-144 144a23.928 23.928 0 0 1 -16.971 7.029z"/></g></svg>
+          <div id="text" class="text">
             <p>O teu futuro não é amanhã, é construído hoje, por isso trazemos-te um summit único, pensado e programado especialmente a pensar em ti e no teu futuro.</p>
             <p>Durante os 6 dias poderás encontrar e criar oportunidades para o teu futuro pois vamos encurtar a distância entre ti e as empresas, vamos ajudar-te a dar este next step na tua carreira!</p>
           </div>
@@ -158,33 +160,10 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
       margin-left: 5vw;
       margin-bottom: 3vh;
     }
+
   }
 
-  @media (max-width: 500px) {
-
-    .datas {
-      margin-left: 5vw;
-      margin-bottom: 3vh;
-  
-      h1 {
-        font-size: 28px;
-      }
-
-      h2 {
-        font-size: 25px;
-      }
-
-      span {
-        font-size: 11px;
-      }
-
-      hr {
-        width: 50px;
-      }
-    }
-  }
-
-  @media (max-width: 350px) {
+  @media (max-width: 365px) {
 
     .datas {
       margin-left: 5vw;
@@ -225,6 +204,7 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
     position: absolute;
     z-index: -200;
     bottom: -45vh;
+    width: 100vw;
   }
 
    .datas {
@@ -299,15 +279,23 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
 
       #arrows {
         transform: rotateZ(90deg);
-        margin-top: 20px;
+        margin-top: 30px;
         margin-left: 20px;
         margin-right: 20px;
+      }
+
+      @media (max-width: 1700px) {
+        #arrows {
+          margin-top: 20px;
+        }
       }
 
       .text {
         width: 50%;
         display: flex;
         flex-direction: column;
+        margin-left: 10px;
+        margin-top: -50px;
       }
 
       p {
@@ -343,8 +331,9 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
   @media (max-width: 500px) {
 
     .datas {
+      justify-content: center;
       margin-top: -80px;
-      margin-left: 5px;
+      margin-left: 0px;
 
       h2 {
         font-size: 25px;
@@ -369,7 +358,6 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
 
     .mainText {
     
-    
       h2 {
         margin-left: 20px;
         font-size: 40px;
@@ -381,7 +369,7 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
 
         h1 {
         font-size: 70px;
-        margin-bottom: 5px;
+        margin-bottom: 20px;
         }
         .text {
           margin-left: 30px;
@@ -397,37 +385,10 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
         display: none;
         }
       }
-
-      .novidades {
-        margin-top: 25px;
-        margin-left: 10px;
-
-        .surpresas {
-          margin-left: 50px;
-          width: 100vw;
-
-          h1 {
-            font-size: 40px;
-          }
-
-          p {
-            width: 70vw;
-            font-size: 16px;
-          }
-        }
-
-         #business {
-            width: 250px;
-            margin-right: 100px;
-            margin-left: 70px;
-        }
-
-      }
     
     }
 
     .localizacao {
-      flex-direction: column;
 
       h1 {
         font-size: 20px;
@@ -438,6 +399,11 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
         font-size: 30px;
       }
     }
+
+    #futureBackground {
+      bottom: 0vh;
+    }
+
     
 
   }
@@ -454,13 +420,14 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
       justify-content: flex-end;
       align-items: center;
       color: white;
-      opacity: 0.80;
+      opacity: 1;
       margin-top: 10vh;
       margin-right: 13vw;
       transition: all 0.2s $transitionEase;
       z-index: 2000;
 
       i {
+        opacity: 0.6;
         font-size: 60px;
         margin-bottom: 20px;
         margin-right: 10px;
@@ -471,6 +438,7 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
         text-transform: uppercase;
         font-size: 60px;
         font-weight: 400;
+        opacity: 1;
       }
 
       &:hover {
@@ -505,27 +473,66 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
       text-transform: uppercase;
       margin: 0;
     }
-  }
 
-  .fastLinks ul {
-    padding: 0;
-    margin-bottom: 0;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-end;
-    border: 2px solid red;
+    @media (max-width: 500px) {
 
-    li {
-      padding: 80px;
-      margin-top: 20px;
-      margin-left: 5px;
+      h1 {
+        font-size: 65px;
+      }
 
-
-
-      a {
-        color: $darkerPrimaryColor;
+      h2 {
+        font-size: 18px;
       }
     }
   }
+
+  @media (max-width: 500px) {
+
+
+
+      .surpresas {
+        margin-top: 35px;
+        margin-left: 15px;
+        padding-bottom: 60px;
+
+      }
+
+      .localizacao {
+        margin-top: 50px;
+        align-items: flex-end;
+        margin-right: 20px;
+        margin-bottom: 10px;
+
+        #evora {
+          margin: 0;
+
+          i {
+            font-size: 25px;
+            margin-right: 2px;
+            margin-bottom: 10px;
+          }
+
+          h1 {
+            font-size: 18px;
+          }
+        }
+      }
+    }
+}
+
+@media (max-width: 1700px) {
+
+  #futureBackground {
+    bottom: -35vh;
+  }
+
+  #text {
+    margin-top: -35px;
+  }
+
+  #arrows {
+    margin-top: 20px;
+  }
+  
 }
 </style>
