@@ -1,7 +1,7 @@
 <template>
 
   <ScrollToTopButton v-if="!isAtTop"  @click="scrollToElement('body')"/>
-  <NavbarMobile v-if="(mobileMode && isAtTop) || (activatedNavbar && mobileMode)" @click="activatedNavbar = !activatedNavbar" />
+  <NavbarMobile @activatedNavbar="activateNavbar()" />
   <Navbar v-if="!mobileMode" class="navbar" />
   <div v-if="!activatedNavbar" class="pageContent">
     <section class="hero">
@@ -80,6 +80,8 @@ export default defineComponent({
       meioDeTransporte: "",
       primeiroParagrafo: "",
       segundoParagrafo: "",
+      arenaTransporteIndex: 0,
+      cesTransporteIndex: 0,
       arena: {
         transportes: [
           {titulo: "Rodoviária de Évora - Arena de Évora | A pé: (aprox. 10 minutos):" , primeiroParagrafo: "Siga para sudeste, em direção à Av. Túlio Espanca/N114 e vire à esquerda. Na rotunda, saia pela 2ª saída. Depois vire à esquerda em direção à Av. Gen. Humberto Delgado e seguidamente vire à direita e encontrará a Arena de Évora  (Av. Gen. Humberto Delgado, 7005-158 Évora).", segundoParagrafo: ""},
@@ -119,6 +121,43 @@ export default defineComponent({
     window.removeEventListener('resize', this.handleResize);
   },
    methods: {
+
+    nextArenaTransporte() {
+      this.arenaTransporteIndex >= 4 ? this.arenaTransporteIndex = 0 : this.arenaTransporteIndex++;
+      
+      this.meioDeTransporte = this.arena.transportes[this.arenaTransporteIndex].titulo;
+      this.primeiroParagrafo = this.arena.transportes[this.arenaTransporteIndex].primeiroParagrafo;
+      this.segundoParagrafo = this.arena.transportes[this.arenaTransporteIndex].segundoParagrafo;
+     },
+
+    nextCesTransporte() {
+      this.cesTransporteIndex >= 4 ? this.cesTransporteIndex = 0 : this.cesTransporteIndex++;
+      
+      this.meioDeTransporte = this.ces.transportes[this.cesTransporteIndex].titulo;
+      this.primeiroParagrafo = this.ces.transportes[this.cesTransporteIndex].primeiroParagrafo;
+      this.segundoParagrafo = this.ces.transportes[this.cesTransporteIndex].segundoParagrafo;
+     },
+
+    previousArenaTransporte() {
+      this.arenaTransporteIndex <= 0 ? this.arenaTransporteIndex = 0 : this.arenaTransporteIndex--;
+      
+      this.meioDeTransporte = this.arena.transportes[this.arenaTransporteIndex].titulo;
+      this.primeiroParagrafo = this.arena.transportes[this.arenaTransporteIndex].primeiroParagrafo;
+      this.segundoParagrafo = this.arena.transportes[this.arenaTransporteIndex].segundoParagrafo;
+     },
+
+    previousCesTransporte() {
+      this.cesTransporteIndex <= 0 ? this.cesTransporteIndex = 0 : this.cesTransporteIndex--;
+      
+      this.meioDeTransporte = this.ces.transportes[this.cesTransporteIndex].titulo;
+      this.primeiroParagrafo = this.ces.transportes[this.cesTransporteIndex].primeiroParagrafo;
+      this.segundoParagrafo = this.ces.transportes[this.cesTransporteIndex].segundoParagrafo;
+     },
+
+     activateNavbar() {
+      this.activatedNavbar = !this.activatedNavbar;
+    },
+
     scrollToElement(destination: string) {
       const element = document.querySelector(destination);
       if (element) {
@@ -496,6 +535,35 @@ $blueTextColor: #0010FF;
       z-index: -30000;
       height: auto;
       top: 75vh;
+    }
+  }
+}
+
+@media (max-width: 376px) {
+  .hero {
+
+    h1 {
+      margin-bottom: 0;
+    }
+    .travel {
+      img {
+        top: 80vh;
+      }
+    }
+  }
+}
+
+@media (max-width: 325px) {
+  .hero {
+
+    h1 {
+      font-size: 35px;
+      margin-bottom: 0;
+    }
+    .travel {
+      img {
+        top: 95vh;
+      }
     }
   }
 }

@@ -1,7 +1,7 @@
 <template>
 
   <ScrollToTopButton v-if="!isAtTop"  @click="scrollToElement('body')"/>
-  <NavbarMobile v-if="(mobileMode && isAtTop) || (activatedNavbar && mobileMode)" @click="activatedNavbar = !activatedNavbar" />
+  <NavbarMobile @activatedNavbar="activateNavbar()" />
   <Navbar v-if="!mobileMode" class="navbar" />
   <div v-if="!activatedNavbar" class="pageContent">
     <section class="hero">
@@ -96,6 +96,11 @@ export default defineComponent({
     window.removeEventListener('resize', this.handleResize);
   },
    methods: {
+
+     activateNavbar() {
+      this.activatedNavbar = !this.activatedNavbar;
+    },
+
     scrollToElement(destination: string) {
       const element = document.querySelector(destination);
       if (element) {
@@ -184,6 +189,13 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
       hr {
         width: 50px;
       }
+    }
+  }
+
+  .surpresas {
+
+    h1 {
+      font-size: 30px;
     }
   }
 
@@ -535,4 +547,53 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
   }
   
 }
+
+@media (max-width: 365px) {
+
+    .datas {
+      margin-left: 5vw;
+      margin-bottom: 3vh;
+  
+      h1 {
+        font-size: 25px;
+      }
+
+      h2 {
+        font-size: 18px;
+      }
+
+      span {
+        font-size: 11px;
+      }
+
+      hr {
+        width: 50px;
+      }
+    }
+  
+
+  .future .mainText div {
+    margin-left: 50px
+  }
+
+  .future .surpresas h1 {
+    font-size: 55px;
+  }
+}
+
+@media (max-width: 325px) {
+  .future {
+
+    .datas {
+      h1 hr {
+        width: 40px;
+      }
+    }
+
+    .mainText div h1 {
+      font-size: 60px;
+    }
+  }
+}
+
 </style>

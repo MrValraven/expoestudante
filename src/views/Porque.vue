@@ -1,8 +1,8 @@
 <template>
 
   <ScrollToTopButton v-if="!isAtTop"  @click="scrollToElement('body')"/>
-  <NavbarMobile v-if="(mobileMode && isAtTop) || (activatedNavbar && mobileMode)" @click="activatedNavbar = !activatedNavbar" />
-  <Navbar v-if="!mobileMode" class="navbar" />
+  <NavbarMobile @activatedNavbar="activateNavbar()" />
+  <Navbar v-if="!mobileMode" class="navbar"   />
   <div v-if="!activatedNavbar" class="pageContent">
     <section class="hero">
       <img src="@/assets/porque.png" alt="" v-if="!mobileMode">
@@ -55,6 +55,7 @@ export default defineComponent({
       activatedNavbar: false,
       isAtTop: true,
       mobileMode: false,
+      after29: false,
     }
   },
   components: {
@@ -73,6 +74,10 @@ export default defineComponent({
     window.removeEventListener('resize', this.handleResize);
   },
    methods: {
+    activateNavbar() {
+      this.activatedNavbar = !this.activatedNavbar;
+    },
+
     scrollToElement(destination: string) {
       const element = document.querySelector(destination);
       if (element) {
@@ -204,6 +209,27 @@ $blueTextColor: #0010FF;
       }
 
       
+    }
+  }
+}
+
+@media (max-width: 500px) {
+
+  .hero {
+    margin-top: 100px;
+    height: auto;
+    h2 {
+      font-size: 30px;
+      margin-left: 20px;
+    }
+
+    h1 {
+      font-size: 50px;
+      margin-left: 30px;
+    }
+
+    .info .infoText .locais ul li {
+      font-size: 16px;
     }
   }
 }

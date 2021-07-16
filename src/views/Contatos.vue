@@ -1,7 +1,7 @@
 <template>
 
   <ScrollToTopButton v-if="!isAtTop"  @click="scrollToElement('body')"/>
-  <NavbarMobile v-if="(mobileMode && isAtTop) || (activatedNavbar && mobileMode)" @click="activatedNavbar = !activatedNavbar" />
+  <NavbarMobile @activatedNavbar="activateNavbar()" />
   <Navbar v-if="!mobileMode" class="navbar" />
   <div v-if="!activatedNavbar" class="pageContent">
 
@@ -92,6 +92,10 @@ export default defineComponent({
     window.removeEventListener('resize', this.handleResize);
   },
    methods: {
+     activateNavbar() {
+      this.activatedNavbar = !this.activatedNavbar;
+    },
+
     scrollToElement(destination: string) {
       const element = document.querySelector(destination);
       if (element) {
