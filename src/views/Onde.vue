@@ -1,7 +1,7 @@
 <template>
 
   <ScrollToTopButton v-if="!isAtTop"  @click="scrollToElement('body')"/>
-  <NavbarMobile @activatedNavbar="activateNavbar()" />
+  <NavbarMobile v-if="mobileMode" @activatedNavbar="activateNavbar()" />
   <Navbar v-if="!mobileMode" class="navbar" />
   <div v-if="!activatedNavbar" class="pageContent">
     <section class="hero">
@@ -44,12 +44,22 @@
       <div class="travel">
          <h1>Como chegar lá?</h1>
          <img  v-if="mobileMode" src="@/assets/mobile/porque.png" alt="">
-        <ul class="meios">
+        <ul class="meios" v-if="!smallMobileMode">
           <li><a @click="meioDeTransporte = getTitulo(0); primeiroParagrafo = getPrimeiroParagrafo(0); segundoParagrafo = getSegundoParagrafo(0);"  >Rodoviária de Évora,<br>A pé</a></li>
           <li><a @click="meioDeTransporte = getTitulo(1); primeiroParagrafo = getPrimeiroParagrafo(1); segundoParagrafo = getSegundoParagrafo(1);"  >Rodoviária de Évora,<br>De carro</a></li>
           <li><a @click="meioDeTransporte = getTitulo(2); primeiroParagrafo = getPrimeiroParagrafo(2); segundoParagrafo = getSegundoParagrafo(2);"  >Estação de comboios,<br>A pé</a></li>
           <li><a @click="meioDeTransporte = getTitulo(3); primeiroParagrafo = getPrimeiroParagrafo(3); segundoParagrafo = getSegundoParagrafo(3);"  >Estação de comboios,<br>De carro</a></li>
         </ul>
+        <div class="options" v-if="smallMobileMode && selectedBox === 'arena'">
+          <i class="fas fa-chevron-left" @click="previousArenaTransporte()"></i>
+          <h2>Próximo <br/>Transporte</h2>
+          <i class="fas fa-chevron-right" @click="nextArenaTransporte()" ></i>
+        </div>
+        <div class="options" v-if="smallMobileMode && selectedBox === 'ces'">
+          <i class="fas fa-chevron-left" @click="previousCesTransporte()"></i>
+          <h2>Próximo <br/>Transporte</h2>
+          <i class="fas fa-chevron-right" @click="nextCesTransporte()" ></i>
+        </div>
       </div>
     </section>
     <section class="transportes">
@@ -76,6 +86,7 @@ export default defineComponent({
       activatedNavbar: false,
       isAtTop: true,
       mobileMode: false,
+      smallMobileMode: false,
       selectedBox: "arena",
       meioDeTransporte: "",
       primeiroParagrafo: "",
@@ -123,7 +134,7 @@ export default defineComponent({
    methods: {
 
     nextArenaTransporte() {
-      this.arenaTransporteIndex >= 4 ? this.arenaTransporteIndex = 0 : this.arenaTransporteIndex++;
+      this.arenaTransporteIndex >= 3 ? this.arenaTransporteIndex = 0 : this.arenaTransporteIndex++;
       
       this.meioDeTransporte = this.arena.transportes[this.arenaTransporteIndex].titulo;
       this.primeiroParagrafo = this.arena.transportes[this.arenaTransporteIndex].primeiroParagrafo;
@@ -131,7 +142,7 @@ export default defineComponent({
      },
 
     nextCesTransporte() {
-      this.cesTransporteIndex >= 4 ? this.cesTransporteIndex = 0 : this.cesTransporteIndex++;
+      this.cesTransporteIndex >= 3 ? this.cesTransporteIndex = 0 : this.cesTransporteIndex++;
       
       this.meioDeTransporte = this.ces.transportes[this.cesTransporteIndex].titulo;
       this.primeiroParagrafo = this.ces.transportes[this.cesTransporteIndex].primeiroParagrafo;
@@ -139,7 +150,7 @@ export default defineComponent({
      },
 
     previousArenaTransporte() {
-      this.arenaTransporteIndex <= 0 ? this.arenaTransporteIndex = 0 : this.arenaTransporteIndex--;
+      this.arenaTransporteIndex <= 0 ? this.arenaTransporteIndex = 3 : this.arenaTransporteIndex--;
       
       this.meioDeTransporte = this.arena.transportes[this.arenaTransporteIndex].titulo;
       this.primeiroParagrafo = this.arena.transportes[this.arenaTransporteIndex].primeiroParagrafo;
@@ -147,7 +158,7 @@ export default defineComponent({
      },
 
     previousCesTransporte() {
-      this.cesTransporteIndex <= 0 ? this.cesTransporteIndex = 0 : this.cesTransporteIndex--;
+      this.cesTransporteIndex <= 0 ? this.cesTransporteIndex = 3 : this.cesTransporteIndex--;
       
       this.meioDeTransporte = this.ces.transportes[this.cesTransporteIndex].titulo;
       this.primeiroParagrafo = this.ces.transportes[this.cesTransporteIndex].primeiroParagrafo;
@@ -179,6 +190,7 @@ export default defineComponent({
       if(!this.mobileMode) {
         this.activatedNavbar = false;
       }
+      this.smallMobileMode = window.innerWidth <= 600;
     },
     getPrimeiroParagrafo(option: number) {
       if(this.selectedBox == 'arena') {
@@ -572,6 +584,27 @@ $blueTextColor: #0010FF;
   margin-top: 10vh;
   z-index: 100;
 
+  .options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 150px;
+
+    i {
+      color: $textColor;
+      font-size: 20px;
+      padding: 10px 15px 10px 15px;
+      border-radius: 50%;
+      background-color: white;
+    }
+
+    h2 {
+      color: #F7F7F7;
+      text-align: center;
+      margin: 0 15px 0 15px;
+    }
+  }
+
   h1 {
     display: flex;
     justify-content: flex-end;
@@ -618,4 +651,72 @@ $blueTextColor: #0010FF;
 .transportes {
   margin-top: 10vh;
 }
+
+@media (max-width: 420px) {
+  .travel h1 {
+    margin-bottom: 0;
+    margin-top: 50px;
+  }
+  .travel .options {
+    margin-top: 170px;
+  }
+
+  .transportes {
+    margin-top: 20vh;
+  }
+}
+
+
+@media (max-width: 400px) {
+  .transportes {
+    margin-top: 20vh;
+  }
+}
+
+@media (max-width: 380px) {
+
+  .travel h1 {
+    margin-top: 120px;
+  }
+
+  .travel .options {
+    margin-top: 120px;
+  }
+
+  .transportes {
+    margin-top: 20vh;
+  }
+}
+
+@media (max-width: 365px) {
+
+  .travel h1 {
+    margin-top: 30px;
+  }
+
+  .travel .options {
+    margin-top: 100px;
+  }
+
+  .transportes {
+    margin-top: 20vh;
+  }
+}
+
+@media (max-width: 325px) {
+
+  .travel h1 {
+    font-size: 35px;
+    margin-left: 20px;
+  }
+
+  .travel .options {
+    margin-top: 100px;
+  }
+
+  .transportes {
+    margin-top: 20vh;
+  }
+}
+
 </style>

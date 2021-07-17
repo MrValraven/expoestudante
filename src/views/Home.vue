@@ -1,7 +1,7 @@
 <template>
 
   <ScrollToTopButton v-if="!isAtTop"  @click="scrollToElement('body')"/>
-  <NavbarMobile @activatedNavbar="activateNavbar()" />
+  <NavbarMobile v-if="mobileMode" @activatedNavbar="activateNavbar()" />
   <Navbar v-if="!mobileMode" class="navbar" />
   <div v-if="!activatedNavbar" class="pageContent">
     <section class="hero">
@@ -548,7 +548,18 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
   
 }
 
-@media (max-width: 365px) {
+@media (max-width: 420px) {
+
+  .future .localizacao {
+
+    #evora {
+      margin-bottom: 20px;
+      margin-right: 20px;
+    }
+  }
+}
+
+@media (max-width: 375px) {
 
     .datas {
       margin-left: 5vw;
@@ -579,6 +590,13 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
   .future .surpresas h1 {
     font-size: 55px;
   }
+
+  .future .localizacao {
+    #evora {
+      margin-bottom: 10px;
+      margin-right: 20px;
+    }
+  }
 }
 
 @media (max-width: 325px) {
@@ -592,6 +610,14 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
 
     .mainText div h1 {
       font-size: 60px;
+    }
+  }
+
+  .future .localizacao {
+    margin-bottom: 0px;
+    #evora {
+      margin-bottom: -20px;
+      margin-right: 15px;
     }
   }
 }

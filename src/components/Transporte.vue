@@ -71,7 +71,8 @@ $blueTextColor: #0010FF;
   .directions {
 
     h1 {
-      font-size: 36px;
+      font-size: 30px;
+      margin: 0px 8vw 25px 8vw;
     }
 
     .group {
