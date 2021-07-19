@@ -463,6 +463,29 @@ $blueTextColor: #0010FF;
   }
 }
 
+@media (max-width: 1030px) {
+  .travel .meios {
+    margin-bottom: 0;
+    li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+
+      &:last-child {
+        margin: 0;
+      }
+  
+      a{
+        font-size: 16px;
+      }
+    }
+  }
+  
+  
+}
+
 @media (max-width: 800px) {
   .hero {
     height: auto;
@@ -657,6 +680,11 @@ $blueTextColor: #0010FF;
     }
   
   .travel {
+    position: static;
+
+    h1 {
+      margin-top: 30px;
+    }
     img {
       max-width: 100vw;
       z-index: -30000;
