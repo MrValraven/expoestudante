@@ -44,6 +44,7 @@
       <div class="travel">
          <h1>Como chegar lá?</h1>
          <img  v-if="mobileMode" src="@/assets/mobile/porque.png" alt="">
+         <img  id="ondinhas" v-if="mobileMode && tabletMode" src="@/assets/ondinhasTablet.png" alt="">
         <ul class="meios" v-if="!smallMobileMode">
           <li><a @click="meioDeTransporte = getTitulo(0); primeiroParagrafo = getPrimeiroParagrafo(0); segundoParagrafo = getSegundoParagrafo(0);"  >Rodoviária de Évora,<br>A pé</a></li>
           <li><a @click="meioDeTransporte = getTitulo(1); primeiroParagrafo = getPrimeiroParagrafo(1); segundoParagrafo = getSegundoParagrafo(1);"  >Rodoviária de Évora,<br>De carro</a></li>
@@ -87,6 +88,7 @@ export default defineComponent({
       isAtTop: true,
       mobileMode: false,
       smallMobileMode: false,
+      tabletMode: false,
       selectedBox: "arena",
       meioDeTransporte: "",
       primeiroParagrafo: "",
@@ -186,6 +188,7 @@ export default defineComponent({
     },
 
     handleResize() {
+      this.tabletMode = window.innerWidth >= 700 && window.innerWidth <= 1050;
       this.mobileMode = window.innerWidth <= 1015;
       if(!this.mobileMode) {
         this.activatedNavbar = false;
@@ -455,6 +458,118 @@ $blueTextColor: #0010FF;
         &:last-child {
           margin-left: 30px;
         }
+      }
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .hero {
+    height: auto;
+    margin-top: 5vh;
+
+    h1 {
+      margin-left: 35px;
+      font-size: 40px;
+      margin-bottom: 50px;
+    }
+
+    h2 {
+      font-size: 25px;
+      margin-top: 50px;
+      margin-left: 20px;
+    }
+
+    .info .fa-map-marker-alt {
+      height: 100px;
+      margin-left: 10px;
+      margin-right: 50px;
+      width: 10%;
+
+    }
+
+    .info .infoText .locais {
+      flex-direction: column;
+      justify-content: normal;
+
+      .locaisCont {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        ul {
+          padding-left: 10px;
+          width: 70%;
+        }
+      }
+
+      ul li {
+        font-size: 12px;
+      }
+
+      .palcos {
+        width: 100vw;
+        margin-top: 20px;
+
+        ul {
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: flex-start;
+
+          #palcoli {
+            margin-bottom: 30px;
+            margin-left: 15px;
+          }
+        }
+      }
+    }
+  }
+
+  .hero .info .infoText {
+      h1 {
+        font-size: 20px;
+      }
+    }
+
+    .hero .info .infoText .locais ul li[data-v-157381da] {
+      font-size: 16px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      font-weight: 600;
+      width: 200px;
+    }
+
+    #googleMaps {
+      margin-left: 33vw;
+    }
+  
+  .travel {
+    position: relative;
+
+    h1 {
+      margin-top: 80px;
+    }
+    img {
+      position: absolute;
+      max-width: 100vw;
+      z-index: -30000;
+      height: 50vh;
+      top: 0vh;
+    }
+
+    #ondinhas {
+      position: absolute;
+      height: auto;
+      top: 38vh;
+    }
+
+    .meios {
+      margin-top: 30vh;
+      padding: 0;
+
+      li {
+        font-size: 10px;
       }
     }
   }

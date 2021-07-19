@@ -7,7 +7,8 @@
 
     <section class="hero">
       <img src="@/assets/contactos.png" alt="" v-if="!mobileMode"> 
-      <img src="@/assets/mobile/homepage.png" alt="" v-if="mobileMode"> 
+      <img src="@/assets/homepagetablet.png" alt="" v-if="tabletMode"> 
+      <img src="@/assets/mobile/homepage.png" alt="" v-if="smallMobileMode"> 
       <div class="ondeEstamos" @click="scrollToElement('.localization')">
         <h1>Onde estamos</h1>
         <h2 v-if="!mobileMode">Em baixo</h2>
@@ -70,6 +71,8 @@ export default defineComponent({
       mobileMode: false,
       frameWidth: 0,
       frameHeight: 0,
+      smallMobileMode: false,
+      tabletMode: false,
     }
   },
   components: {
@@ -118,14 +121,15 @@ export default defineComponent({
     },
 
     handleResize () {
-      this.mobileMode = window.innerWidth <= 1015;
-
       this.frameWidth = window.innerWidth * 0.80;
       this.frameHeight = window.innerHeight * 0.50;
 
+      this.tabletMode = window.innerWidth <= 1100;
+      this.mobileMode = window.innerWidth <= 1015;
       if(!this.mobileMode) {
         this.activatedNavbar = false;
       }
+      this.smallMobileMode = window.innerWidth <= 600;
     },
   },
 });

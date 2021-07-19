@@ -10,7 +10,6 @@
         <div class="aaue">
             <img src="@/assets/logo.png" alt="">
         </div>
-		
 	</footer>
 </template>
 

@@ -222,4 +222,10 @@ $primaryColor: #5A68E0;
         }
     }
 }
+
+@media (min-width: 700px) {
+    .mobileNav {
+        height: 300px;
+    }
+}
 </style>

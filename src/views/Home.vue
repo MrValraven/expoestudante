@@ -5,12 +5,14 @@
   <Navbar v-if="!mobileMode" class="navbar" />
   <div v-if="!activatedNavbar" class="pageContent">
     <section class="hero">
-      <img src="@/assets/contactos.png" alt="" v-if="!mobileMode"> 
-      <img src="@/assets/mobile/homepage.png" alt="" v-if="mobileMode"> 
+      <img src="@/assets/contactos.png" alt="" v-if="!mobileMode && !tabletMode"> 
+      <img src="@/assets/homepagetablet.png" alt="" v-if="tabletMode"> 
+      <img src="@/assets/mobile/homepage.png" alt="" v-if="smallMobileMode"> 
     </section>
     <section class="future">
-      <img id="futureBackground" src="@/assets/backgrounds/backgroundHomepage.png" alt="" v-if="!mobileMode">
-      <img id="futureBackground" src="@/assets/backgrounds/backgroundHomepage.png" alt="" v-if="mobileMode">
+      <img id="futureBackground" src="@/assets/backgrounds/backgroundHomepage.png" alt="" v-if="!mobileMode && !tabletMode">
+      <img id="futureBackground" src="@/assets/futuroTablet.png" alt="" v-if="tabletMode && !smallMobileMode">
+      <img id="futureBackground" src="@/assets/backgrounds/backgroundHomepage.png" alt="" v-if="smallMobileMode">
 
       <div class="datas"> 
         <h2>Início</h2>
@@ -78,6 +80,8 @@ export default defineComponent({
       mobileMode: false,
       backgroundImage: '',
       after29: false,
+      smallMobileMode: false,
+      tabletMode: false,
     }
   },
   components: {
@@ -117,10 +121,12 @@ export default defineComponent({
     },
 
     handleResize () {
+      this.tabletMode = window.innerWidth <= 1100;
       this.mobileMode = window.innerWidth <= 1015;
       if(!this.mobileMode) {
         this.activatedNavbar = false;
       }
+      this.smallMobileMode = window.innerWidth <= 600;
     },
   },
   computed: {
@@ -199,13 +205,6 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
     }
   }
 
-}
-
-@media (max-width: 1015px) {
-
-  .hero {
-    height: 100vh;
-  }
 }
 
 .future {
@@ -322,6 +321,7 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
     }
   }
 
+
   @media (max-width: 1100px) {
 
     .mainText div {
@@ -339,6 +339,13 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
       width: 30%;
     }
   }
+
+  @media (max-width: 1015px) {
+
+  .hero {
+    height: 100vh;
+  }
+}
 
   @media (max-width: 500px) {
 
@@ -548,7 +555,62 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
   
 }
 
-@media (max-width: 420px) {
+@media (max-width: 1030px) {
+
+  .hero {
+    height: 50vh;
+
+    img {
+      width: 100vw;
+      height: auto;
+    }
+  }
+
+  .future {
+
+    #futureBackground {
+      width: 100vw;
+      bottom: 0;
+    }
+    .datas {
+      margin-top: 0;
+      margin-left: 30px;
+    }
+
+    .mainText div .text p {
+      font-size: 16px;
+    }
+
+    .localizacao #evora{
+      margin-right: 80px;
+    }
+
+    .surpresas {
+      h2 {
+        font-size: 30px;
+      }
+      h1 {
+        font-size: 105px;
+      }
+    }
+  }
+}
+
+@media (max-width: 430px) {
+
+  .hero {
+    height: 100vh;
+
+    img {
+      height: 100vh;
+    }
+  }
+
+  .future .datas {
+    margin-top: -15vh;
+    margin-left: 5px;
+  }
+
 
   .future .localizacao {
 
