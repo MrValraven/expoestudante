@@ -32,15 +32,15 @@
       <form action="https://formsubmit.co/expoestudante@aaue.pt" method="POST">
         <h1>Contacte-nos!</h1>
         <label for="nome">Nome *</label>
-        <input type="text" placeholder="Nome" required>
+        <input type="text" placeholder="Nome" required v-model="nome">
         <label for="email">Email *</label>
-        <input type="email" placeholder="Email" required>
+        <input type="email" placeholder="Email" required v-model="email">
         <label for="telefone">Telefone *</label>
-        <input type="tel" placeholder="Telefone" required>
+        <input type="tel" placeholder="Telefone" required v-model="telefone">
         <label for="assunto">Assunto *</label>
-        <input type="text" placeholder="Assunto" required>
+        <input type="text" placeholder="Assunto" required v-model="assunto">
         <label for="mensagem">Mensagem *</label>
-        <textarea name="mensagem" id="mensagem" cols="30" rows="10" placeholder="Mensagem" required/>
+        <textarea name="mensagem" id="mensagem" cols="30" rows="10" placeholder="Mensagem" required v-model="mensagem" />
         <div class="fButton">
           <BlobButton class="formButton" />
         </div>
@@ -73,6 +73,11 @@ export default defineComponent({
       frameHeight: 0,
       smallMobileMode: false,
       tabletMode: false,
+      nome: "",
+      email: "",
+      telefone: "",
+      assunto: "",
+      mensagem: "",
     }
   },
   components: {

@@ -596,6 +596,18 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
   }
 }
 
+@media (max-width: 800px) {
+  .future .surpresas {
+    margin-top: 130px;
+  }
+}
+
+@media (max-width: 650px) {
+  .future .surpresas {
+    margin-top: 35px;
+  }
+}
+
 @media (max-width: 430px) {
 
   .hero {
@@ -617,6 +629,16 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
     #evora {
       margin-bottom: 20px;
       margin-right: 20px;
+    }
+  }
+
+  .future .surpresas {
+    h2 {
+      font-size: 25px;
+    }
+
+    h1 {
+      font-size: 60px;
     }
   }
 }
