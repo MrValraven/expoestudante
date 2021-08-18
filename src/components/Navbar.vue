@@ -3,10 +3,6 @@
   <header class="header" >
     <img class="bgImage" src="@/assets/Caminho105.svg" alt="">
     <nav id="nav">
-      <ul class="languages">
-        <li><router-link to="/">EN</router-link></li>
-        <li class="activeLanguage" ><router-link id="pt" to="/">PT</router-link></li>
-      </ul>
       <ul class="navLinks">
         <li>
           <svg id="inicio" width="25px" height="25px" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m256 488a229.844 229.844 0 0 1 -141.467-48.108 233.557 233.557 0 0 1 -82.025-121.445 24 24 0 1 1 46.235-12.894 185.25 185.25 0 0 0 65.083 96.312 182.236 182.236 0 0 0 112.174 38.135c101.458 0 184-82.542 184-184s-82.542-184-184-184a182.241 182.241 0 0 0 -112.175 38.135 185.254 185.254 0 0 0 -65.082 96.312 24 24 0 1 1 -46.235-12.894 233.559 233.559 0 0 1 82.025-121.444 232.008 232.008 0 0 1 373.467 183.891 232 232 0 0 1 -232 232z" fill="#8690fa"/><path d="m56 224a24 24 0 0 1 -23.964-22.669l-8-144a24 24 0 1 1 47.924-2.662l6.32 113.761 106.941-31.454a24 24 0 1 1 13.543 46.048l-135.995 40a23.947 23.947 0 0 1 -6.769.976z" fill="#5153ff"/></svg>
@@ -57,7 +53,6 @@ export default defineComponent({
     return {
       hoveredSobre: false,
       hoveredExpo: false,
-      backgroundImage: "",
       after29: false,
     }
   },
@@ -65,12 +60,6 @@ export default defineComponent({
     getImgURL(image: String) {
         return require('../assets/' + image);
     },
-  },
-  computed: {
-      style () :String {
-        this.backgroundImage = this.getImgURL("navbar.svg");
-        return `background-image: url(${this.backgroundImage})`;
-      }
   },
 });
 </script>
@@ -105,36 +94,8 @@ $underlineColor: #596FF0;
   #nav {
     position: relative;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     z-index: 1000;
-
-    .activeLanguage {
-
-      a {
-        font-size: $fontSize;
-        color: $textColor;
-        opacity: 1;
-      }
-
-      #pt {
-        padding: 0px 0px 0px 5px;
-        border-left: 3px solid $textColor;
-      }
-
-    }
-
-    .languages {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 50px;
-      margin-left: 2vw;
-
-      li a{
-        padding: 5px;
-      }
-
-    }
 
     .navLinks {
       position: relative;
@@ -151,7 +112,6 @@ $underlineColor: #596FF0;
         flex-direction: column;
 
         .subMenu {
-          background: white !important;
           z-index: 5000;
 
           a {
@@ -192,7 +152,6 @@ $underlineColor: #596FF0;
           justify-content: center;
           align-items: center;
           flex-direction: column;
-          background-color: white;
           padding: 0px 20px 20px 20px;
           top: calc(100% - 20px);
           width: max-content;

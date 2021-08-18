@@ -5,9 +5,12 @@
   <Navbar v-if="!mobileMode" class="navbar" />
   <div v-if="!activatedNavbar" class="pageContent">
     <section class="hero">
-      <img src="@/assets/contactos.png" alt="" v-if="!mobileMode && !tabletMode"> 
+     <!--  <img src="@/assets/contactos.png" alt="" v-if="!mobileMode && !tabletMode"> 
       <img src="@/assets/homepagetablet.png" alt="" v-if="tabletMode"> 
-      <img src="@/assets/mobile/homepage.png" alt="" v-if="smallMobileMode"> 
+      <img src="@/assets/mobile/homepage.png" alt="" v-if="smallMobileMode"> -->
+      <video autoplay muted loop id="backgroundVideo">
+      <source src="@/assets/fundoAnimado.mp4" type="video/mp4">
+      </video> 
     </section>
     <section class="future">
       <img id="futureBackground" src="@/assets/backgrounds/backgroundHomepage.png" alt="" v-if="!mobileMode && !tabletMode">
@@ -151,11 +154,19 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .hero {
-  z-index: -10;
+  z-index: -299;
   position: relative;
   height: 100vh;
   display: flex;
   align-items: flex-end;
+
+  #backgroundVideo {
+    position: absolute;
+    z-index: -300;
+    top: -15vh;
+    width: 100vw;
+    overflow: hidden;
+  }
 
   img {
     position: absolute;
@@ -222,8 +233,8 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
     display: flex;
     align-items: center;
     width: 100%;
-    margin-left: 5vw;
-    margin-top: -20vh;
+    margin-left: 6vw;
+    margin-top: -16vh;
     color: $primaryColor;
 
     h2 {
@@ -543,6 +554,12 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
 
   #futureBackground {
     bottom: -35vh;
+  }
+
+  .future .datas {
+     margin-top: -20vh;
+     margin-bottom: -5vh;
+     margin-left: 5vw;
   }
 
   #text {

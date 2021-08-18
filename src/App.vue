@@ -23,6 +23,7 @@ $Azul-escuro: #0010FF;
   box-sizing: border-box;
   overflow: none;
   max-width: 100vw;
+  cursor: default;
 }
 
 body {

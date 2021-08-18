@@ -120,6 +120,7 @@ $primaryColor: #5A68E0;
 	color: #000;
     max-width: 100vw;
     overflow-x: hidden;
+    overflow-y: hidden;
     height: 200px;
 
     .dropdown {
