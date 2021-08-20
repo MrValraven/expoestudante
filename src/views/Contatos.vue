@@ -6,9 +6,9 @@
   <div v-if="!activatedNavbar" class="pageContent">
 
     <section class="hero">
-      <img src="@/assets/contactos.png" alt="" v-if="!mobileMode"> 
-      <img src="@/assets/homepagetablet.png" alt="" v-if="tabletMode"> 
-      <img src="@/assets/mobile/homepage.png" alt="" v-if="smallMobileMode"> 
+      <video autoplay muted loop id="backgroundVideo">
+        <source src="@/assets/fundoAnimado.mp4" type="video/mp4">
+      </video> 
       <div class="ondeEstamos" @click="scrollToElement('.localization')">
         <h1>Onde estamos</h1>
         <h2 v-if="!mobileMode">Em baixo</h2>
@@ -156,12 +156,12 @@ $textColor: #7179F4;
   display: flex;
   align-items: flex-end;
 
-  img {
+  #backgroundVideo {
     position: absolute;
-    z-index: -15;
-    top: 0vh;
+    z-index: -300;
+    top: -15vh;
     width: 100vw;
-    height: 100vh;
+    overflow: hidden;
   }
 
   .ondeEstamos {

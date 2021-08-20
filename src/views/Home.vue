@@ -5,9 +5,6 @@
   <Navbar v-if="!mobileMode" class="navbar" />
   <div v-if="!activatedNavbar" class="pageContent">
     <section class="hero">
-     <!--  <img src="@/assets/contactos.png" alt="" v-if="!mobileMode && !tabletMode"> 
-      <img src="@/assets/homepagetablet.png" alt="" v-if="tabletMode"> 
-      <img src="@/assets/mobile/homepage.png" alt="" v-if="smallMobileMode"> -->
       <video autoplay muted loop id="backgroundVideo">
       <source src="@/assets/fundoAnimado.mp4" type="video/mp4">
       </video> 
@@ -166,14 +163,6 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
     top: -15vh;
     width: 100vw;
     overflow: hidden;
-  }
-
-  img {
-    position: absolute;
-    z-index: -15;
-    top: 0vh;
-    width: 100vw;
-    height: 100vh;
   }
 
   @media (min-width: 1800px) {
