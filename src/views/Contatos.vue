@@ -8,7 +8,8 @@
     <section class="hero">
       <video autoplay muted loop id="backgroundVideo">
         <source src="@/assets/fundoAnimado.mp4" type="video/mp4">
-      </video> 
+      </video>
+      <img src="@/assets/backgrounds/contactos.png" alt=""> 
       <div class="ondeEstamos" @click="scrollToElement('.localization')">
         <h1>Onde estamos</h1>
         <h2 v-if="!mobileMode">Em baixo</h2>
@@ -164,10 +165,17 @@ $textColor: #7179F4;
     overflow: hidden;
   }
 
+  img {
+    position: absolute;
+    bottom: -50vh;
+    z-index: -200;
+  }
+
   .ondeEstamos {
     display: flex;
     flex-direction: column;
-    margin-left: 10vw;
+    margin-left: 15vw;
+    margin-bottom: 5vh;
   }
 
   h1 {
@@ -183,6 +191,7 @@ $textColor: #7179F4;
     font-size: 23px;
     color: $textColor;
     font-weight: bold;
+    margin-top: 0;
   }
 }
 
