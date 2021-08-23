@@ -43,7 +43,7 @@
         <label for="mensagem">Mensagem *</label>
         <textarea name="mensagem" id="mensagem" cols="30" rows="10" placeholder="Mensagem" required v-model="mensagem" />
         <div class="fButton">
-          <BlobButton class="formButton" />
+          <BlobButton class="formButton" mensagem="Enviar" />
         </div>
         
       </form>

@@ -156,6 +156,7 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
   height: 100vh;
   display: flex;
   align-items: flex-end;
+  overflow-x: none;
 
   #backgroundVideo {
     position: absolute;

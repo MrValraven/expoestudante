@@ -1,7 +1,7 @@
 <template>
   <div class="buttons">
     <button class="blob-btn">
-        Enviar
+        {{ mensagem }}
         <span class="blob-btn__inner">
         <span class="blob-btn__blobs">
             <span class="blob-btn__blob"></span>
@@ -26,6 +26,9 @@
 
 <script>
 export default {
+  props: {
+    mensagem: String,
+  }
 
 }
 </script>
