@@ -44,11 +44,6 @@
         </a>
       </div>
       
-      <div class="surpresas">
-        <h2>Só aqui se trazem</h2>
-        <h1>Surpresas</h1>
-      </div>
-     
       <div class="fastLinks" v-if="after29">
         <ul>
           <li><router-link to="/">Programa</router-link></li>
@@ -199,23 +194,16 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
     }
   }
 
-  .surpresas {
-
-    h1 {
-      font-size: 30px;
-    }
-  }
-
 }
 
 .future {
   position: relative;
   z-index: -1;
 
-  img {
+  #futureBackground {
     position: absolute;
     z-index: -200;
-    bottom: -45vh;
+    bottom: -110vh;
     width: 100vw;
   }
 
@@ -473,49 +461,7 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
     }
   }
 
-  .surpresas {
-    color: #FFFFFF;
-    margin-top: 20vh;
-    margin-left: 12vw;
-    padding-bottom: 15vh;
-
-    h2 {
-      font-size: 60px;
-      font-weight: bold;
-      text-transform: uppercase;
-      margin: 0;
-    }
-
-    h1 {
-      font-size: 200px;
-      font-style: italic;
-      font-weight: 300;
-      text-transform: uppercase;
-      margin: 0;
-    }
-
-    @media (max-width: 500px) {
-
-      h1 {
-        font-size: 65px;
-      }
-
-      h2 {
-        font-size: 18px;
-      }
-    }
-  }
-
   @media (max-width: 500px) {
-
-
-
-      .surpresas {
-        margin-top: 35px;
-        margin-left: 15px;
-        padding-bottom: 60px;
-
-      }
 
       .localizacao {
         margin-top: 50px;
@@ -538,6 +484,10 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
         }
       }
     }
+}
+
+footer {
+  margin-top: 110px;
 }
 
 @media (max-width: 1700px) {
@@ -591,27 +541,6 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
     .localizacao #evora{
       margin-right: 80px;
     }
-
-    .surpresas {
-      h2 {
-        font-size: 30px;
-      }
-      h1 {
-        font-size: 105px;
-      }
-    }
-  }
-}
-
-@media (max-width: 800px) {
-  .future .surpresas {
-    margin-top: 130px;
-  }
-}
-
-@media (max-width: 650px) {
-  .future .surpresas {
-    margin-top: 35px;
   }
 }
 
@@ -636,16 +565,6 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
     #evora {
       margin-bottom: 20px;
       margin-right: 20px;
-    }
-  }
-
-  .future .surpresas {
-    h2 {
-      font-size: 25px;
-    }
-
-    h1 {
-      font-size: 60px;
     }
   }
 }
@@ -676,10 +595,6 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
 
   .future .mainText div {
     margin-left: 50px
-  }
-
-  .future .surpresas h1 {
-    font-size: 55px;
   }
 
   .future .localizacao {
