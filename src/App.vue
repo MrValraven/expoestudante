@@ -1,6 +1,28 @@
 <template>
+  <ScrollToTopButton v-if="!isAtTop"  @click="scrollToElement('body')"/>
+  <NavbarMobile v-if="mobileMode" @activatedNavbar="activateNavbar()" />
+  <Navbar v-if="!mobileMode" class="navbar" />
   <router-view/>
+  <Footer />
 </template>
+
+<script>
+
+import Navbar from '../components/Navbar.vue';
+import NavbarMobile from '../components/NavbarMobile.vue';
+import ScrollToTopButton from '../components/ScrollToTopButton.vue';
+import Footer from '../components/Footer.vue';
+
+export default {
+  components: {
+    Navbar,
+    NavbarMobile,
+    ScrollToTopButton,
+    Footer,
+  },
+  
+}
+</script>
 
 <style lang="scss">
 
