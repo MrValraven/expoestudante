@@ -1,9 +1,4 @@
 <template>
-
-  <ScrollToTopButton v-if="!isAtTop"  @click="scrollToElement('body')"/>
-  <NavbarMobile v-if="mobileMode" @activatedNavbar="activateNavbar()" />
-  <Navbar v-if="!mobileMode" class="navbar" />
-  <div v-if="!activatedNavbar" class="pageContent">
     <section class="hero">
       <img src="@/assets/onde.png" alt="" v-if="!mobileMode" >
       <h2>Onde</h2>
@@ -66,29 +61,18 @@
     <section class="transportes">
       <Transporte :titulo="meioDeTransporte" :primeiroParagrafo="primeiroParagrafo" :segundoParagrafo="segundoParagrafo" />
     </section>
-    <Footer id="footer" />
-  </div>
 </template>
 
 
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import Navbar from '../components/Navbar.vue';
-import NavbarMobile from '../components/NavbarMobile.vue';
-import ScrollToTopButton from '../components/ScrollToTopButton.vue';
 import Transporte from '../components/Transporte.vue';
-import Footer from '../components/Footer.vue';
 
 export default defineComponent({
   name: 'Home',
   data() {
     return {
-      activatedNavbar: false,
-      isAtTop: true,
-      mobileMode: false,
-      smallMobileMode: false,
-      tabletMode: false,
       selectedBox: "arena",
       meioDeTransporte: "",
       primeiroParagrafo: "",
@@ -115,24 +99,14 @@ export default defineComponent({
     }
   },
   components: {
-    Navbar,
-    NavbarMobile,
-    ScrollToTopButton,
     Transporte,
-    Footer,
   },
   created() {
-    window.addEventListener('scroll', this.handleScroll);
-    this.handleResize();
-    window.addEventListener('resize', this.handleResize);
     this.meioDeTransporte = this.arena.transportes[0].titulo;
     this.primeiroParagrafo = this.arena.transportes[0].primeiroParagrafo;
     this.segundoParagrafo = this.arena.transportes[0].segundoParagrafo;
   },
-  unmounted() {
-    window.removeEventListener('scroll', this.handleScroll);
-    window.removeEventListener('resize', this.handleResize);
-  },
+
    methods: {
 
     nextArenaTransporte() {
@@ -167,34 +141,6 @@ export default defineComponent({
       this.segundoParagrafo = this.ces.transportes[this.cesTransporteIndex].segundoParagrafo;
      },
 
-     activateNavbar() {
-      this.activatedNavbar = !this.activatedNavbar;
-    },
-
-    scrollToElement(destination: string) {
-      const element = document.querySelector(destination);
-      if (element) {
-        element.scrollIntoView({behavior: 'smooth'});
-      }
-    },
-
-    getImgURL(image: String) {
-        return require('../assets/' + image);
-    },
-
-    handleScroll() {
-      window.pageYOffset >= 250 ? this.isAtTop = false : this.isAtTop = true;
-
-    },
-
-    handleResize() {
-      this.tabletMode = window.innerWidth >= 700 && window.innerWidth <= 1050;
-      this.mobileMode = window.innerWidth <= 1015;
-      if(!this.mobileMode) {
-        this.activatedNavbar = false;
-      }
-      this.smallMobileMode = window.innerWidth <= 600;
-    },
     getPrimeiroParagrafo(option: number) {
       if(this.selectedBox == 'arena') {
         switch (option) {
@@ -318,12 +264,6 @@ export default defineComponent({
 $textColor: #596FF0;
 $headerTextColor: #7179F4;
 $blueTextColor: #0010FF;
-
-.pageContent {
-  position: relative;
-  max-width: 100vw;
-  overflow: hidden;
-}
 
 .hero {
   z-index: 200;

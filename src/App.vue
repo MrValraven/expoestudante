@@ -1,19 +1,28 @@
 <template>
-  <ScrollToTopButton v-if="!isAtTop"  @click="scrollToElement('body')"/>
-  <NavbarMobile v-if="mobileMode" @activatedNavbar="activateNavbar()" />
-  <Navbar v-if="!mobileMode" class="navbar" />
+  <ScrollToTopButton />
+  <NavbarMobile v-if="mobileMode" />
+  <Navbar v-if="!mobileMode"/>
   <router-view/>
   <Footer />
 </template>
 
-<script>
+<script lang="ts">
 
-import Navbar from '../components/Navbar.vue';
-import NavbarMobile from '../components/NavbarMobile.vue';
-import ScrollToTopButton from '../components/ScrollToTopButton.vue';
-import Footer from '../components/Footer.vue';
+import Navbar from '@/components/Navbar.vue';
+import NavbarMobile from '@/components/NavbarMobile.vue';
+import ScrollToTopButton from '@/components/ScrollToTopButton.vue';
+import Footer from '@/components/Footer.vue';
 
 export default {
+  data() {
+    return {
+      activatedNavbar: false,
+      mobileMode: false,
+      backgroundImage: '',
+      smallMobileMode: false,
+      tabletMode: false,
+    }
+  },
   components: {
     Navbar,
     NavbarMobile,
@@ -43,16 +52,15 @@ $Azul-escuro: #0010FF;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  overflow: none;
   max-width: 100vw;
   cursor: default;
+  overflow-x: hidden;
 }
 
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  overflow: none;
   max-width: 100vw;
 
    &::-webkit-scrollbar {

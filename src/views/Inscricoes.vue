@@ -1,7 +1,4 @@
 <template>
-    <ScrollToTopButton v-if="!isAtTop"  @click="scrollToElement('body')"/>
-    <NavbarMobile v-if="mobileMode" @activatedNavbar="activateNavbar()" />
-    <Navbar v-if="!mobileMode" class="navbar" />
     <section class="hero">
       <video autoplay muted loop id="backgroundVideo">
         <source src="@/assets/fundoAnimado.mp4" type="video/mp4">
@@ -53,10 +50,6 @@
 </template>
 
 <script>
-
-import Navbar from '@/components/Navbar.vue';
-import NavbarMobile from '@/components/NavbarMobile.vue';
-import ScrollToTopButton from '@/components/ScrollToTopButton.vue';
 import BlobButton from '@/components/BlobButton.vue';
 import InscricaoCard from '@/components/InscricaoCard.vue';
 import Dropzone from '@/components/Dropzone.vue';
@@ -67,15 +60,11 @@ export default {
     data() {
       return {
         selectedInscricao: "",
-        isAtTop: true,
-        mobileMode: false,
         fullName: "",
         email: "",
         instituicao: "",
         nif: "",
         isChecked: false,
-
-
       }
     },
     setup() {
@@ -92,9 +81,6 @@ export default {
       return { dropzoneFile, drop, selectedFile };
     },
     components: {
-        ScrollToTopButton,
-        Navbar,
-        NavbarMobile,
         BlobButton,
         InscricaoCard,
         Dropzone,

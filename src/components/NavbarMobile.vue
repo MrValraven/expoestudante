@@ -1,8 +1,8 @@
 <template>
-    <nav class="mobileNav">
+    <nav v-if="mobileMode">
         <img class="bgImage" src="@/assets/mobile/navbar.png" alt="">
         <transition-group
-        v-if="isActive && after29" 
+        v-if="isActive" 
         appear
         tag="ul"
         @before-enter="beforeEnter"
@@ -54,7 +54,7 @@
     </nav>
 </template>
 
-<script lang="ts">
+<script lang="js">
 import { defineComponent } from 'vue';
 import gsap from 'gsap';
 export default defineComponent({          
@@ -80,7 +80,6 @@ export default defineComponent({
         return { navLinks, beforeEnter, enter }
     },
     name: "MobileNav",
-    emits: ["activatedNavbar"],
     data() {
         return {
             toggle: false,
@@ -92,8 +91,12 @@ export default defineComponent({
             whiteSvg: "#8690fa",
             darkerWhiteSvg: "#5153ff",
             iconSize: "50px",
+            mobileMode: false,
+            smallMobileMode: false,
+            tabletMode: false,
         }
     },
+     emits: ['checkScreenWidth'],
     methods: {
         toggleClass() {
             this.activatedNavbar = !this.activatedNavbar;
@@ -102,17 +105,29 @@ export default defineComponent({
             this.toggle = !this.toggle;
             this.toggle ? this.newClass = "toggle" : this.newClass = "";
             this.toggle ? this.isActive = "isActive" : this.isActive = "";
-            this.$emit("activatedNavbar", this.activatedNavbar);
+        },
+        handleResize(tabletMode: boolean, mobileMode: boolean, smallMobileMode: boolean ) {
+            this.tabletMode = window.innerWidth <= 1100;
+            this.mobileMode = window.innerWidth <= 1015;
+            if(!this.mobileMode) {
+                this.activatedNavbar = false;
+            }
+            this.smallMobileMode = window.innerWidth <= 600;
+            this.$emit('checkScreenWidth', { tabletMode, mobileMode, smallMobileMode })
         },
     },
+    created() {
+        this.handleResize(this.tabletMode, this.mobileMode, this.smallMobileMode)
+        document.addEventListener('resize', this.handleResize(this.tabletMode, this.mobileMode, this.smallMobileMode))
+    }
 });
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 
 $primaryColor: #5A68E0;
 
-.mobileNav {
+nav {
     position: absolute;
 	z-index: 300;
 	width: 100%;
@@ -188,6 +203,10 @@ $primaryColor: #5A68E0;
             a {
                 opacity: 1;
                 color: white;
+
+                &.router-link-exact-active {
+                    border-bottom: 2px solid #ffffff;
+                }
 
                 i {
                     transition: transform 0.7s cubic-bezier(0.075, 0.82, 0.165, 1);
