@@ -1,7 +1,7 @@
 <template>
 
   <header class="header" >
-    <img class="bgImage" src="@/assets/Caminho105.svg" alt="">
+    <img class="bgImage" src="@/assets/navbar.svg" alt="">
     <nav id="nav">
       <ul class="navLinks">
         <router-link to="/" class="navLi">

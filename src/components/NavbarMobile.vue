@@ -54,7 +54,7 @@
     </nav>
 </template>
 
-<script lang="js">
+<script lang="ts">
 import { defineComponent } from 'vue';
 import gsap from 'gsap';
 export default defineComponent({          
@@ -63,11 +63,11 @@ export default defineComponent({
             {id: 0, routeName: "Home", routeText: "Home"},
             {id: 1, routeName: "Onde", routeText: "Sobre"},
             {id: 2, routeName: "Contactos", routeText: "Contactos"},
-        ]
+        ];
         const beforeEnter: any = (el: any) => {
             el.style.opacity = 0;
             el.style.transform = 'translateX(-100px)';
-        }
+        };
         const enter: any = (el: any, done: any) => {
             gsap.to(el, {
                 opacity: 1,
@@ -76,7 +76,7 @@ export default defineComponent({
                 onComplete: done,
                 delay: el.dataset.index * 0.05,
             });
-        }
+        };
         return { navLinks, beforeEnter, enter }
     },
     name: "MobileNav",
@@ -116,10 +116,7 @@ export default defineComponent({
             this.$emit('checkScreenWidth', { tabletMode, mobileMode, smallMobileMode })
         },
     },
-    created() {
-        this.handleResize(this.tabletMode, this.mobileMode, this.smallMobileMode)
-        document.addEventListener('resize', this.handleResize(this.tabletMode, this.mobileMode, this.smallMobileMode))
-    }
+    
 });
 </script>
 

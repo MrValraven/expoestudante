@@ -7,13 +7,13 @@
 </template>
 
 <script lang="ts">
-
+import { defineComponent } from 'vue';
 import Navbar from '@/components/Navbar.vue';
 import NavbarMobile from '@/components/NavbarMobile.vue';
 import ScrollToTopButton from '@/components/ScrollToTopButton.vue';
 import Footer from '@/components/Footer.vue';
 
-export default {
+export default defineComponent({
   data() {
     return {
       activatedNavbar: false,
@@ -30,7 +30,7 @@ export default {
     Footer,
   },
   
-}
+});
 </script>
 
 <style lang="scss">
