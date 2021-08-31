@@ -196,4 +196,10 @@ $underlineColor: #596FF0;
     top: -2.5vh;
   }
 }
+
+@media (max-width: 740px) {
+  .header {
+    display: none;
+  }
+}
 </style>

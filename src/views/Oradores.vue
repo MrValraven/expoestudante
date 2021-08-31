@@ -83,10 +83,12 @@ $textBlue: #596ff0;
     h1 {
         font-size: 100px;
         font-weight: 900;
+        text-transform: uppercase;
         color: $headerBlue;
     }
     .oradores {
         display: flex;
+        justify-content: space-evenly;
         flex-wrap: wrap;
     }
 }
@@ -100,6 +102,11 @@ $textBlue: #596ff0;
         .fundoOndinhas {
             margin-left: -100px;
         }
+    }
+
+    .outrosOradores {
+        padding-left: 100px;
+        padding-right: 100px
     }
 
 }
@@ -123,6 +130,44 @@ $textBlue: #596ff0;
 
         .fundoOndinhas {
             margin-left: -50px;
+        }
+    }
+
+    .outrosOradores {
+        padding-left: 50px;
+        padding-right: 50px
+    }
+}
+
+@media screen and (max-width: 739px) {
+    .oradorPrincipal {
+
+        h1 {
+            font-size: 30px;
+        }
+
+        h2 {
+            font-size: 45px;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .oradorPrincipal {
+        padding-left: 25px;
+        padding-right: 25px;
+
+        h2 {
+            margin-left: 20px;
+        }
+    }
+
+    .outrosOradores {
+        padding-left: 25px;
+        padding-right: 25px;
+
+        h1 {
+            font-size: 30px;
         }
     }
 }

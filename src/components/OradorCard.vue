@@ -77,6 +77,7 @@ $textBlue: #596ff0;
         }
 
         p {
+            max-width: 1200px;
             font-size: 25px;
             font-weight: 300;
             font-style: italic;
@@ -114,6 +115,42 @@ $textBlue: #596ff0;
             p {
                 font-size: 20px;
             }
+        }
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .oradorCard {
+        flex-direction: column;
+
+        .images img {
+            margin-right: 0;
+        }
+
+        .oradorInfo h4:nth-child(3) {
+            margin-bottom: 40px;
+        }
+    }
+}
+
+@media (max-width: 739px) {
+    .oradorCard {
+        z-index: 0;
+
+        .images img {
+            width: 300px;
+            height: 300px;
+        }
+    }
+}
+
+@media (max-width: 400px) {
+    .oradorCard {
+        z-index: 0;
+
+        .images img {
+            width: 200px;
+            height: 200px;
         }
     }
 }

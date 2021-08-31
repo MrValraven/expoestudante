@@ -1,7 +1,7 @@
 <template>
   <ScrollToTopButton />
-  <NavbarMobile v-if="mobileMode" />
-  <Navbar v-if="!mobileMode"/>
+  <NavbarMobile />
+  <Navbar />
   <router-view/>
   <Footer />
 </template>

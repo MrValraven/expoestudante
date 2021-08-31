@@ -47,7 +47,7 @@ $headerBlue: #0010FF;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-right: 30px;
+    width: 300px;
     margin-bottom: 30px;
 
     .imgContainer {
@@ -64,6 +64,7 @@ $headerBlue: #0010FF;
         transition: opacity 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 
         &:hover {
+            cursor: pointer;
             opacity: 0;
         }
     }
@@ -82,6 +83,21 @@ $headerBlue: #0010FF;
         font-size: 20px;
         font-weight: 300;
         color: $headerBlue;
+    }
+}
+
+@media (max-width: 600px) {
+    .cardPreview {
+         width: 125px;
+        .imgContainer {
+            height: 75px;
+            width: 75px;
+
+            img {
+                height: 75px;
+                width: 75px;
+            }
+        }
     }
 }
 

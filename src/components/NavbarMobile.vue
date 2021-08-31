@@ -1,26 +1,6 @@
 <template>
-    <nav v-if="mobileMode">
+    <nav>
         <img class="bgImage" src="@/assets/mobile/navbar.png" alt="">
-        <transition-group
-        v-if="isActive" 
-        appear
-        tag="ul"
-        @before-enter="beforeEnter"
-        @enter="enter" 
-        class="navLinks" 
-        :class="isActive"
-        >
-            <li v-for="(navlink, index) in navLinks" :key="navlink.id" :data-index="index"><router-link :to="{ name: navlink.routeName }"> {{ navlink.routeText }}</router-link></li>
-            <li class="dropdown" @click="openSobre = !openSobre">
-                <svg id="sobre" width="25px" height="25px" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m208 232a23.928 23.928 0 0 1 -16.971-7.029l-160-160a24 24 0 0 1 33.942-33.942l160 160a24 24 0 0 1 -16.971 40.971z" :fill="whiteSvg"/><path d="m48 200a24 24 0 0 1 -24-24v-128a24 24 0 0 1 24-24h128a24 24 0 0 1 0 48h-104v104a24 24 0 0 1 -24 24z" :fill="darkerWhiteSvg"/><path d="m304 232a24 24 0 0 1 -16.971-40.971l160-160a24 24 0 0 1 33.942 33.942l-160 160a23.928 23.928 0 0 1 -16.971 7.029z" :fill="whiteSvg"/><path d="m464 200a24 24 0 0 1 -24-24v-104h-104a24 24 0 0 1 0-48h128a24 24 0 0 1 24 24v128a24 24 0 0 1 -24 24z" :fill="darkerWhiteSvg"/><path d="m48 488a24 24 0 0 1 -16.971-40.971l160-160a24 24 0 0 1 33.942 33.942l-160 160a23.928 23.928 0 0 1 -16.971 7.029z" :fill="whiteSvg"/><path d="m176 488h-128a24 24 0 0 1 -24-24v-128a24 24 0 0 1 48 0v104h104a24 24 0 0 1 0 48z" :fill="darkerWhiteSvg"/><path d="m464 488a23.928 23.928 0 0 1 -16.971-7.029l-160-160a24 24 0 0 1 33.942-33.942l160 160a24 24 0 0 1 -16.971 40.971z" :fill="whiteSvg"/><path d="m464 488h-128a24 24 0 0 1 0-48h104v-104a24 24 0 0 1 48 0v128a24 24 0 0 1 -24 24z" :fill="darkerWhiteSvg"/></svg>
-                <a class="navLink">Sobre <i class="fas fa-chevron-down" :class="{activated: openSobre}"></i></a>
-                <div class="subMenu" v-if="openSobre">
-                    <router-link to="/sobre/onde">Onde</router-link>
-                    <router-link to="/sobre/porque">Porquê</router-link>
-                </div>
-            </li>
-        </transition-group>
-
         <ul
         v-if="isActive" 
         class="navLinks" 
@@ -125,6 +105,7 @@ export default defineComponent({
 $primaryColor: #5A68E0;
 
 nav {
+    display: none;
     position: absolute;
 	z-index: 300;
 	width: 100%;
@@ -240,7 +221,11 @@ nav {
     }
 }
 
-@media (min-width: 700px) {
+@media (max-width: 739px) {
+    nav {
+        display: block;
+    }
+
     .mobileNav {
         height: 300px;
     }
