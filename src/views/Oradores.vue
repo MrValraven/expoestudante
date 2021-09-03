@@ -160,6 +160,11 @@ $textBlue: #596ff0;
         h2 {
             margin-left: 20px;
         }
+
+        .fundoOndinhas {
+            margin-left: -25px;
+            min-width: 100vw;
+        }
     }
 
     .outrosOradores {
@@ -170,7 +175,18 @@ $textBlue: #596ff0;
             font-size: 30px;
         }
     }
+
 }
 
+@media (max-width: 351px) {
+    .oradorPrincipal {
+        h1 {
+            font-size: 25px;
+        }
+        h2 {
+            font-size: 35px ;
+        }
+    }
+}
 
 </style>
