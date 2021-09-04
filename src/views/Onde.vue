@@ -277,7 +277,7 @@ $blueTextColor: #0010FF;
     position: absolute;
     z-index: -15;
     bottom: 0;
-    width: 100vw;
+    width: 100%;
   }
 
   h2 {
@@ -471,7 +471,7 @@ $blueTextColor: #0010FF;
       }
 
       .palcos {
-        width: 100vw;
+        width: 100%;
         margin-top: 20px;
 
         ul {
@@ -515,7 +515,7 @@ $blueTextColor: #0010FF;
     }
     img {
       position: absolute;
-      max-width: 100vw;
+      max-width: 100%;
       z-index: -30000;
       height: 50vh;
       top: 0vh;
@@ -583,7 +583,7 @@ $blueTextColor: #0010FF;
       }
 
       .palcos {
-        width: 100vw;
+        width: 100%;
         margin-top: 20px;
 
         ul {
@@ -626,7 +626,7 @@ $blueTextColor: #0010FF;
       margin-top: 30px;
     }
     img {
-      max-width: 100vw;
+      max-width: 100%;
       z-index: -30000;
       height: auto;
       top: 75vh;

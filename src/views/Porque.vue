@@ -65,7 +65,7 @@ $blueTextColor: #0010FF;
     position: absolute;
     z-index: -15;
     top: 70vh;
-    width: 100vw;
+    width: 100%;
   }
 
   h2 {

@@ -1,8 +1,12 @@
 <template>
     <section class="hero">
+      <div class="spread-video">
       <video autoplay muted loop id="backgroundVideo">
-      <source src="@/assets/fundoAnimado.mp4" type="video/mp4">
-      </video> 
+        <source src="@/assets/fundos/fundoAnimado.mp4" type="video/mp4">
+      </video>
+      </div>
+      <img src="@/assets/fundos/ondinhaHero.png" alt="">
+      <slot></slot>
     </section>
 </template>
 
@@ -15,54 +19,30 @@
 <style lang="scss" scoped>
 
 .hero {
-  z-index: -299;
+  z-index: 0;
   position: relative;
   height: 100vh;
   display: flex;
-  align-items: flex-end;
-  overflow-x: none;
+  justify-content: flex-end;
 
-  #backgroundVideo {
+  .spread-video > video {
+  width: 100%;
+  }
+  
+  .spread-video{
     position: absolute;
-    z-index: -300;
+    z-index: -2;
     top: -15vh;
-    width: 100vw;
+    width: 100%;
     overflow: hidden;
   }
 
-  @media (min-width: 1800px) {
-
-    .datas {
-      margin-left: 5vw;
-      margin-bottom: 3vh;
-    }
-
+  img {
+    z-index: -1;
+    position: absolute;
+    bottom: -18vh;
+    width: 100%;
   }
-
-  @media (max-width: 365px) {
-
-    .datas {
-      margin-left: 5vw;
-      margin-bottom: 3vh;
-  
-      h1 {
-        font-size: 25px;
-      }
-
-      h2 {
-        font-size: 18px;
-      }
-
-      span {
-        font-size: 11px;
-      }
-
-      hr {
-        width: 50px;
-      }
-    }
-  }
-
 }
 
 </style>

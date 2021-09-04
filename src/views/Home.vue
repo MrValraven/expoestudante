@@ -1,14 +1,7 @@
 <template>
-  <div class="pageContent">
-    <section class="hero">
-      <video autoplay muted loop id="backgroundVideo">
-      <source src="@/assets/fundoAnimado.mp4" type="video/mp4">
-      </video> 
-    </section>
-    <section class="future">
-      <img id="futureBackground" src="@/assets/backgrounds/backgroundHomepage.png" alt="" v-if="!mobileMode && !tabletMode">
-      <img id="futureBackground" src="@/assets/futuroTablet.png" alt="" v-if="tabletMode && !smallMobileMode">
-      <img id="futureBackground" src="@/assets/backgrounds/backgroundHomepage.png" alt="" v-if="smallMobileMode">
+  <Hero></Hero>
+  <section class="future">
+      <img id="futureBackground" src="@/assets/fundos/futuro.png" alt="">
 
       <div class="datas"> 
         <h2>Início</h2>
@@ -40,30 +33,24 @@
         </a>
       </div>
       
-      <div class="fastLinks" v-if="after29">
-        <ul>
-          <li><router-link to="/">Programa</router-link></li>
-          <li><router-link to="/">Inscrições</router-link></li>
-          <li><router-link to="/">Acreditações</router-link></li>
-          <li><router-link to="/">Contatos</router-link></li>
-        </ul>
-      </div>
-    </section>
-
-  </div>
+  </section>
 </template>
 
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import Hero from '@/components/Hero.vue';
 
 export default defineComponent({
   name: 'Home',
   data() {
     return {
-      after29: false,
+      
     }
   },
+  components: {
+    Hero,
+  }
 });
 </script>
 
@@ -73,72 +60,17 @@ $primaryColor: #5A68E0;
 $darkerPrimaryColor: #7179F4;
 $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
 
-.pageContent {
-  position: relative;
-  max-width: 100vw;
-  overflow: hidden;
-}
-
-.hero {
-  z-index: -299;
-  position: relative;
-  height: 100vh;
-  display: flex;
-  align-items: flex-end;
-  overflow-x: none;
-
-  #backgroundVideo {
-    position: absolute;
-    z-index: -300;
-    top: -15vh;
-    width: 100vw;
-    overflow: hidden;
-  }
-
-  @media (min-width: 1800px) {
-
-    .datas {
-      margin-left: 5vw;
-      margin-bottom: 3vh;
-    }
-
-  }
-
-  @media (max-width: 365px) {
-
-    .datas {
-      margin-left: 5vw;
-      margin-bottom: 3vh;
-  
-      h1 {
-        font-size: 25px;
-      }
-
-      h2 {
-        font-size: 18px;
-      }
-
-      span {
-        font-size: 11px;
-      }
-
-      hr {
-        width: 50px;
-      }
-    }
-  }
-
-}
-
 .future {
   position: relative;
-  z-index: -1;
+  z-index: 0;
+  padding-bottom: 200px;
 
   #futureBackground {
     position: absolute;
-    z-index: -200;
-    bottom: -110vh;
-    width: 100vw;
+    z-index: -1;
+    bottom: 0;
+    width: 100%;
+    overflow: hidden;
   }
 
    .datas {
@@ -146,7 +78,7 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
     align-items: center;
     width: 100%;
     margin-left: 6vw;
-    margin-top: -16vh;
+    margin-top: -14vh;
     color: $primaryColor;
 
     h2 {
@@ -244,130 +176,23 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
     }
   }
 
-
-  @media (max-width: 1100px) {
-
-    .mainText div {
-    
-    
-      h2 {
-        font-size: 2.5vw
-      }
-    
-      h1 {
-        font-size: 5vw;
-      }
-    }
-    .text {
-      width: 30%;
-    }
-  }
-
-  @media (max-width: 1015px) {
-
-  .hero {
-    height: 100vh;
-  }
-}
-
-  @media (max-width: 500px) {
-
-    .datas {
-      justify-content: center;
-      margin-top: -80px;
-      margin-left: 0px;
-
-      h2 {
-        font-size: 25px;
-        margin-right: 5px;
-      }
-
-      h1 {
-        font-size: 28px;
-        margin: 0;
-
-        span {
-          font-size: 11px;
-        }
-
-        hr {
-          width: 100px;
-          height: 0.1px;
-          border: solid 2px #0010ff;
-        }
-      }
-    }
-
-    .mainText {
-    
-      h2 {
-        margin-left: 20px;
-        font-size: 40px;
-      }
-
-      div {
-        flex-direction: column;
-        margin-left: 70px;
-
-        h1 {
-        font-size: 70px;
-        margin-bottom: 20px;
-        }
-        .text {
-          margin-left: 30px;
-          width: 200px;
-        }
-
-        p {
-          font-size: 16px;
-          width: 200px;
-        }
-
-        #arrows {
-        display: none;
-        }
-      }
-    
-    }
-
-    .localizacao {
-      padding-bottom: 100px;
-
-      h1 {
-        font-size: 20px;
-      }
-
-      #evora {
-        margin-top: 0;
-        font-size: 30px;
-      }
-    }
-
-    #futureBackground {
-      bottom: 0vh;
-    }
-
-    
-
-  }
-
   .localizacao {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    z-index: 2000;
-    cursor: pointer;
+    z-index: 2;
+    margin-bottom: 80px;
 
     #evora {
       display: flex;
       justify-content: flex-end;
       align-items: center;
       color: white;
-      opacity: 1;
+      opacity: 0.8;
       margin-top: 10vh;
       margin-right: 13vw;
       transition: all 0.2s $transitionEase;
-      z-index: 2000;
+      z-index: 2;
 
       i {
         opacity: 0.6;
@@ -395,34 +220,6 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
       }
     }
   }
-
-  @media (max-width: 500px) {
-
-      .localizacao {
-        margin-top: 50px;
-        align-items: flex-end;
-        margin-right: 20px;
-        margin-bottom: 10px;
-
-        #evora {
-          margin: 0;
-
-          i {
-            font-size: 25px;
-            margin-right: 2px;
-            margin-bottom: 10px;
-          }
-
-          h1 {
-            font-size: 18px;
-          }
-        }
-      }
-    }
-}
-
-footer {
-  margin-top: 110px;
 }
 
 @media (max-width: 1700px) {
@@ -447,13 +244,31 @@ footer {
   
 }
 
+@media (max-width: 1100px) {
+
+  .mainText div {
+    
+    h2 {
+      font-size: 2.5vw
+    }
+    
+    h1 {
+      font-size: 5vw;
+    }
+  }
+
+  .text {
+    width: 30%;
+  }
+}
+
 @media (max-width: 1030px) {
 
   .hero {
     height: 50vh;
 
     img {
-      width: 100vw;
+      width: 100%;
       height: auto;
     }
   }
@@ -461,7 +276,7 @@ footer {
   .future {
 
     #futureBackground {
-      width: 100vw;
+      width: 100%;
       bottom: 0;
     }
     .datas {
@@ -475,6 +290,92 @@ footer {
 
     .localizacao #evora{
       margin-right: 80px;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+
+  .datas {
+    justify-content: center;
+    margin-top: -80px;
+    margin-left: 0px;
+
+    h2 {
+      font-size: 25px;
+      margin-right: 5px;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin: 0;
+
+      span {
+        font-size: 11px;
+      }
+
+      hr {
+        width: 100px;
+        height: 0.1px;
+        border: solid 2px #0010ff;
+      }
+    }
+  }
+
+  .mainText {
+    
+    h2 {
+      margin-left: 20px;
+      font-size: 40px;
+    }
+
+    div {
+      flex-direction: column;
+      margin-left: 70px;
+
+      h1 {
+      font-size: 70px;
+      margin-bottom: 20px;
+      }
+
+      .text {
+        margin-left: 30px;
+        width: 200px;
+      }
+
+      p {
+        font-size: 16px;
+        width: 200px;
+      }
+
+      #arrows {
+      display: none;
+      }
+    }
+  }
+
+  #futureBackground {
+    bottom: 0vh;
+  }
+
+  .localizacao {
+    margin-top: 50px;
+    align-items: flex-end;
+    margin-right: 20px;
+    margin-bottom: 10px;
+
+    #evora {
+      margin: 0;
+
+      i {
+        font-size: 25px;
+        margin-right: 2px;
+        margin-bottom: 10px;
+      }
+
+      h1 {
+        font-size: 18px;
+      }
     }
   }
 }

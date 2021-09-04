@@ -1,13 +1,10 @@
 <template>
     <section class="hero">
-      <video autoplay muted loop id="backgroundVideo">
-        <source src="@/assets/fundoAnimado.mp4" type="video/mp4">
-      </video>
-      <img src="@/assets/backgrounds/contactos.png" alt=""> 
+      <Hero />
       <div class="ondeEstamos" @click="scrollToElement('.localization')">
         <h1>Onde estamos</h1>
-        <h2 v-if="!mobileMode">Em baixo</h2>
-        <svg  v-if="mobileMode" id="arrows" height="50px" width="50px" viewBox="0 0 512 512"  xmlns="http://www.w3.org/2000/svg"><g fill="#5153ff"><path d="m320 424a24 24 0 0 1 -16.971-40.971l127.03-127.029-127.03-127.029a24 24 0 0 1 33.942-33.942l144 144a24 24 0 0 1 0 33.942l-144 144a23.928 23.928 0 0 1 -16.971 7.029z"/><path d="m184 424a24 24 0 0 1 -16.971-40.971l127.03-127.029-127.03-127.029a24 24 0 0 1 33.942-33.942l144 144a24 24 0 0 1 0 33.942l-144 144a23.928 23.928 0 0 1 -16.971 7.029z"/><path d="m48 424a24 24 0 0 1 -16.971-40.971l127.03-127.029-127.03-127.029a24 24 0 0 1 33.942-33.942l144 144a24 24 0 0 1 0 33.942l-144 144a23.928 23.928 0 0 1 -16.971 7.029z"/></g></svg>
+        <h2 >Em baixo</h2>
+        <svg id="arrows" height="50px" width="50px" viewBox="0 0 512 512"  xmlns="http://www.w3.org/2000/svg"><g fill="#5153ff"><path d="m320 424a24 24 0 0 1 -16.971-40.971l127.03-127.029-127.03-127.029a24 24 0 0 1 33.942-33.942l144 144a24 24 0 0 1 0 33.942l-144 144a23.928 23.928 0 0 1 -16.971 7.029z"/><path d="m184 424a24 24 0 0 1 -16.971-40.971l127.03-127.029-127.03-127.029a24 24 0 0 1 33.942-33.942l144 144a24 24 0 0 1 0 33.942l-144 144a23.928 23.928 0 0 1 -16.971 7.029z"/><path d="m48 424a24 24 0 0 1 -16.971-40.971l127.03-127.029-127.03-127.029a24 24 0 0 1 33.942-33.942l144 144a24 24 0 0 1 0 33.942l-144 144a23.928 23.928 0 0 1 -16.971 7.029z"/></g></svg>
       </div>
     </section>
     <section class="localization">
@@ -50,6 +47,7 @@
 import { defineComponent } from 'vue';
 import BlobButton from '../components/BlobButton.vue';
 import DirectionsButton from '../components/DirectionsButton.vue';
+import Hero from '@/components/Hero.vue';
 
 export default defineComponent({
   name: 'Home',
@@ -67,6 +65,7 @@ export default defineComponent({
   components: {
     BlobButton,
     DirectionsButton,
+    Hero,
   },
   created() {
     this.frameWidth = window.innerWidth * 0.80;
@@ -87,32 +86,12 @@ export default defineComponent({
 
 $textColor: #7179F4;
 
-.hero {
-  z-index: -15;
-  position: relative;
-  height: 100vh;
-  display: flex;
-  align-items: flex-end;
-
-  #backgroundVideo {
-    position: absolute;
-    z-index: -300;
-    top: -15vh;
-    width: 100vw;
-    overflow: hidden;
-  }
-
-  img {
-    position: absolute;
-    bottom: -50vh;
-    z-index: -200;
-  }
-
   .ondeEstamos {
     display: flex;
     flex-direction: column;
     margin-left: 15vw;
     margin-bottom: 5vh;
+    z-index: 1;
   }
 
   h1 {
@@ -130,7 +109,6 @@ $textColor: #7179F4;
     font-weight: bold;
     margin-top: 0;
   }
-}
 
 
 .localization {

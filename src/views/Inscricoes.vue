@@ -1,14 +1,10 @@
 <template>
-    <section class="hero">
-      <video autoplay muted loop id="backgroundVideo">
-        <source src="@/assets/fundoAnimado.mp4" type="video/mp4">
-      </video>
-      <img src="@/assets/backgrounds/contactos.png" alt=""> 
-      <div class="inscricoes">
-        <h1>Inscrições</h1>
-        <svg  v-if="mobileMode" id="arrows" height="50px" width="50px" viewBox="0 0 512 512"  xmlns="http://www.w3.org/2000/svg"><g fill="#5153ff"><path d="m320 424a24 24 0 0 1 -16.971-40.971l127.03-127.029-127.03-127.029a24 24 0 0 1 33.942-33.942l144 144a24 24 0 0 1 0 33.942l-144 144a23.928 23.928 0 0 1 -16.971 7.029z"/><path d="m184 424a24 24 0 0 1 -16.971-40.971l127.03-127.029-127.03-127.029a24 24 0 0 1 33.942-33.942l144 144a24 24 0 0 1 0 33.942l-144 144a23.928 23.928 0 0 1 -16.971 7.029z"/><path d="m48 424a24 24 0 0 1 -16.971-40.971l127.03-127.029-127.03-127.029a24 24 0 0 1 33.942-33.942l144 144a24 24 0 0 1 0 33.942l-144 144a23.928 23.928 0 0 1 -16.971 7.029z"/></g></svg>
-      </div>
-    </section>
+      <Hero>
+        <div class="inscricoes">
+          <h1>Inscrições</h1>
+          <svg  v-if="mobileMode" id="arrows" height="50px" width="50px" viewBox="0 0 512 512"  xmlns="http://www.w3.org/2000/svg"><g fill="#5153ff"><path d="m320 424a24 24 0 0 1 -16.971-40.971l127.03-127.029-127.03-127.029a24 24 0 0 1 33.942-33.942l144 144a24 24 0 0 1 0 33.942l-144 144a23.928 23.928 0 0 1 -16.971 7.029z"/><path d="m184 424a24 24 0 0 1 -16.971-40.971l127.03-127.029-127.03-127.029a24 24 0 0 1 33.942-33.942l144 144a24 24 0 0 1 0 33.942l-144 144a23.928 23.928 0 0 1 -16.971 7.029z"/><path d="m48 424a24 24 0 0 1 -16.971-40.971l127.03-127.029-127.03-127.029a24 24 0 0 1 33.942-33.942l144 144a24 24 0 0 1 0 33.942l-144 144a23.928 23.928 0 0 1 -16.971 7.029z"/></g></svg>
+        </div>
+      </Hero>
     <section class="signups">
       <div class="signupCards" v-if="!selectedInscricao">
         <inscricao-card nome="Estudante" preco="15" @click="selectedInscricao = 'Estudante'" />
@@ -53,6 +49,7 @@
 import BlobButton from '@/components/BlobButton.vue';
 import InscricaoCard from '@/components/InscricaoCard.vue';
 import Dropzone from '@/components/Dropzone.vue';
+import Hero from '@/components/Hero.vue';
 import { ref } from 'vue'
 
 export default {
@@ -84,6 +81,7 @@ export default {
         BlobButton,
         InscricaoCard,
         Dropzone,
+        Hero,
     },
     methods: {
       submitForm() {
@@ -98,27 +96,6 @@ export default {
 $textColor: #7179F4;
 $primaryColor: #5A68E0;
 
-.hero {
-  z-index: -15;
-  position: relative;
-  height: 100vh;
-  display: flex;
-  align-items: flex-end;
-
-  #backgroundVideo {
-    position: absolute;
-    z-index: -300;
-    top: -15vh;
-    max-width: 99.5vw;
-    overflow: hidden;
-  }
-
-  img {
-    position: absolute;
-    bottom: -35vh;
-    z-index: -200;
-    max-width: 99.5vw
-  }
 
   .inscricoes {
       margin-bottom: 10vh;
@@ -132,8 +109,6 @@ $primaryColor: #5A68E0;
         margin-bottom: 0;
       }
   }
-
-}
 
 .signups {
   display: flex;

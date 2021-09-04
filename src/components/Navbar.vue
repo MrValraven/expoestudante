@@ -72,7 +72,7 @@ $underlineColor: #596FF0;
 
 .header {
   position: absolute;
-	z-index: 100;
+	z-index: 10;
 	width: 100%;
 	opacity: 1;
 	color: #fff;
