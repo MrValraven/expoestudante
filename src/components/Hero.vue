@@ -6,14 +6,46 @@
       </video>
       </div>
       <img src="@/assets/fundos/ondinhaHero.png" alt="">
+      <ul class="socials">
+        <li>
+            <a href="https://www.instagram.com/expoestudante/" target="_blank" rel="noreferrer noopenner">
+                <Instagram :color="iconColor" />
+            </a>
+        </li>
+        <li id="facebook">
+            <a href="https://www.facebook.com/ExpoEstudante" target="_blank" rel="noreferrer noopenner">
+                <Facebook :color="iconColor" />
+            </a>
+        </li>
+        <li id="linkedin">
+            <a href="https://www.linkedin.com/events/expoestudante6831256218653220864/" target="_blank" rel="noreferrer noopenner">
+                <Linkedin :color="iconColor" />
+            </a>
+        </li>
+      </ul>
       <slot></slot>
     </section>
 </template>
 
-<script>
-    export default {
-        
-    }
+<script lang="ts">
+import { defineComponent } from 'vue';
+import Facebook from '@/components/socials/Facebook.vue'
+import Instagram from '@/components/socials/Instagram.vue'
+import Linkedin from '@/components/socials/Linkedin.vue'
+
+export default defineComponent({
+  name: 'Footer',
+  data() {
+      return {
+          iconColor: "#FFFFFF",
+      }
+  },
+  components: {
+      Facebook,
+      Instagram,
+      Linkedin
+  }
+});
 </script>
 
 <style lang="scss" scoped>
@@ -26,7 +58,9 @@
   justify-content: flex-end;
 
   .spread-video > video {
-  width: 100%;
+    position: relative;
+    width: 100%;
+    z-index: -2;
   }
   
   .spread-video{
@@ -42,6 +76,23 @@
     position: absolute;
     bottom: -18vh;
     width: 100%;
+  }
+
+  .socials {
+    position: absolute;
+    top: 35%;
+    left: 10px;
+    z-index: 3;
+
+    svg {
+      position: relative;
+      margin-top: 25px;
+      z-index: 4;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
   }
 }
 
