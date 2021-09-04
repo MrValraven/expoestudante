@@ -80,16 +80,20 @@ export default defineComponent({
 
   .socials {
     position: absolute;
-    top: 35%;
+    top: 20vw;
     left: 10px;
     z-index: 3;
 
     svg {
       position: relative;
       margin-top: 25px;
+      opacity: 0.8;
+      transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
       z-index: 4;
 
       &:hover {
+        opacity: 1;
+        transform: translateY(-5px);
         cursor: pointer;
       }
     }

@@ -78,8 +78,8 @@ $underlineColor: #596FF0;
 	color: #fff;
   max-width: 100vw;
   background: transparent;
-  overflow-x: hidden;
-  height: 100vh;
+  overflow: hidden;
+  height: 35vh;
 
   .bgImage {
     max-width: 108%;
