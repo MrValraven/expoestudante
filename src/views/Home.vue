@@ -126,13 +126,18 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
       font-weight: 800;
       margin-top: 5vh;
       margin-bottom: 0;
-      margin-left: 125px;
+      padding-bottom: 0;
+      padding-left: 125px;
+      background-color: white;
     }
 
     div {
       display: flex;
       justify-content: center;
-      margin-left: 100px;
+      padding-left: 200px;
+      padding-bottom: 0;
+      margin-bottom: 50px;
+       background-color: white;
 
       h1 {
         margin-top: 0;

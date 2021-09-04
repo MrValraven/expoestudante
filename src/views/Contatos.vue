@@ -87,9 +87,10 @@ export default defineComponent({
 $textColor: #7179F4;
 
   .ondeEstamos {
+    position: relative;
     display: flex;
     flex-direction: column;
-    margin-left: 15vw;
+    margin-left: 10vw;
     margin-bottom: 5vh;
     z-index: 1;
   }

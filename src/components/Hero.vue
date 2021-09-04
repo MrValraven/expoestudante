@@ -74,7 +74,7 @@ export default defineComponent({
   img {
     z-index: -1;
     position: absolute;
-    bottom: -18vh;
+    bottom: -10vh;
     width: 100%;
   }
 
