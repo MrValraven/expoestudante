@@ -128,16 +128,13 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
       margin-bottom: 0;
       padding-bottom: 0;
       padding-left: 125px;
-      background-color: white;
     }
 
     div {
       display: flex;
-      justify-content: center;
       padding-left: 200px;
       padding-bottom: 0;
       margin-bottom: 50px;
-       background-color: white;
 
       h1 {
         margin-top: 0;
@@ -167,6 +164,7 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
         flex-direction: column;
         margin-left: 10px;
         margin-top: -50px;
+        padding-left: 0;
       }
 
       p {

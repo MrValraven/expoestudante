@@ -60,6 +60,7 @@ $blueTextColor: #0010FF;
   justify-content: center;
   flex-direction: column;
   padding-bottom: 15vh;
+  overflow: hidden;
 
   img {
     position: absolute;

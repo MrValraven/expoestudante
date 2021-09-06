@@ -39,19 +39,18 @@
       <div class="travel">
          <h1>Como chegar lá?</h1>
          <img  v-if="mobileMode" src="@/assets/mobile/porque.png" alt="">
-         <img  id="ondinhas" v-if="mobileMode && tabletMode" src="@/assets/ondinhasTablet.png" alt="">
-        <ul class="meios" v-if="!smallMobileMode">
+        <ul class="meios" v-if="!mobileMode">
           <li><a @click="meioDeTransporte = getTitulo(0); primeiroParagrafo = getPrimeiroParagrafo(0); segundoParagrafo = getSegundoParagrafo(0);"  >Rodoviária de Évora,<br>A pé</a></li>
           <li><a @click="meioDeTransporte = getTitulo(1); primeiroParagrafo = getPrimeiroParagrafo(1); segundoParagrafo = getSegundoParagrafo(1);"  >Rodoviária de Évora,<br>De carro</a></li>
           <li><a @click="meioDeTransporte = getTitulo(2); primeiroParagrafo = getPrimeiroParagrafo(2); segundoParagrafo = getSegundoParagrafo(2);"  >Estação de comboios,<br>A pé</a></li>
           <li><a @click="meioDeTransporte = getTitulo(3); primeiroParagrafo = getPrimeiroParagrafo(3); segundoParagrafo = getSegundoParagrafo(3);"  >Estação de comboios,<br>De carro</a></li>
         </ul>
-        <div class="options" v-if="smallMobileMode && selectedBox === 'arena'">
+        <div class="options" v-if="mobileMode && selectedBox === 'arena'">
           <i class="fas fa-chevron-left" @click="previousArenaTransporte()"></i>
           <h2>Próximo <br/>Transporte</h2>
           <i class="fas fa-chevron-right" @click="nextArenaTransporte()" ></i>
         </div>
-        <div class="options" v-if="smallMobileMode && selectedBox === 'ces'">
+        <div class="options" v-if="mobileMode && selectedBox === 'ces'">
           <i class="fas fa-chevron-left" @click="previousCesTransporte()"></i>
           <h2>Próximo <br/>Transporte</h2>
           <i class="fas fa-chevron-right" @click="nextCesTransporte()" ></i>
@@ -77,6 +76,7 @@ export default defineComponent({
       meioDeTransporte: "",
       primeiroParagrafo: "",
       segundoParagrafo: "",
+      mobileMode: false,
       arenaTransporteIndex: 0,
       cesTransporteIndex: 0,
       arena: {
@@ -102,12 +102,18 @@ export default defineComponent({
     Transporte,
   },
   created() {
+    this.handleResize();
+    window.addEventListener('resize', this.handleResize);
     this.meioDeTransporte = this.arena.transportes[0].titulo;
     this.primeiroParagrafo = this.arena.transportes[0].primeiroParagrafo;
     this.segundoParagrafo = this.arena.transportes[0].segundoParagrafo;
   },
 
    methods: {
+
+    handleResize () {
+      this.mobileMode = window.innerWidth <= 1015;
+    },
 
     nextArenaTransporte() {
       this.arenaTransporteIndex >= 3 ? this.arenaTransporteIndex = 0 : this.arenaTransporteIndex++;
@@ -272,6 +278,7 @@ $blueTextColor: #0010FF;
   margin-top: 25vh;
   justify-content: center;
   flex-direction: column;
+  overflow: hidden;
 
   img {
     position: absolute;

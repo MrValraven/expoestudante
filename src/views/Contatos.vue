@@ -1,12 +1,10 @@
 <template>
-    <section class="hero">
-      <Hero />
-      <div class="ondeEstamos" @click="scrollToElement('.localization')">
+      <Hero>
+      <div class="ondeEstamos">
         <h1>Onde estamos</h1>
         <h2 >Em baixo</h2>
-        <svg id="arrows" height="50px" width="50px" viewBox="0 0 512 512"  xmlns="http://www.w3.org/2000/svg"><g fill="#5153ff"><path d="m320 424a24 24 0 0 1 -16.971-40.971l127.03-127.029-127.03-127.029a24 24 0 0 1 33.942-33.942l144 144a24 24 0 0 1 0 33.942l-144 144a23.928 23.928 0 0 1 -16.971 7.029z"/><path d="m184 424a24 24 0 0 1 -16.971-40.971l127.03-127.029-127.03-127.029a24 24 0 0 1 33.942-33.942l144 144a24 24 0 0 1 0 33.942l-144 144a23.928 23.928 0 0 1 -16.971 7.029z"/><path d="m48 424a24 24 0 0 1 -16.971-40.971l127.03-127.029-127.03-127.029a24 24 0 0 1 33.942-33.942l144 144a24 24 0 0 1 0 33.942l-144 144a23.928 23.928 0 0 1 -16.971 7.029z"/></g></svg>
       </div>
-    </section>
+      </Hero>
     <section class="localization">
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3119.375666243775!2d-7.909172784688498!3d38.5711960796222!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd19e56f2f19aec9%3A0xc41513d0faa3463b!2sAssocia%C3%A7%C3%A3o%20Acad%C3%A9mica%20da%20Universidade%20de%20%C3%89vora!5e0!3m2!1spt-PT!2spt!4v1621876289285!5m2!1spt-PT!2spt" :width="frameWidth" :height="frameHeight" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     </section>
@@ -85,14 +83,15 @@ export default defineComponent({
 <style lang="scss" scoped>
 
 $textColor: #7179F4;
+.hero {
 
   .ondeEstamos {
     position: relative;
     display: flex;
     flex-direction: column;
     margin-left: 10vw;
-    margin-bottom: 5vh;
     z-index: 1;
+    border: 2pxo solid red;
   }
 
   h1 {
@@ -111,6 +110,7 @@ $textColor: #7179F4;
     margin-top: 0;
   }
 
+}
 
 .localization {
   max-width: 100%;

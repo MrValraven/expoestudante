@@ -56,9 +56,11 @@ export default defineComponent({
   height: 100vh;
   display: flex;
   justify-content: flex-end;
+  flex-direction: column;
 
   .spread-video > video {
-    position: relative;
+    position: absolute;
+    top: -7vh;
     width: 100%;
     z-index: -2;
   }
@@ -66,7 +68,7 @@ export default defineComponent({
   .spread-video{
     position: absolute;
     z-index: -2;
-    top: -15vh;
+    height: 110vh;
     width: 100%;
     overflow: hidden;
   }
@@ -74,13 +76,13 @@ export default defineComponent({
   img {
     z-index: -1;
     position: absolute;
-    bottom: -10vh;
+    bottom: -4vh;
     width: 100%;
   }
 
   .socials {
     position: absolute;
-    top: 20vw;
+    top: 30vh;
     left: 10px;
     z-index: 3;
 
