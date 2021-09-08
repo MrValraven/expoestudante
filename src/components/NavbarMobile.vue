@@ -71,9 +71,6 @@ export default defineComponent({
             whiteSvg: "#8690fa",
             darkerWhiteSvg: "#5153ff",
             iconSize: "50px",
-            mobileMode: false,
-            smallMobileMode: false,
-            tabletMode: false,
         }
     },
      emits: ['checkScreenWidth'],
@@ -85,15 +82,6 @@ export default defineComponent({
             this.toggle = !this.toggle;
             this.toggle ? this.newClass = "toggle" : this.newClass = "";
             this.toggle ? this.isActive = "isActive" : this.isActive = "";
-        },
-        handleResize(tabletMode: boolean, mobileMode: boolean, smallMobileMode: boolean ) {
-            this.tabletMode = window.innerWidth <= 1100;
-            this.mobileMode = window.innerWidth <= 1015;
-            if(!this.mobileMode) {
-                this.activatedNavbar = false;
-            }
-            this.smallMobileMode = window.innerWidth <= 600;
-            this.$emit('checkScreenWidth', { tabletMode, mobileMode, smallMobileMode })
         },
     },
     

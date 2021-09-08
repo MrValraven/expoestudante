@@ -45,12 +45,11 @@ export default defineComponent({
   name: 'Home',
   data() {
     return {
-      
     }
   },
   components: {
     Hero,
-  }
+  },
 });
 </script>
 

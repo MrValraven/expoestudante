@@ -74,6 +74,7 @@ footer {
                 font-size: 10px;
                 font-weight: 800;
                 margin-right: 150px;
+                text-transform: uppercase;
             }
 
             svg {

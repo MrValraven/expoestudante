@@ -1,8 +1,14 @@
 <template>
     <section class="hero">
       <div class="spread-video">
-      <video autoplay muted loop id="backgroundVideo">
+      <video v-if="!mobileMode" autoplay muted loop id="backgroundVideo">
         <source src="@/assets/fundos/fundoAnimado.mp4" type="video/mp4">
+      </video>
+      <video v-else-if="mobileMode && isTablet" autoplay muted loop id="backgroundVideo">
+        <source src="@/assets/fundos/fundo16_10.mp4" type="video/mp4">
+      </video>
+      <video v-else autoplay muted loop id="backgroundVideo">
+        <source src="@/assets/fundos/fundo9_16.mp4" type="video/mp4">
       </video>
       </div>
       <img src="@/assets/fundos/ondinhaHero.png" alt="">
@@ -38,12 +44,26 @@ export default defineComponent({
   data() {
       return {
           iconColor: "#FFFFFF",
+          mobileMode: false,
+          isTablet: false,
       }
   },
   components: {
       Facebook,
       Instagram,
       Linkedin
+  },
+  created() {
+    this.handleResize();
+    window.addEventListener('resize', this.handleResize);
+  },
+  computed: {
+  },
+  methods: {
+    handleResize () {
+      this.mobileMode = window.innerWidth <= 1015;
+      this.isTablet = window.innerWidth <= 1014 && window.innerWidth >= 700;
+    },
   }
 });
 </script>
@@ -99,6 +119,12 @@ export default defineComponent({
         cursor: pointer;
       }
     }
+  }
+}
+
+@media (max-width: 1400px) {
+  .hero .spread-video > video {
+    top: 0;
   }
 }
 
