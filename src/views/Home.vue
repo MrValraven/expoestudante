@@ -266,15 +266,6 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
 
 @media (max-width: 1030px) {
 
-  .hero {
-    height: 50vh;
-
-    img {
-      width: 100%;
-      height: auto;
-    }
-  }
-
   .future {
 
     #futureBackground {
@@ -383,14 +374,6 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 @media (max-width: 430px) {
-
-  .hero {
-    height: 100vh;
-
-    img {
-      height: 100vh;
-    }
-  }
 
   .future .datas {
     margin-top: -15vh;

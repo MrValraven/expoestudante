@@ -14,15 +14,6 @@ import ScrollToTopButton from '@/components/ScrollToTopButton.vue';
 import Footer from '@/components/Footer.vue';
 
 export default defineComponent({
-  data() {
-    return {
-      activatedNavbar: false,
-      mobileMode: false,
-      backgroundImage: '',
-      smallMobileMode: false,
-      tabletMode: false,
-    }
-  },
   components: {
     Navbar,
     NavbarMobile,

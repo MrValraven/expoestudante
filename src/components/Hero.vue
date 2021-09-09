@@ -62,7 +62,7 @@ export default defineComponent({
   methods: {
     handleResize () {
       this.mobileMode = window.innerWidth <= 1015;
-      this.isTablet = window.innerWidth <= 1014 && window.innerWidth >= 700;
+      this.isTablet = window.innerWidth <= 1015 && window.innerWidth >= 700;
     },
   }
 });
@@ -122,9 +122,122 @@ export default defineComponent({
   }
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 1450px) {
+  .hero .spread-video {
+    overflow: visible;
+  }
+  
   .hero .spread-video > video {
-    top: 0;
+    top: -4vh;
+  }
+}
+@media (max-width: 1350px) {
+  .hero .spread-video > video {
+    top: 1vh;
+  }
+}
+@media (max-width: 1250px) {
+  .hero .spread-video > video {
+    top: 10vh;
+  }
+}
+
+@media (max-width: 1050px) {
+  .hero .spread-video > video {
+    top: 17vh;
+  }
+
+  .hero {
+    
+    .spread-video {
+      overflow: hidden;
+    }
+
+    img {
+      bottom: 0;
+    }
+
+  }
+  
+  
+}
+
+
+@media (max-width: 1050px) and (max-height: 1400px) and (min-height: 1020px) {
+
+  .hero {
+    height: 60vh;
+  }
+
+  .hero .spread-video > video {
+    top: 40vh;
+  }
+
+
+  .hero .spread-video {
+    height: 100vh;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero .spread-video > video {
+    top: 20vh;
+  }
+}
+
+@media (max-width: 700px) {
+  .hero .spread-video > video {
+    top: -30vh;
+  }
+}
+@media (max-width: 640px) {
+  .hero .spread-video > video {
+    top: -20vh;
+  }
+}
+
+@media (max-width: 550px) {
+  .hero .spread-video > video {
+    top: -10vh;
+  }
+
+  .hero img {
+    width: 150%;
+  }
+}
+
+@media (max-width: 450px) {
+  .hero .spread-video > video {
+    top: 0vh;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero .spread-video > video {
+    top: 5vh;
+  }
+}
+
+
+@media (max-width: 380px) {
+  .hero .spread-video > video {
+    top: 11.5vh;
+  }
+}
+@media (max-width: 380px) and (min-height: 700px) {
+  .hero .spread-video > video {
+    top: 11.5vh;
+  }
+
+  .hero img {
+    bottom: 13vh;
+    width: 150%;
+  }
+}
+
+@media (max-width: 350px) {
+  .hero .spread-video > video {
+    top: 12vh;
   }
 }
 
