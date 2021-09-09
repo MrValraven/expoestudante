@@ -204,6 +204,18 @@ export default defineComponent({
   .hero img {
     width: 150%;
   }
+
+  .hero .socials {
+    display: flex;
+    justify-content: space-between;
+    top: 70vh;
+    left: 15vw;
+
+    svg {
+      margin-top: 0;
+      margin-right: 35px;
+    }
+  }
 }
 
 @media (max-width: 450px) {
