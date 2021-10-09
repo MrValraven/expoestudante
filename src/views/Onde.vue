@@ -584,6 +584,27 @@ $blueTextColor: #0010ff;
   }
 }
 
+@media screen and (max-width: 1700px) {
+  .travel {
+    h1 {
+      margin-bottom: -70px;
+    }
+    .meios {
+      li {
+        margin-left: 55px;
+
+        &:nth-child(2) {
+          margin-left: 20px;
+        }
+
+        &:last-child {
+          margin-left: 60px;
+        }
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 1600px) {
   .travel {
     .meios {
@@ -598,6 +619,72 @@ $blueTextColor: #0010ff;
 
         &:last-child {
           margin-left: 30px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1450px) {
+  .travel {
+    .meios {
+      li {
+        margin-left: 35px;
+
+        &:nth-child(2) {
+          margin-left: 0px;
+        }
+
+        &:last-child {
+          margin-left: 0px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .travel {
+    .meios {
+      li {
+        margin-left: 25px;
+
+        a {
+          font-size: 18px;
+        }
+
+        &:nth-child(2) {
+          margin-left: -10px;
+        }
+
+        &:last-child {
+          margin-left: 0px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1250px) {
+  .travel {
+    h1 {
+      margin-bottom: -100px;
+    }
+    .meios {
+      li {
+        margin-bottom: -20px;
+        margin-left: 0px;
+
+        a {
+          font-size: 16px;
+        }
+
+        &:nth-child(2) {
+          margin-left: -20px;
+        }
+
+        &:last-child {
+          margin-left: 0px;
         }
       }
     }
@@ -707,6 +794,10 @@ $blueTextColor: #0010ff;
 
   .travel {
     position: relative;
+
+    .options {
+      margin-bottom: 50px;
+    }
 
     h1 {
       margin-top: 80px;
@@ -829,6 +920,10 @@ $blueTextColor: #0010ff;
       top: 75vh;
     }
   }
+
+  .transportes {
+    margin-top: 50px;
+  }
 }
 
 @media (max-width: 376px) {
@@ -936,16 +1031,6 @@ $blueTextColor: #0010ff;
   .travel .options {
     margin-top: 170px;
   }
-
-  .transportes {
-    margin-top: 20vh;
-  }
-}
-
-@media (max-width: 400px) {
-  .transportes {
-    margin-top: 20vh;
-  }
 }
 
 @media (max-width: 380px) {
@@ -955,10 +1040,6 @@ $blueTextColor: #0010ff;
 
   .travel .options {
     margin-top: 120px;
-  }
-
-  .transportes {
-    margin-top: 20vh;
   }
 }
 
@@ -970,10 +1051,6 @@ $blueTextColor: #0010ff;
   .travel .options {
     margin-top: 100px;
   }
-
-  .transportes {
-    margin-top: 20vh;
-  }
 }
 
 @media (max-width: 325px) {
@@ -984,10 +1061,6 @@ $blueTextColor: #0010ff;
 
   .travel .options {
     margin-top: 100px;
-  }
-
-  .transportes {
-    margin-top: 20vh;
   }
 }
 </style>
