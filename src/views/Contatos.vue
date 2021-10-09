@@ -15,7 +15,7 @@
       loading="lazy"
     ></iframe>
   </section>
-  <section class="contacts">
+  <section class="contacts" v-if="!sendingEmail">
     <div class="apoio">
       <h1>Linha de apoio</h1>
       <p><i class="fas fa-phone-alt"></i> (+351) 266 098 003</p>
@@ -53,14 +53,12 @@
         ><DirectionsButton
       /></router-link>
     </div>
-    <form action="https://formsubmit.co/expoestudante@aaue.pt" method="POST">
+    <form>
       <h1>Contacte-nos!</h1>
-      <label for="nome">Nome *</label>
-      <input type="text" placeholder="Nome" required v-model="nome" />
+      <label for="name">name *</label>
+      <input type="text" placeholder="name" required v-model="name" />
       <label for="email">Email *</label>
       <input type="email" placeholder="Email" required v-model="email" />
-      <label for="telefone">Telefone *</label>
-      <input type="tel" placeholder="Telefone" required v-model="telefone" />
       <label for="assunto">Assunto *</label>
       <input type="text" placeholder="Assunto" required v-model="assunto" />
       <label for="mensagem">Mensagem *</label>
@@ -74,13 +72,49 @@
         v-model="mensagem"
       />
       <div class="fButton">
-        <BlobButton class="formButton" mensagem="Enviar" />
+        <BlobButton
+          class="formButton"
+          mensagem="Enviar"
+          @click="sendFormData"
+        />
       </div>
     </form>
   </section>
+  <section class="modalSection" v-else>
+    <div class="modal">
+      <img
+        v-if="!emailSent && !emailFailed"
+        src="@/assets/spinning-circle.gif"
+        alt=""
+      />
+      <div v-else-if="emailSent" class="sucess">
+        <h1>Mensagem enviada</h1>
+        <i class="far fa-check-circle sucessIcon"></i>
+        <BlobButton
+          class="modalButton"
+          mensagem="Voltar"
+          @click="resetEmailSendingValues"
+        />
+      </div>
+      <div v-else-if="emailFailed" class="failure">
+        <h1>Ocorreu um erro</h1>
+        <i class="fas fa-exclamation-circle errorIcon"></i>
+        <p>
+          Por favor volte a tentar mais tarde ou envie uma mensagem para
+          expoestudante@aaue.pt
+        </p>
+        <BlobButton
+          class="modalButton"
+          mensagem="Voltar"
+          @click="resetEmailSendingValues"
+        />
+      </div>
+    </div>
+  </section>
 </template>
 
-<script lang="ts">
+<script lang="js">
+import { ref, watch } from "vue";
 import { defineComponent } from "vue";
 import BlobButton from "../components/BlobButton.vue";
 import DirectionsButton from "../components/DirectionsButton.vue";
@@ -92,11 +126,36 @@ export default defineComponent({
     return {
       frameWidth: 0,
       frameHeight: 0,
-      nome: "",
+      name: "",
       email: "",
-      telefone: "",
       assunto: "",
       mensagem: "",
+      emailSent: false,
+      emailFailed: false,
+      sendingEmail: false,
+      isFormFilled: false,
+    };
+  },
+  setup() {
+    let name = ref("");
+    let email = ref("");
+    let assunto = ref("");
+    let mensagem = ref("");
+    let isFormFilled = ref(false);
+    watch([name, email, assunto, mensagem], () => {
+      if (name.value && email.value.includes('@') && assunto.value && mensagem.value) {
+        isFormFilled.value = true;
+      } else {
+        isFormFilled.value = false;
+      }
+    });
+
+    return {
+      isFormFilled: isFormFilled,
+      name: name,
+      email: email,
+      assunto: assunto,
+      mensagem: mensagem,
     };
   },
   components: {
@@ -109,11 +168,62 @@ export default defineComponent({
     this.frameHeight = window.innerHeight * 0.5;
   },
   methods: {
-    snapToElement(destination: string) {
+    snapToElement(destination) {
       const element = document.querySelector(destination);
       if (element) {
         element.scrollIntoView();
       }
+    },
+    async sendFormData() {
+      if (!this.isFormFilled) {
+        console.log("returning");
+        return;
+      }
+
+      console.log("sending");
+      this.sendingEmail = true;
+      const formData = {
+        sendTo: "informativa@aaue.pt",
+        subject: this.assunto,
+        message: {
+          origem: "ExpoEstudante",
+          name: this.name,
+          email: this.email,
+          text: this.mensagem,
+        },
+      };
+      const requestOptions = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      };
+      await fetch(
+        "https://blogposting-api.herokuapp.com/api/sendEmail",
+        requestOptions
+      )
+        .then(async (data) => {
+          if (data.ok) {
+            this.emailSent = true;
+            this.clearFormInfo();
+          }
+        })
+        .catch((error) => {
+          this.emailFailed = true;
+          console.log(error.message);
+        });
+    },
+    clearFormInfo() {
+      this.name = "";
+      this.email = "";
+      this.assunto = "";
+      this.mensagem = "";
+    },
+    resetEmailSendingValues() {
+      this.sendingEmail = false;
+      this.emailSent = false;
+      this.emailFailed = false;
     },
   },
 });
@@ -345,6 +455,61 @@ $textColor: #7179f4;
       .fButton {
         width: 70vw;
       }
+    }
+  }
+}
+
+.modalSection {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 50px;
+}
+
+.modal {
+  width: 500px;
+  min-height: 300px;
+  padding: 0px 50px 50px 50px;
+  border-radius: 25px;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  img {
+    width: 100px;
+    height: 100px;
+  }
+  .sucess,
+  .failure {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+      margin: 0;
+    }
+
+    .errorIcon {
+      margin: 20px 0 0 0;
+      font-size: 100px;
+      color: #992c2c;
+    }
+    .sucessIcon {
+      margin: 35px 0;
+      font-size: 100px;
+      color: #4bb543;
+    }
+    p {
+      margin: 20px 0;
+    }
+
+    .modalButton {
+      position: absolute;
+      bottom: -200px;
+      cursor: pointer;
     }
   }
 }
