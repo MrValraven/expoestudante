@@ -1,54 +1,93 @@
 <template>
-      <Hero>
-      <div class="ondeEstamos">
-        <h1>Onde estamos</h1>
-        <h2 >Em baixo</h2>
+  <Hero>
+    <div class="ondeEstamos">
+      <h1>Onde estamos</h1>
+      <h2>Em baixo</h2>
+    </div>
+  </Hero>
+  <section class="localization">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3119.375666243775!2d-7.909172784688498!3d38.5711960796222!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd19e56f2f19aec9%3A0xc41513d0faa3463b!2sAssocia%C3%A7%C3%A3o%20Acad%C3%A9mica%20da%20Universidade%20de%20%C3%89vora!5e0!3m2!1spt-PT!2spt!4v1621876289285!5m2!1spt-PT!2spt"
+      :width="frameWidth"
+      :height="frameHeight"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy"
+    ></iframe>
+  </section>
+  <section class="contacts">
+    <div class="apoio">
+      <h1>Linha de apoio</h1>
+      <p><i class="fas fa-phone-alt"></i> (+351) 266 098 003</p>
+      <p>
+        Associação Académica da Universidade de Évora<br />Rua de Diogo Cão
+        n.°21<br />7000-872 Évora, Portugal
+      </p>
+      <div class="chegar">
+        <h1>Como<br />Chegar?</h1>
+        <svg
+          id="direction"
+          width="150"
+          height="150"
+          viewBox="0 0 512 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="m480.971 31.029a24 24 0 0 0 -33.942 0l-191.029 191.03-191.029-191.03a24 24 0 0 0 -33.942 33.942l200.971 200.97v198.059a24 24 0 0 0 48 0v-198.059l200.971-200.97a24 24 0 0 0 0-33.942z"
+            fill="#8690fa"
+          />
+          <g fill="#5153ff">
+            <path
+              d="m48 200a24 24 0 0 1 -24-24v-128a24 24 0 0 1 24-24h128a24 24 0 0 1 0 48h-104v104a24 24 0 0 1 -24 24z"
+            />
+            <path
+              d="m464 200a24 24 0 0 1 -24-24v-104h-104a24 24 0 0 1 0-48h128a24 24 0 0 1 24 24v128a24 24 0 0 1 -24 24z"
+            />
+          </g>
+        </svg>
       </div>
-      </Hero>
-    <section class="localization">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3119.375666243775!2d-7.909172784688498!3d38.5711960796222!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd19e56f2f19aec9%3A0xc41513d0faa3463b!2sAssocia%C3%A7%C3%A3o%20Acad%C3%A9mica%20da%20Universidade%20de%20%C3%89vora!5e0!3m2!1spt-PT!2spt!4v1621876289285!5m2!1spt-PT!2spt" :width="frameWidth" :height="frameHeight" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-    </section>
-    <section class="contacts">
-      <div class="apoio">
-        <h1>Linha de apoio</h1>
-        <p><i class="fas fa-phone-alt"></i> (+351) 266 098 003</p>
-        <p>Associação Académica da Universidade de Évora<br>Rua de Diogo Cão n.°21<br>7000-872 Évora, Portugal</p>
-        <div class="chegar">
-          <h1>Como<br>Chegar?</h1>
-          <svg id="direction" width="150" height="150" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m480.971 31.029a24 24 0 0 0 -33.942 0l-191.029 191.03-191.029-191.03a24 24 0 0 0 -33.942 33.942l200.971 200.97v198.059a24 24 0 0 0 48 0v-198.059l200.971-200.97a24 24 0 0 0 0-33.942z" fill="#8690fa"/><g fill="#5153ff"><path d="m48 200a24 24 0 0 1 -24-24v-128a24 24 0 0 1 24-24h128a24 24 0 0 1 0 48h-104v104a24 24 0 0 1 -24 24z"/><path d="m464 200a24 24 0 0 1 -24-24v-104h-104a24 24 0 0 1 0-48h128a24 24 0 0 1 24 24v128a24 24 0 0 1 -24 24z"/></g></svg>
-        </div>
-        <router-link to="/sobre/onde" class="directionsButton" @click="snapToElement('body')"><DirectionsButton /></router-link>
+      <router-link
+        to="/sobre/onde"
+        class="directionsButton"
+        @click="snapToElement('body')"
+        ><DirectionsButton
+      /></router-link>
+    </div>
+    <form action="https://formsubmit.co/expoestudante@aaue.pt" method="POST">
+      <h1>Contacte-nos!</h1>
+      <label for="nome">Nome *</label>
+      <input type="text" placeholder="Nome" required v-model="nome" />
+      <label for="email">Email *</label>
+      <input type="email" placeholder="Email" required v-model="email" />
+      <label for="telefone">Telefone *</label>
+      <input type="tel" placeholder="Telefone" required v-model="telefone" />
+      <label for="assunto">Assunto *</label>
+      <input type="text" placeholder="Assunto" required v-model="assunto" />
+      <label for="mensagem">Mensagem *</label>
+      <textarea
+        name="mensagem"
+        id="mensagem"
+        cols="30"
+        rows="10"
+        placeholder="Mensagem"
+        required
+        v-model="mensagem"
+      />
+      <div class="fButton">
+        <BlobButton class="formButton" mensagem="Enviar" />
       </div>
-      <form action="https://formsubmit.co/expoestudante@aaue.pt" method="POST">
-        <h1>Contacte-nos!</h1>
-        <label for="nome">Nome *</label>
-        <input type="text" placeholder="Nome" required v-model="nome">
-        <label for="email">Email *</label>
-        <input type="email" placeholder="Email" required v-model="email">
-        <label for="telefone">Telefone *</label>
-        <input type="tel" placeholder="Telefone" required v-model="telefone">
-        <label for="assunto">Assunto *</label>
-        <input type="text" placeholder="Assunto" required v-model="assunto">
-        <label for="mensagem">Mensagem *</label>
-        <textarea name="mensagem" id="mensagem" cols="30" rows="10" placeholder="Mensagem" required v-model="mensagem" />
-        <div class="fButton">
-          <BlobButton class="formButton" mensagem="Enviar" />
-        </div>
-        
-      </form>
-
-    </section>
+    </form>
+  </section>
 </template>
 
-
 <script lang="ts">
-import { defineComponent } from 'vue';
-import BlobButton from '../components/BlobButton.vue';
-import DirectionsButton from '../components/DirectionsButton.vue';
-import Hero from '@/components/Hero.vue';
+import { defineComponent } from "vue";
+import BlobButton from "../components/BlobButton.vue";
+import DirectionsButton from "../components/DirectionsButton.vue";
+import Hero from "@/components/Hero.vue";
 
 export default defineComponent({
-  name: 'Home',
+  name: "Home",
   data() {
     return {
       frameWidth: 0,
@@ -58,7 +97,7 @@ export default defineComponent({
       telefone: "",
       assunto: "",
       mensagem: "",
-    }
+    };
   },
   components: {
     BlobButton,
@@ -66,25 +105,23 @@ export default defineComponent({
     Hero,
   },
   created() {
-    this.frameWidth = window.innerWidth * 0.80;
-    this.frameHeight = window.innerHeight * 0.50;
+    this.frameWidth = window.innerWidth * 0.8;
+    this.frameHeight = window.innerHeight * 0.5;
   },
   methods: {
     snapToElement(destination: string) {
-			const element = document.querySelector(destination);
-      if(element) {
+      const element = document.querySelector(destination);
+      if (element) {
         element.scrollIntoView();
       }
     },
-  }
+  },
 });
 </script>
 
 <style lang="scss" scoped>
-
-$textColor: #7179F4;
+$textColor: #7179f4;
 .hero {
-
   .ondeEstamos {
     position: relative;
     display: flex;
@@ -101,7 +138,7 @@ $textColor: #7179F4;
     text-transform: uppercase;
     margin-bottom: 0;
   }
-  
+
   h2 {
     text-transform: uppercase;
     font-size: 23px;
@@ -109,7 +146,6 @@ $textColor: #7179F4;
     font-weight: bold;
     margin-top: 0;
   }
-
 }
 
 .localization {
@@ -128,11 +164,10 @@ $textColor: #7179F4;
   h1 {
     font-size: 30px;
     font-weight: 800;
-    color: #0010FF;
+    color: #0010ff;
   }
 
   .apoio {
-
     p {
       font-size: 20px;
       font-weight: 400;
@@ -144,7 +179,6 @@ $textColor: #7179F4;
         margin-right: 5px;
       }
     }
-
 
     .chegar {
       display: flex;
@@ -167,7 +201,7 @@ $textColor: #7179F4;
     flex-direction: column;
 
     label {
-      color: #0010FF;
+      color: #0010ff;
       font-weight: 300;
       font-style: italic;
       padding: 5px;
@@ -177,30 +211,33 @@ $textColor: #7179F4;
     textarea {
       width: 25vw;
       padding: 10px;
-      background-color: #9CA2FD;
-      color: #FFFFFF;
+      background-color: #9ca2fd;
+      color: #ffffff;
       margin-bottom: 15px;
       border: none;
       border-radius: 12px;
       outline: none;
       resize: none;
 
-      &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-        color: #FFFFFF;
+      &::placeholder {
+        /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: #ffffff;
         opacity: 0.7; /* Firefox */
         font-size: 20px;
         font-style: italic;
         font-weight: 300;
       }
 
-      &:-ms-input-placeholder { /* Internet Explorer 10-11 */
-        color: #FFFFFF;
+      &:-ms-input-placeholder {
+        /* Internet Explorer 10-11 */
+        color: #ffffff;
         font-size: 20px;
         font-style: italic;
         font-weight: 300;
       }
 
-      &::-ms-input-placeholder { /* Microsoft Edge */
+      &::-ms-input-placeholder {
+        /* Microsoft Edge */
         color: re#FFFFFF;
         font-size: 20px;
         font-style: italic;
@@ -225,7 +262,6 @@ $textColor: #7179F4;
 }
 
 @media (max-width: 1000px) {
-
   .contacts {
     flex-direction: column;
     justify-content: center;
@@ -286,7 +322,6 @@ $textColor: #7179F4;
         padding: 0 50px 0 50px;
         /* hyphens: auto; */
       }
-      
 
       .chegar {
         h1 {
@@ -313,5 +348,4 @@ $textColor: #7179F4;
     }
   }
 }
-
 </style>

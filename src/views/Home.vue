@@ -1,51 +1,80 @@
 <template>
   <Hero></Hero>
   <section class="future">
-      <img id="futureBackground" src="@/assets/fundos/futuro.png" alt="">
+    <img id="futureBackground" src="@/assets/fundos/futuro.png" alt="" />
 
-      <div class="datas"> 
-        <h2>Início</h2>
-        <h1>
-          08
-          <span>NOV</span>
-          <hr>
-          13
-          <span>NOV</span>
-        </h1>
-        <h2>Fim</h2>
-      </div>
-      <div class="mainText">
-        <h2>O futuro</h2>
-        <div>
-          <h1>É agora</h1>
-          <svg id="arrows" height="70px" width="70px" viewBox="0 0 512 512"  xmlns="http://www.w3.org/2000/svg"><g fill="#5153ff"><path d="m320 424a24 24 0 0 1 -16.971-40.971l127.03-127.029-127.03-127.029a24 24 0 0 1 33.942-33.942l144 144a24 24 0 0 1 0 33.942l-144 144a23.928 23.928 0 0 1 -16.971 7.029z"/><path d="m184 424a24 24 0 0 1 -16.971-40.971l127.03-127.029-127.03-127.029a24 24 0 0 1 33.942-33.942l144 144a24 24 0 0 1 0 33.942l-144 144a23.928 23.928 0 0 1 -16.971 7.029z"/><path d="m48 424a24 24 0 0 1 -16.971-40.971l127.03-127.029-127.03-127.029a24 24 0 0 1 33.942-33.942l144 144a24 24 0 0 1 0 33.942l-144 144a23.928 23.928 0 0 1 -16.971 7.029z"/></g></svg>
-          <div id="text" class="text">
-            <p>O teu futuro não é amanhã, é construído hoje, por isso trazemos-te um summit único, pensado e programado especialmente a pensar em ti e no teu futuro.</p>
-            <p>Durante os 6 dias poderás encontrar e criar oportunidades para o teu futuro pois vamos encurtar a distância entre ti e as empresas, vamos ajudar-te a dar este next step na tua carreira!</p>
-          </div>
+    <div class="datas">
+      <h2>Início</h2>
+      <h1>
+        08
+        <span>NOV</span>
+        <hr />
+        13
+        <span>NOV</span>
+      </h1>
+      <h2>Fim</h2>
+    </div>
+    <div class="mainText">
+      <h2>O futuro</h2>
+      <div>
+        <h1>É agora</h1>
+        <svg
+          id="arrows"
+          height="70px"
+          width="70px"
+          viewBox="0 0 512 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g fill="#5153ff">
+            <path
+              d="m320 424a24 24 0 0 1 -16.971-40.971l127.03-127.029-127.03-127.029a24 24 0 0 1 33.942-33.942l144 144a24 24 0 0 1 0 33.942l-144 144a23.928 23.928 0 0 1 -16.971 7.029z"
+            />
+            <path
+              d="m184 424a24 24 0 0 1 -16.971-40.971l127.03-127.029-127.03-127.029a24 24 0 0 1 33.942-33.942l144 144a24 24 0 0 1 0 33.942l-144 144a23.928 23.928 0 0 1 -16.971 7.029z"
+            />
+            <path
+              d="m48 424a24 24 0 0 1 -16.971-40.971l127.03-127.029-127.03-127.029a24 24 0 0 1 33.942-33.942l144 144a24 24 0 0 1 0 33.942l-144 144a23.928 23.928 0 0 1 -16.971 7.029z"
+            />
+          </g>
+        </svg>
+        <div id="text" class="text">
+          <p>
+            O teu futuro não é amanhã, é construído hoje, por isso trazemos-te
+            um summit único, pensado e programado especialmente a pensar em ti e
+            no teu futuro.
+          </p>
+          <p>
+            Durante os 6 dias poderás encontrar e criar oportunidades para o teu
+            futuro pois vamos encurtar a distância entre ti e as empresas, vamos
+            ajudar-te a dar este next step na tua carreira!
+          </p>
         </div>
       </div>
+    </div>
 
-      <div class="localizacao">
-        <a id="evora" href="https://www.google.com/maps/place/Associa%C3%A7%C3%A3o+Acad%C3%A9mica+da+Universidade+de+%C3%89vora/@38.5711961,-7.908017,18z/data=!3m1!4b1!4m5!3m4!1s0xd19e56f2f19aec9:0xc41513d0faa3463b!8m2!3d38.5711961!4d-7.9069841" target="_blank" rel="noopenner" class="localizacaoLink">
-          <i class="fas fa-map-marker-alt"></i>
-          <h1>Évora</h1>
-        </a>
-      </div>
-      
+    <div class="localizacao">
+      <a
+        id="evora"
+        href="https://www.google.com/maps/place/Associa%C3%A7%C3%A3o+Acad%C3%A9mica+da+Universidade+de+%C3%89vora/@38.5711961,-7.908017,18z/data=!3m1!4b1!4m5!3m4!1s0xd19e56f2f19aec9:0xc41513d0faa3463b!8m2!3d38.5711961!4d-7.9069841"
+        target="_blank"
+        rel="noopenner"
+        class="localizacaoLink"
+      >
+        <i class="fas fa-map-marker-alt"></i>
+        <h1>Évora</h1>
+      </a>
+    </div>
   </section>
 </template>
 
-
 <script lang="ts">
-import { defineComponent } from 'vue';
-import Hero from '@/components/Hero.vue';
+import { defineComponent } from "vue";
+import Hero from "@/components/Hero.vue";
 
 export default defineComponent({
-  name: 'Home',
+  name: "Home",
   data() {
-    return {
-    }
+    return {};
   },
   components: {
     Hero,
@@ -54,9 +83,8 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-
-$primaryColor: #5A68E0;
-$darkerPrimaryColor: #7179F4;
+$primaryColor: #5a68e0;
+$darkerPrimaryColor: #7179f4;
 $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
 
 .future {
@@ -72,7 +100,7 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
     overflow: hidden;
   }
 
-   .datas {
+  .datas {
     display: flex;
     align-items: center;
     width: 100%;
@@ -92,7 +120,6 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
       margin: 0vh 20px 0px 20px;
       font-size: 56px;
       font-weight: bold;
-      
     }
 
     span {
@@ -103,7 +130,7 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
     }
 
     hr {
-      background: #0010FF;
+      background: #0010ff;
       margin-right: 5px;
       margin-left: 5px;
       height: 5px;
@@ -169,7 +196,7 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
       p {
         width: 40vw;
         margin-top: 20px;
-        color: #596FF0;
+        color: #596ff0;
         font-size: 1.1vw;
         font-weight: 300;
         font-style: italic;
@@ -218,22 +245,20 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
         i {
           transform: translateY(-10px);
         }
-        
       }
     }
   }
 }
 
 @media (max-width: 1700px) {
-
   #futureBackground {
     bottom: -35vh;
   }
 
   .future .datas {
-     margin-top: -20vh;
-     margin-bottom: -5vh;
-     margin-left: 5vw;
+    margin-top: -20vh;
+    margin-bottom: -5vh;
+    margin-left: 5vw;
   }
 
   #text {
@@ -243,17 +268,14 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
   #arrows {
     margin-top: 20px;
   }
-  
 }
 
 @media (max-width: 1100px) {
-
   .mainText div {
-    
     h2 {
-      font-size: 2.5vw
+      font-size: 2.5vw;
     }
-    
+
     h1 {
       font-size: 5vw;
     }
@@ -265,9 +287,7 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 @media (max-width: 1030px) {
-
   .future {
-
     #futureBackground {
       width: 100%;
       bottom: 0;
@@ -281,14 +301,13 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
       font-size: 16px;
     }
 
-    .localizacao #evora{
+    .localizacao #evora {
       margin-right: 80px;
     }
   }
 }
 
 @media (max-width: 500px) {
-
   .datas {
     justify-content: center;
     margin-top: -80px;
@@ -316,7 +335,6 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
   }
 
   .mainText {
-    
     h2 {
       margin-left: 20px;
       font-size: 40px;
@@ -327,8 +345,8 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
       margin-left: 70px;
 
       h1 {
-      font-size: 70px;
-      margin-bottom: 20px;
+        font-size: 70px;
+        margin-bottom: 20px;
       }
 
       .text {
@@ -342,7 +360,7 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
       }
 
       #arrows {
-      display: none;
+        display: none;
       }
     }
   }
@@ -374,15 +392,12 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 @media (max-width: 430px) {
-
   .future .datas {
     margin-top: -15vh;
     margin-left: 5px;
   }
 
-
   .future .localizacao {
-
     #evora {
       margin-bottom: 20px;
       margin-right: 20px;
@@ -391,31 +406,29 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 @media (max-width: 375px) {
+  .datas {
+    margin-left: 5vw;
+    margin-bottom: 3vh;
 
-    .datas {
-      margin-left: 5vw;
-      margin-bottom: 3vh;
-  
-      h1 {
-        font-size: 25px;
-      }
-
-      h2 {
-        font-size: 18px;
-      }
-
-      span {
-        font-size: 11px;
-      }
-
-      hr {
-        width: 50px;
-      }
+    h1 {
+      font-size: 25px;
     }
-  
+
+    h2 {
+      font-size: 18px;
+    }
+
+    span {
+      font-size: 11px;
+    }
+
+    hr {
+      width: 50px;
+    }
+  }
 
   .future .mainText div {
-    margin-left: 50px
+    margin-left: 50px;
   }
 
   .future .localizacao {
@@ -428,7 +441,6 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
 
 @media (max-width: 325px) {
   .future {
-
     .datas {
       h1 hr {
         width: 40px;
@@ -448,5 +460,4 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
     }
   }
 }
-
 </style>

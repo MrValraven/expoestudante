@@ -1,75 +1,203 @@
 <template>
-    <section class="hero">
-      <img src="@/assets/onde.png" alt="" v-if="!mobileMode" >
-      <h2>Onde</h2>
-      <h1>Vai ser a expo?</h1>
-      <div class="info">
-         <i class="fas fa-map-marker-alt" v-if="!mobileMode"></i>
-         <div class="infoText">
-           <h1 id="googleMaps">Aqui no google maps</h1>
-           <div class="locais">
-             <div class="locaisCont">
-               <i class="fas fa-map-marker-alt" v-if="mobileMode"></i>
-              <ul v-if="selectedBox == 'ces'">
-                <li>Colégio Espírito Santo</li>
-                <li>R. do Cardeal Rei 6</li>
-                <li>7000-645 Évora</li>
-              </ul>
-              <ul v-if="selectedBox == 'arena'">
-                <li>Arena de Évora</li>
-                <li>Av. Gen. Humberto Delgado</li>
-                <li>7005-158 Évora</li>
-              </ul>
-             </div>
-            <div class="palcos">
-              <ul>
-                <li id="palcoli" :class="{selected: selectedBox == 'arena'}" @click="updateSelection()">
-                    <svg id="palco" height="50px" width="50px" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m256 216a24 24 0 0 1 -24-24v-144a24 24 0 0 1 48 0v144a24 24 0 0 1 -24 24z"/><path d="m320 136a23.926 23.926 0 0 1 -16.971-7.029l-47.029-47.03-47.029 47.03a24 24 0 0 1 -33.942-33.942l64-64a24 24 0 0 1 33.942 0l64 64a24 24 0 0 1 -16.971 40.971z" fill="#5153ff"/><path d="m256 488a24 24 0 0 1 -24-24v-144a24 24 0 0 1 48 0v144a24 24 0 0 1 -24 24z"/><path d="m256 488a23.926 23.926 0 0 1 -16.971-7.029l-64-64a24 24 0 0 1 33.942-33.942l47.029 47.03 47.029-47.03a24 24 0 0 1 33.942 33.942l-64 64a23.926 23.926 0 0 1 -16.971 7.029z" fill="#5153ff"/><path d="m464 280h-144a24 24 0 0 1 0-48h144a24 24 0 0 1 0 48z"/><path d="m400 344a24 24 0 0 1 -16.971-40.971l47.03-47.029-47.03-47.029a24 24 0 0 1 33.942-33.942l64 64a24 24 0 0 1 0 33.942l-64 64a23.926 23.926 0 0 1 -16.971 7.029z"/><path d="m400 344a24 24 0 0 1 -16.971-40.971l47.03-47.029-47.03-47.029a24 24 0 0 1 33.942-33.942l64 64a24 24 0 0 1 0 33.942l-64 64a23.926 23.926 0 0 1 -16.971 7.029z" fill="#5153ff"/><path d="m192 280h-144a24 24 0 0 1 0-48h144a24 24 0 0 1 0 48z"/><path d="m112 344a23.926 23.926 0 0 1 -16.971-7.029l-64-64a24 24 0 0 1 0-33.942l64-64a24 24 0 0 1 33.942 33.942l-47.03 47.029 47.03 47.029a24 24 0 0 1 -16.971 40.971z"/><path d="m112 344a23.926 23.926 0 0 1 -16.971-7.029l-64-64a24 24 0 0 1 0-33.942l64-64a24 24 0 0 1 33.942 33.942l-47.03 47.029 47.03 47.029a24 24 0 0 1 -16.971 40.971z" fill="#5153ff"/></svg>
-                    <p>Arena de Évora</p>
-                </li>
-                <li id="palcoli" :class="{selected: selectedBox == 'ces'}" @click="updateSelection()">
-                    <svg id="palco" height="50px" width="50px" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m256 216a24 24 0 0 1 -24-24v-144a24 24 0 0 1 48 0v144a24 24 0 0 1 -24 24z"/><path d="m320 136a23.926 23.926 0 0 1 -16.971-7.029l-47.029-47.03-47.029 47.03a24 24 0 0 1 -33.942-33.942l64-64a24 24 0 0 1 33.942 0l64 64a24 24 0 0 1 -16.971 40.971z" fill="#5153ff"/><path d="m256 488a24 24 0 0 1 -24-24v-144a24 24 0 0 1 48 0v144a24 24 0 0 1 -24 24z"/><path d="m256 488a23.926 23.926 0 0 1 -16.971-7.029l-64-64a24 24 0 0 1 33.942-33.942l47.029 47.03 47.029-47.03a24 24 0 0 1 33.942 33.942l-64 64a23.926 23.926 0 0 1 -16.971 7.029z" fill="#5153ff"/><path d="m464 280h-144a24 24 0 0 1 0-48h144a24 24 0 0 1 0 48z"/><path d="m400 344a24 24 0 0 1 -16.971-40.971l47.03-47.029-47.03-47.029a24 24 0 0 1 33.942-33.942l64 64a24 24 0 0 1 0 33.942l-64 64a23.926 23.926 0 0 1 -16.971 7.029z"/><path d="m400 344a24 24 0 0 1 -16.971-40.971l47.03-47.029-47.03-47.029a24 24 0 0 1 33.942-33.942l64 64a24 24 0 0 1 0 33.942l-64 64a23.926 23.926 0 0 1 -16.971 7.029z" fill="#5153ff"/><path d="m192 280h-144a24 24 0 0 1 0-48h144a24 24 0 0 1 0 48z"/><path d="m112 344a23.926 23.926 0 0 1 -16.971-7.029l-64-64a24 24 0 0 1 0-33.942l64-64a24 24 0 0 1 33.942 33.942l-47.03 47.029 47.03 47.029a24 24 0 0 1 -16.971 40.971z"/><path d="m112 344a23.926 23.926 0 0 1 -16.971-7.029l-64-64a24 24 0 0 1 0-33.942l64-64a24 24 0 0 1 33.942 33.942l-47.03 47.029 47.03 47.029a24 24 0 0 1 -16.971 40.971z" fill="#5153ff"/></svg>
-                    <p>CES</p>
-                </li>
-              </ul>
-            </div>
+  <section class="hero">
+    <img src="@/assets/onde.png" alt="" v-if="!mobileMode" />
+    <h2>Onde</h2>
+    <h1>Vai ser a expo?</h1>
+    <div class="info">
+      <i class="fas fa-map-marker-alt" v-if="!mobileMode"></i>
+      <div class="infoText">
+        <h1 id="googleMaps">Aqui no google maps</h1>
+        <div class="locais">
+          <div class="locaisCont">
+            <i class="fas fa-map-marker-alt" v-if="mobileMode"></i>
+            <ul v-if="selectedBox == 'ces'">
+              <li>Colégio Espírito Santo</li>
+              <li>R. do Cardeal Rei 6</li>
+              <li>7000-645 Évora</li>
+            </ul>
+            <ul v-if="selectedBox == 'arena'">
+              <li>Arena de Évora</li>
+              <li>Av. Gen. Humberto Delgado</li>
+              <li>7005-158 Évora</li>
+            </ul>
           </div>
-         </div>
-      </div>
-      <div class="travel">
-         <h1>Como chegar lá?</h1>
-         <img  v-if="mobileMode" src="@/assets/mobile/porque.png" alt="">
-        <ul class="meios" v-if="!mobileMode">
-          <li><a @click="meioDeTransporte = getTitulo(0); primeiroParagrafo = getPrimeiroParagrafo(0); segundoParagrafo = getSegundoParagrafo(0);"  >Rodoviária de Évora,<br>A pé</a></li>
-          <li><a @click="meioDeTransporte = getTitulo(1); primeiroParagrafo = getPrimeiroParagrafo(1); segundoParagrafo = getSegundoParagrafo(1);"  >Rodoviária de Évora,<br>De carro</a></li>
-          <li><a @click="meioDeTransporte = getTitulo(2); primeiroParagrafo = getPrimeiroParagrafo(2); segundoParagrafo = getSegundoParagrafo(2);"  >Estação de comboios,<br>A pé</a></li>
-          <li><a @click="meioDeTransporte = getTitulo(3); primeiroParagrafo = getPrimeiroParagrafo(3); segundoParagrafo = getSegundoParagrafo(3);"  >Estação de comboios,<br>De carro</a></li>
-        </ul>
-        <div class="options" v-if="mobileMode && selectedBox === 'arena'">
-          <i class="fas fa-chevron-left" @click="previousArenaTransporte()"></i>
-          <h2>Próximo <br/>Transporte</h2>
-          <i class="fas fa-chevron-right" @click="nextArenaTransporte()" ></i>
+          <div class="palcos">
+            <ul>
+              <li
+                id="palcoli"
+                :class="{ selected: selectedBox == 'arena' }"
+                @click="updateSelection()"
+              >
+                <svg
+                  id="palco"
+                  height="50px"
+                  width="50px"
+                  viewBox="0 0 512 512"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="m256 216a24 24 0 0 1 -24-24v-144a24 24 0 0 1 48 0v144a24 24 0 0 1 -24 24z"
+                  />
+                  <path
+                    d="m320 136a23.926 23.926 0 0 1 -16.971-7.029l-47.029-47.03-47.029 47.03a24 24 0 0 1 -33.942-33.942l64-64a24 24 0 0 1 33.942 0l64 64a24 24 0 0 1 -16.971 40.971z"
+                    fill="#5153ff"
+                  />
+                  <path
+                    d="m256 488a24 24 0 0 1 -24-24v-144a24 24 0 0 1 48 0v144a24 24 0 0 1 -24 24z"
+                  />
+                  <path
+                    d="m256 488a23.926 23.926 0 0 1 -16.971-7.029l-64-64a24 24 0 0 1 33.942-33.942l47.029 47.03 47.029-47.03a24 24 0 0 1 33.942 33.942l-64 64a23.926 23.926 0 0 1 -16.971 7.029z"
+                    fill="#5153ff"
+                  />
+                  <path
+                    d="m464 280h-144a24 24 0 0 1 0-48h144a24 24 0 0 1 0 48z"
+                  />
+                  <path
+                    d="m400 344a24 24 0 0 1 -16.971-40.971l47.03-47.029-47.03-47.029a24 24 0 0 1 33.942-33.942l64 64a24 24 0 0 1 0 33.942l-64 64a23.926 23.926 0 0 1 -16.971 7.029z"
+                  />
+                  <path
+                    d="m400 344a24 24 0 0 1 -16.971-40.971l47.03-47.029-47.03-47.029a24 24 0 0 1 33.942-33.942l64 64a24 24 0 0 1 0 33.942l-64 64a23.926 23.926 0 0 1 -16.971 7.029z"
+                    fill="#5153ff"
+                  />
+                  <path
+                    d="m192 280h-144a24 24 0 0 1 0-48h144a24 24 0 0 1 0 48z"
+                  />
+                  <path
+                    d="m112 344a23.926 23.926 0 0 1 -16.971-7.029l-64-64a24 24 0 0 1 0-33.942l64-64a24 24 0 0 1 33.942 33.942l-47.03 47.029 47.03 47.029a24 24 0 0 1 -16.971 40.971z"
+                  />
+                  <path
+                    d="m112 344a23.926 23.926 0 0 1 -16.971-7.029l-64-64a24 24 0 0 1 0-33.942l64-64a24 24 0 0 1 33.942 33.942l-47.03 47.029 47.03 47.029a24 24 0 0 1 -16.971 40.971z"
+                    fill="#5153ff"
+                  />
+                </svg>
+                <p>Arena de Évora</p>
+              </li>
+              <li
+                id="palcoli"
+                :class="{ selected: selectedBox == 'ces' }"
+                @click="updateSelection()"
+              >
+                <svg
+                  id="palco"
+                  height="50px"
+                  width="50px"
+                  viewBox="0 0 512 512"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="m256 216a24 24 0 0 1 -24-24v-144a24 24 0 0 1 48 0v144a24 24 0 0 1 -24 24z"
+                  />
+                  <path
+                    d="m320 136a23.926 23.926 0 0 1 -16.971-7.029l-47.029-47.03-47.029 47.03a24 24 0 0 1 -33.942-33.942l64-64a24 24 0 0 1 33.942 0l64 64a24 24 0 0 1 -16.971 40.971z"
+                    fill="#5153ff"
+                  />
+                  <path
+                    d="m256 488a24 24 0 0 1 -24-24v-144a24 24 0 0 1 48 0v144a24 24 0 0 1 -24 24z"
+                  />
+                  <path
+                    d="m256 488a23.926 23.926 0 0 1 -16.971-7.029l-64-64a24 24 0 0 1 33.942-33.942l47.029 47.03 47.029-47.03a24 24 0 0 1 33.942 33.942l-64 64a23.926 23.926 0 0 1 -16.971 7.029z"
+                    fill="#5153ff"
+                  />
+                  <path
+                    d="m464 280h-144a24 24 0 0 1 0-48h144a24 24 0 0 1 0 48z"
+                  />
+                  <path
+                    d="m400 344a24 24 0 0 1 -16.971-40.971l47.03-47.029-47.03-47.029a24 24 0 0 1 33.942-33.942l64 64a24 24 0 0 1 0 33.942l-64 64a23.926 23.926 0 0 1 -16.971 7.029z"
+                  />
+                  <path
+                    d="m400 344a24 24 0 0 1 -16.971-40.971l47.03-47.029-47.03-47.029a24 24 0 0 1 33.942-33.942l64 64a24 24 0 0 1 0 33.942l-64 64a23.926 23.926 0 0 1 -16.971 7.029z"
+                    fill="#5153ff"
+                  />
+                  <path
+                    d="m192 280h-144a24 24 0 0 1 0-48h144a24 24 0 0 1 0 48z"
+                  />
+                  <path
+                    d="m112 344a23.926 23.926 0 0 1 -16.971-7.029l-64-64a24 24 0 0 1 0-33.942l64-64a24 24 0 0 1 33.942 33.942l-47.03 47.029 47.03 47.029a24 24 0 0 1 -16.971 40.971z"
+                  />
+                  <path
+                    d="m112 344a23.926 23.926 0 0 1 -16.971-7.029l-64-64a24 24 0 0 1 0-33.942l64-64a24 24 0 0 1 33.942 33.942l-47.03 47.029 47.03 47.029a24 24 0 0 1 -16.971 40.971z"
+                    fill="#5153ff"
+                  />
+                </svg>
+                <p>CES</p>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div class="options" v-if="mobileMode && selectedBox === 'ces'">
-          <i class="fas fa-chevron-left" @click="previousCesTransporte()"></i>
-          <h2>Próximo <br/>Transporte</h2>
-          <i class="fas fa-chevron-right" @click="nextCesTransporte()" ></i>
-        </div>
       </div>
-    </section>
-    <section class="transportes">
-      <Transporte :titulo="meioDeTransporte" :primeiroParagrafo="primeiroParagrafo" :segundoParagrafo="segundoParagrafo" />
-    </section>
+    </div>
+    <div class="travel">
+      <h1>Como chegar lá?</h1>
+      <img v-if="mobileMode" src="@/assets/mobile/porque.png" alt="" />
+      <ul class="meios" v-if="!mobileMode">
+        <li>
+          <a
+            @click="
+              meioDeTransporte = getTitulo(0);
+              primeiroParagrafo = getPrimeiroParagrafo(0);
+              segundoParagrafo = getSegundoParagrafo(0);
+            "
+            >Rodoviária de Évora,<br />A pé</a
+          >
+        </li>
+        <li>
+          <a
+            @click="
+              meioDeTransporte = getTitulo(1);
+              primeiroParagrafo = getPrimeiroParagrafo(1);
+              segundoParagrafo = getSegundoParagrafo(1);
+            "
+            >Rodoviária de Évora,<br />De carro</a
+          >
+        </li>
+        <li>
+          <a
+            @click="
+              meioDeTransporte = getTitulo(2);
+              primeiroParagrafo = getPrimeiroParagrafo(2);
+              segundoParagrafo = getSegundoParagrafo(2);
+            "
+            >Estação de comboios,<br />A pé</a
+          >
+        </li>
+        <li>
+          <a
+            @click="
+              meioDeTransporte = getTitulo(3);
+              primeiroParagrafo = getPrimeiroParagrafo(3);
+              segundoParagrafo = getSegundoParagrafo(3);
+            "
+            >Estação de comboios,<br />De carro</a
+          >
+        </li>
+      </ul>
+      <div class="options" v-if="mobileMode && selectedBox === 'arena'">
+        <i class="fas fa-chevron-left" @click="previousArenaTransporte()"></i>
+        <h2>Próximo <br />Transporte</h2>
+        <i class="fas fa-chevron-right" @click="nextArenaTransporte()"></i>
+      </div>
+      <div class="options" v-if="mobileMode && selectedBox === 'ces'">
+        <i class="fas fa-chevron-left" @click="previousCesTransporte()"></i>
+        <h2>Próximo <br />Transporte</h2>
+        <i class="fas fa-chevron-right" @click="nextCesTransporte()"></i>
+      </div>
+    </div>
+  </section>
+  <section class="transportes">
+    <Transporte
+      :titulo="meioDeTransporte"
+      :primeiroParagrafo="primeiroParagrafo"
+      :segundoParagrafo="segundoParagrafo"
+    />
+  </section>
 </template>
 
-
-
 <script lang="ts">
-import { defineComponent } from 'vue';
-import Transporte from '../components/Transporte.vue';
+import { defineComponent } from "vue";
+import Transporte from "../components/Transporte.vue";
 
 export default defineComponent({
-  name: 'Home',
+  name: "Home",
   data() {
     return {
       selectedBox: "arena",
@@ -81,74 +209,155 @@ export default defineComponent({
       cesTransporteIndex: 0,
       arena: {
         transportes: [
-          {titulo: "Rodoviária de Évora - Arena de Évora | A pé: (aprox. 10 minutos):" , primeiroParagrafo: "Siga para sudeste, em direção à Av. Túlio Espanca/N114 e vire à esquerda. Na rotunda, saia pela 2ª saída. Depois vire à esquerda em direção à Av. Gen. Humberto Delgado e seguidamente vire à direita e encontrará a Arena de Évora  (Av. Gen. Humberto Delgado, 7005-158 Évora).", segundoParagrafo: ""},
-          {titulo: "Rodoviária de Évora - Arena de Évora | De carro: (aprox. 5 minutos): " , primeiroParagrafo: "Saia da rodoviária pela 3ª saída da rotunda, para a  Av. São Sebastião. Na rotunda seguinte saia na 2ª saída para a Av. Túlio Espanca/ N114). Seguidamente saia na 1ª saída da seguinte rotunda e siga pela Av. Dinis Miranda/ IP2 em direção à Av. Fundação Calouste Gulbenkian.", segundoParagrafo: " Para tal terá de sair na rotunda pela 3ª saída. Por último vire à esquerda e encontrará a Arena de Évora (Av. Gen. Humberto Delgado, 7005-158 Évora)."},
-          {titulo: "Estação de comboios - Arena de Évora | A pé: (aprox. 15 minutos):" , primeiroParagrafo: "Siga na rotunda pela Av. Dr. Francisco Barahona, depois vire à direita em direção à Av. Gen.Humberto Delgado. Nas próximas 2 bifurcações vire à esquerda e chegará à Arena de Évora (Av. Gen. Humberto Delgado, 7005-158 Évora).", segundoParagrafo: ""},
-          {titulo: "Estação de comboios - Arena de Évora | De carro (aprox. 3 minutos): " , primeiroParagrafo: "Siga para norte, para a rotunda e saia na 1ª saída, em direção à Av. Combatentes da Grande Guerra. Na Av. Combatentes da Grande Guerra vire à esquerda para a Av. Gen. Humberto Delgado, volte a virar à esquerda e encontrará a Arena de Évora Évora (Av. Gen. Humberto Delgado, 7005-158 Évora).", segundoParagrafo: ""},
+          {
+            titulo:
+              "Rodoviária de Évora - Arena de Évora | A pé: (aprox. 10 minutos):",
+            primeiroParagrafo:
+              "Siga para sudeste, em direção à Av. Túlio Espanca/N114 e vire à esquerda. Na rotunda, saia pela 2ª saída. Depois vire à esquerda em direção à Av. Gen. Humberto Delgado e seguidamente vire à direita e encontrará a Arena de Évora  (Av. Gen. Humberto Delgado, 7005-158 Évora).",
+            segundoParagrafo: "",
+          },
+          {
+            titulo:
+              "Rodoviária de Évora - Arena de Évora | De carro: (aprox. 5 minutos): ",
+            primeiroParagrafo:
+              "Saia da rodoviária pela 3ª saída da rotunda, para a  Av. São Sebastião. Na rotunda seguinte saia na 2ª saída para a Av. Túlio Espanca/ N114). Seguidamente saia na 1ª saída da seguinte rotunda e siga pela Av. Dinis Miranda/ IP2 em direção à Av. Fundação Calouste Gulbenkian.",
+            segundoParagrafo:
+              " Para tal terá de sair na rotunda pela 3ª saída. Por último vire à esquerda e encontrará a Arena de Évora (Av. Gen. Humberto Delgado, 7005-158 Évora).",
+          },
+          {
+            titulo:
+              "Estação de comboios - Arena de Évora | A pé: (aprox. 15 minutos):",
+            primeiroParagrafo:
+              "Siga na rotunda pela Av. Dr. Francisco Barahona, depois vire à direita em direção à Av. Gen.Humberto Delgado. Nas próximas 2 bifurcações vire à esquerda e chegará à Arena de Évora (Av. Gen. Humberto Delgado, 7005-158 Évora).",
+            segundoParagrafo: "",
+          },
+          {
+            titulo:
+              "Estação de comboios - Arena de Évora | De carro (aprox. 3 minutos): ",
+            primeiroParagrafo:
+              "Siga para norte, para a rotunda e saia na 1ª saída, em direção à Av. Combatentes da Grande Guerra. Na Av. Combatentes da Grande Guerra vire à esquerda para a Av. Gen. Humberto Delgado, volte a virar à esquerda e encontrará a Arena de Évora Évora (Av. Gen. Humberto Delgado, 7005-158 Évora).",
+            segundoParagrafo: "",
+          },
         ],
       },
       ces: {
         transportes: [
-          {titulo: "Rodoviária de Évora - Colégio Espírito Santo | A pé (aprox. 24 minutos): " , primeiroParagrafo: "Ao sair da rodoviária siga em direção à Av. De São Sebastião e continue pela Rua Serpa Pinto até chegar à Praça do Giraldo. Na praça do Giraldo siga pela R. da República e vire à esquerda na R. Miguel Bombarda. Ao passar pela pousada da juventude vai encontrar uma bifurcação, pode seguir por qualquer uma das ruas pois ambas vão dar à Rotunda Quadrada. Na Rotunda Quadrada, siga pela 3ª saída, no final da rua vire à direita e irá encontra uma pequena rotunda, siga pela segunda saída e irá encontrar o Colégio Espírito Santo à sua esquerda.", segundoParagrafo: ""},
-          {titulo: "Rodoviária de Évora - Colégio Espírito Santo | De carro (aprox. 7 minutos): " , primeiroParagrafo: "Saia da rodoviária pela 3ª saída da rotunda, para a  Av. São Sebastião. Na rotunda seguinte saia na 2ª saída para a Av. Túlio Espanca/ N114). Na seguinte rotunda saia na 3ª saída para a Av. Dom Nuno Álvares Pereira/IP2. Seguidamente saia na 1ª saída da próxima rotunda. Nas próximas duas rotundas saia na 2ª saída. Siga pela Av. Dom Manuel Trindade Salgueiro/ IP2, na rotunda saia na 1ª saída para a R. de José Estevão Cordovil.", segundoParagrafo: "Posteriormente vire à esquerda em direção ao Largo dos Colegiais e depois vire outra vez à esquerda para a R. do Cardeal Rei, o Colégio Espírito Santo encontra-se à esquerda (R. do Cardeal Rei 6, 7000-645 Évora)."},
-          {titulo: "Estação de Comboios - Colégio Espírito Santo | A pé (aprox. 23 minutos): " , primeiroParagrafo: "Siga em direção à rotunda e saia na 1ª saída pela Av. Combatentes da Grande Guerra. Quando chegar ao final da rua siga pela Av. Fundação Calouste Gulbenkian e seguidamente pela R. da Rampa que se encontra à esquerda. Continue pela Tv. Peras e seguidamente vire à direita em direção à R. Miguel Bombarda. Ao chegar ao final da rua encontrará a Rotunda Quadrada, saia na 3ª saída da rotunda e siga em direção ao Largo dos Colegiais e, posteriormente, vire à esquerda em direção à r. do Cardeal Rei, o Colégio Espírito Santo encontra-se à sua esquerda. (Rua do Cardeal Rei 6, 7000-645 Évora).", segundoParagrafo: ""},
-          {titulo: "Estação de Comboios - Colégio Espírito Santo | De carro (aprox. 8 minutos): " , primeiroParagrafo: "Siga em direção à rotunda e saia na 1ª saída em direção à Av. Combatentes da Grande Guerra. Vire à direita em direção à Av. Dinis Miranda/ IP2 e ao chegar à rotunda saia na 2ª saída em direção à R. Dr. António José de Almeida/ N18/N254. Nas próximas três rotundas saia na 2ª saída e irá chegar à Av. São João de Deus. Ao chegar ao final da rua irá encontrar uma outra rotunda perto de um posto de abastecimento BP e do Pingo Doce, saia na 4ª saída dessa rotunda pela Av. da Universidade/ N18.", segundoParagrafo: "Ao chegar à próxima rotunda pode sair na 1ª saída e estacionar no parque de estacionamento à sua direita e posteriormente ir até ao Colégio Espírito Santo a pé que são cerca de 2 minutos de distância, ou pode na sair na 3ª saída da rotunda e estacionar no parque dentro da universidade. Para tal ao sair na 3ª saída da rotunda suba a R. José Estevão Cordovil e quando chegar ao cimo da subida vire à esquerda em direção ao Largo dos Colegiais. Ao chegar ao final desta rua vire à esquerda em direção à R. do Cardeal Rei, o Colégio Espírito Santo encontra-se à sua esquerda. (Rua do Cardeal Rei 6, 7000-645 Évora)"},
-          
+          {
+            titulo:
+              "Rodoviária de Évora - Colégio Espírito Santo | A pé (aprox. 24 minutos): ",
+            primeiroParagrafo:
+              "Ao sair da rodoviária siga em direção à Av. De São Sebastião e continue pela Rua Serpa Pinto até chegar à Praça do Giraldo. Na praça do Giraldo siga pela R. da República e vire à esquerda na R. Miguel Bombarda. Ao passar pela pousada da juventude vai encontrar uma bifurcação, pode seguir por qualquer uma das ruas pois ambas vão dar à Rotunda Quadrada. Na Rotunda Quadrada, siga pela 3ª saída, no final da rua vire à direita e irá encontra uma pequena rotunda, siga pela segunda saída e irá encontrar o Colégio Espírito Santo à sua esquerda.",
+            segundoParagrafo: "",
+          },
+          {
+            titulo:
+              "Rodoviária de Évora - Colégio Espírito Santo | De carro (aprox. 7 minutos): ",
+            primeiroParagrafo:
+              "Saia da rodoviária pela 3ª saída da rotunda, para a  Av. São Sebastião. Na rotunda seguinte saia na 2ª saída para a Av. Túlio Espanca/ N114). Na seguinte rotunda saia na 3ª saída para a Av. Dom Nuno Álvares Pereira/IP2. Seguidamente saia na 1ª saída da próxima rotunda. Nas próximas duas rotundas saia na 2ª saída. Siga pela Av. Dom Manuel Trindade Salgueiro/ IP2, na rotunda saia na 1ª saída para a R. de José Estevão Cordovil.",
+            segundoParagrafo:
+              "Posteriormente vire à esquerda em direção ao Largo dos Colegiais e depois vire outra vez à esquerda para a R. do Cardeal Rei, o Colégio Espírito Santo encontra-se à esquerda (R. do Cardeal Rei 6, 7000-645 Évora).",
+          },
+          {
+            titulo:
+              "Estação de Comboios - Colégio Espírito Santo | A pé (aprox. 23 minutos): ",
+            primeiroParagrafo:
+              "Siga em direção à rotunda e saia na 1ª saída pela Av. Combatentes da Grande Guerra. Quando chegar ao final da rua siga pela Av. Fundação Calouste Gulbenkian e seguidamente pela R. da Rampa que se encontra à esquerda. Continue pela Tv. Peras e seguidamente vire à direita em direção à R. Miguel Bombarda. Ao chegar ao final da rua encontrará a Rotunda Quadrada, saia na 3ª saída da rotunda e siga em direção ao Largo dos Colegiais e, posteriormente, vire à esquerda em direção à r. do Cardeal Rei, o Colégio Espírito Santo encontra-se à sua esquerda. (Rua do Cardeal Rei 6, 7000-645 Évora).",
+            segundoParagrafo: "",
+          },
+          {
+            titulo:
+              "Estação de Comboios - Colégio Espírito Santo | De carro (aprox. 8 minutos): ",
+            primeiroParagrafo:
+              "Siga em direção à rotunda e saia na 1ª saída em direção à Av. Combatentes da Grande Guerra. Vire à direita em direção à Av. Dinis Miranda/ IP2 e ao chegar à rotunda saia na 2ª saída em direção à R. Dr. António José de Almeida/ N18/N254. Nas próximas três rotundas saia na 2ª saída e irá chegar à Av. São João de Deus. Ao chegar ao final da rua irá encontrar uma outra rotunda perto de um posto de abastecimento BP e do Pingo Doce, saia na 4ª saída dessa rotunda pela Av. da Universidade/ N18.",
+            segundoParagrafo:
+              "Ao chegar à próxima rotunda pode sair na 1ª saída e estacionar no parque de estacionamento à sua direita e posteriormente ir até ao Colégio Espírito Santo a pé que são cerca de 2 minutos de distância, ou pode na sair na 3ª saída da rotunda e estacionar no parque dentro da universidade. Para tal ao sair na 3ª saída da rotunda suba a R. José Estevão Cordovil e quando chegar ao cimo da subida vire à esquerda em direção ao Largo dos Colegiais. Ao chegar ao final desta rua vire à esquerda em direção à R. do Cardeal Rei, o Colégio Espírito Santo encontra-se à sua esquerda. (Rua do Cardeal Rei 6, 7000-645 Évora)",
+          },
         ],
       },
-    }
+    };
   },
   components: {
     Transporte,
   },
   created() {
     this.handleResize();
-    window.addEventListener('resize', this.handleResize);
+    window.addEventListener("resize", this.handleResize);
     this.meioDeTransporte = this.arena.transportes[0].titulo;
     this.primeiroParagrafo = this.arena.transportes[0].primeiroParagrafo;
     this.segundoParagrafo = this.arena.transportes[0].segundoParagrafo;
   },
 
-   methods: {
-
-    handleResize () {
+  methods: {
+    handleResize() {
       this.mobileMode = window.innerWidth <= 1015;
     },
 
     nextArenaTransporte() {
-      this.arenaTransporteIndex >= 3 ? this.arenaTransporteIndex = 0 : this.arenaTransporteIndex++;
-      
-      this.meioDeTransporte = this.arena.transportes[this.arenaTransporteIndex].titulo;
-      this.primeiroParagrafo = this.arena.transportes[this.arenaTransporteIndex].primeiroParagrafo;
-      this.segundoParagrafo = this.arena.transportes[this.arenaTransporteIndex].segundoParagrafo;
-     },
+      this.arenaTransporteIndex >= 3
+        ? (this.arenaTransporteIndex = 0)
+        : this.arenaTransporteIndex++;
+
+      this.meioDeTransporte = this.arena.transportes[
+        this.arenaTransporteIndex
+      ].titulo;
+      this.primeiroParagrafo = this.arena.transportes[
+        this.arenaTransporteIndex
+      ].primeiroParagrafo;
+      this.segundoParagrafo = this.arena.transportes[
+        this.arenaTransporteIndex
+      ].segundoParagrafo;
+    },
 
     nextCesTransporte() {
-      this.cesTransporteIndex >= 3 ? this.cesTransporteIndex = 0 : this.cesTransporteIndex++;
-      
-      this.meioDeTransporte = this.ces.transportes[this.cesTransporteIndex].titulo;
-      this.primeiroParagrafo = this.ces.transportes[this.cesTransporteIndex].primeiroParagrafo;
-      this.segundoParagrafo = this.ces.transportes[this.cesTransporteIndex].segundoParagrafo;
-     },
+      this.cesTransporteIndex >= 3
+        ? (this.cesTransporteIndex = 0)
+        : this.cesTransporteIndex++;
+
+      this.meioDeTransporte = this.ces.transportes[
+        this.cesTransporteIndex
+      ].titulo;
+      this.primeiroParagrafo = this.ces.transportes[
+        this.cesTransporteIndex
+      ].primeiroParagrafo;
+      this.segundoParagrafo = this.ces.transportes[
+        this.cesTransporteIndex
+      ].segundoParagrafo;
+    },
 
     previousArenaTransporte() {
-      this.arenaTransporteIndex <= 0 ? this.arenaTransporteIndex = 3 : this.arenaTransporteIndex--;
-      
-      this.meioDeTransporte = this.arena.transportes[this.arenaTransporteIndex].titulo;
-      this.primeiroParagrafo = this.arena.transportes[this.arenaTransporteIndex].primeiroParagrafo;
-      this.segundoParagrafo = this.arena.transportes[this.arenaTransporteIndex].segundoParagrafo;
-     },
+      this.arenaTransporteIndex <= 0
+        ? (this.arenaTransporteIndex = 3)
+        : this.arenaTransporteIndex--;
+
+      this.meioDeTransporte = this.arena.transportes[
+        this.arenaTransporteIndex
+      ].titulo;
+      this.primeiroParagrafo = this.arena.transportes[
+        this.arenaTransporteIndex
+      ].primeiroParagrafo;
+      this.segundoParagrafo = this.arena.transportes[
+        this.arenaTransporteIndex
+      ].segundoParagrafo;
+    },
 
     previousCesTransporte() {
-      this.cesTransporteIndex <= 0 ? this.cesTransporteIndex = 3 : this.cesTransporteIndex--;
-      
-      this.meioDeTransporte = this.ces.transportes[this.cesTransporteIndex].titulo;
-      this.primeiroParagrafo = this.ces.transportes[this.cesTransporteIndex].primeiroParagrafo;
-      this.segundoParagrafo = this.ces.transportes[this.cesTransporteIndex].segundoParagrafo;
-     },
+      this.cesTransporteIndex <= 0
+        ? (this.cesTransporteIndex = 3)
+        : this.cesTransporteIndex--;
+
+      this.meioDeTransporte = this.ces.transportes[
+        this.cesTransporteIndex
+      ].titulo;
+      this.primeiroParagrafo = this.ces.transportes[
+        this.cesTransporteIndex
+      ].primeiroParagrafo;
+      this.segundoParagrafo = this.ces.transportes[
+        this.cesTransporteIndex
+      ].segundoParagrafo;
+    },
 
     getPrimeiroParagrafo(option: number) {
-      if(this.selectedBox == 'arena') {
+      if (this.selectedBox == "arena") {
         switch (option) {
           case 0:
             return this.arena.transportes[0].primeiroParagrafo;
@@ -158,14 +367,12 @@ export default defineComponent({
             return this.arena.transportes[2].primeiroParagrafo;
           case 3:
             return this.arena.transportes[3].primeiroParagrafo;
-        
-          default: 
+
+          default:
             return null;
         }
-      }
-
-      else {
-         switch (option) {
+      } else {
+        switch (option) {
           case 0:
             return this.ces.transportes[0].primeiroParagrafo;
           case 1:
@@ -174,14 +381,14 @@ export default defineComponent({
             return this.ces.transportes[2].primeiroParagrafo;
           case 3:
             return this.ces.transportes[3].primeiroParagrafo;
-        
-          default: 
+
+          default:
             return null;
         }
       }
     },
     getSegundoParagrafo(option: number) {
-      if(this.selectedBox == 'arena') {
+      if (this.selectedBox == "arena") {
         switch (option) {
           case 0:
             return this.arena.transportes[0].segundoParagrafo;
@@ -191,14 +398,12 @@ export default defineComponent({
             return this.arena.transportes[2].segundoParagrafo;
           case 3:
             return this.arena.transportes[3].segundoParagrafo;
-        
-          default: 
+
+          default:
             return null;
         }
-      }
-
-      else {
-         switch (option) {
+      } else {
+        switch (option) {
           case 0:
             return this.ces.transportes[0].segundoParagrafo;
           case 1:
@@ -207,14 +412,14 @@ export default defineComponent({
             return this.ces.transportes[2].segundoParagrafo;
           case 3:
             return this.ces.transportes[3].segundoParagrafo;
-        
-          default: 
+
+          default:
             return null;
         }
-    }
-  },
-  getTitulo(option: number) {
-      if(this.selectedBox == 'arena') {
+      }
+    },
+    getTitulo(option: number) {
+      if (this.selectedBox == "arena") {
         switch (option) {
           case 0:
             return this.arena.transportes[0].titulo;
@@ -224,14 +429,12 @@ export default defineComponent({
             return this.arena.transportes[2].titulo;
           case 3:
             return this.arena.transportes[3].titulo;
-        
-          default: 
+
+          default:
             return null;
         }
-      }
-
-      else {
-         switch (option) {
+      } else {
+        switch (option) {
           case 0:
             return this.ces.transportes[0].titulo;
           case 1:
@@ -240,36 +443,33 @@ export default defineComponent({
             return this.ces.transportes[2].titulo;
           case 3:
             return this.ces.transportes[3].titulo;
-        
-          default: 
+
+          default:
             return null;
         }
       }
     },
-  updateSelection() {
-    if(this.selectedBox == 'arena') {
-      this.selectedBox = 'ces';
-      this.meioDeTransporte = this.ces.transportes[0].titulo;
-      this.primeiroParagrafo = this.ces.transportes[0].primeiroParagrafo;
-      this.segundoParagrafo = this.ces.transportes[0].segundoParagrafo;
-    }
-
-    else {
-      this.selectedBox = 'arena';
-      this.meioDeTransporte = this.arena.transportes[0].titulo;
-      this.primeiroParagrafo = this.arena.transportes[0].primeiroParagrafo;
-      this.segundoParagrafo = this.arena.transportes[0].segundoParagrafo;
-    }
-    }
+    updateSelection() {
+      if (this.selectedBox == "arena") {
+        this.selectedBox = "ces";
+        this.meioDeTransporte = this.ces.transportes[0].titulo;
+        this.primeiroParagrafo = this.ces.transportes[0].primeiroParagrafo;
+        this.segundoParagrafo = this.ces.transportes[0].segundoParagrafo;
+      } else {
+        this.selectedBox = "arena";
+        this.meioDeTransporte = this.arena.transportes[0].titulo;
+        this.primeiroParagrafo = this.arena.transportes[0].primeiroParagrafo;
+        this.segundoParagrafo = this.arena.transportes[0].segundoParagrafo;
+      }
+    },
   },
 });
 </script>
 
 <style lang="scss" scoped>
-
-$textColor: #596FF0;
-$headerTextColor: #7179F4;
-$blueTextColor: #0010FF;
+$textColor: #596ff0;
+$headerTextColor: #7179f4;
+$blueTextColor: #0010ff;
 
 .hero {
   z-index: 200;
@@ -293,7 +493,6 @@ $blueTextColor: #0010FF;
     font-size: 60px;
     font-weight: 800;
     color: $blueTextColor;
-    
   }
 
   h1 {
@@ -334,7 +533,6 @@ $blueTextColor: #0010FF;
         justify-content: space-around;
 
         ul {
-
           li {
             font-size: 25px;
             font-weight: 300;
@@ -344,8 +542,7 @@ $blueTextColor: #0010FF;
           }
         }
 
-
-        .palcos ul{
+        .palcos ul {
           display: flex;
           justify-content: center;
           align-items: center;
@@ -378,20 +575,17 @@ $blueTextColor: #0010FF;
             cursor: pointer;
 
             #palco {
-              fill: #FFFFFF;
+              fill: #ffffff;
             }
           }
         }
       }
-
-      
     }
   }
-} 
+}
 
-@media screen and (max-width: 1600px){
+@media screen and (max-width: 1600px) {
   .travel {
-
     .meios {
       margin-top: 31vh;
 
@@ -423,14 +617,12 @@ $blueTextColor: #0010FF;
       &:last-child {
         margin: 0;
       }
-  
-      a{
+
+      a {
         font-size: 16px;
       }
     }
   }
-  
-  
 }
 
 @media (max-width: 800px) {
@@ -455,7 +647,6 @@ $blueTextColor: #0010FF;
       margin-left: 10px;
       margin-right: 50px;
       width: 10%;
-
     }
 
     .info .infoText .locais {
@@ -496,24 +687,24 @@ $blueTextColor: #0010FF;
   }
 
   .hero .info .infoText {
-      h1 {
-        font-size: 20px;
-      }
+    h1 {
+      font-size: 20px;
     }
+  }
 
-    .hero .info .infoText .locais ul li[data-v-157381da] {
-      font-size: 16px;
-      display: flex;
-      justify-content: flex-start;
-      align-items: flex-start;
-      font-weight: 600;
-      width: 200px;
-    }
+  .hero .info .infoText .locais ul li[data-v-157381da] {
+    font-size: 16px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-weight: 600;
+    width: 200px;
+  }
 
-    #googleMaps {
-      margin-left: 33vw;
-    }
-  
+  #googleMaps {
+    margin-left: 33vw;
+  }
+
   .travel {
     position: relative;
 
@@ -567,7 +758,6 @@ $blueTextColor: #0010FF;
       margin-left: 10px;
       margin-right: 50px;
       width: 10%;
-
     }
 
     .info .infoText .locais {
@@ -608,24 +798,24 @@ $blueTextColor: #0010FF;
   }
 
   .hero .info .infoText {
-      h1 {
-        font-size: 20px;
-      }
+    h1 {
+      font-size: 20px;
     }
+  }
 
-    .hero .info .infoText .locais ul li[data-v-157381da] {
-      font-size: 16px;
-      display: flex;
-      justify-content: flex-start;
-      align-items: flex-start;
-      font-weight: 600;
-      width: 200px;
-    }
+  .hero .info .infoText .locais ul li[data-v-157381da] {
+    font-size: 16px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-weight: 600;
+    width: 200px;
+  }
 
-    #googleMaps {
-      margin-left: 33vw;
-    }
-  
+  #googleMaps {
+    margin-left: 33vw;
+  }
+
   .travel {
     position: static;
 
@@ -643,7 +833,6 @@ $blueTextColor: #0010FF;
 
 @media (max-width: 376px) {
   .hero {
-
     h1 {
       margin-bottom: 0;
     }
@@ -657,7 +846,6 @@ $blueTextColor: #0010FF;
 
 @media (max-width: 325px) {
   .hero {
-
     h1 {
       font-size: 35px;
       margin-bottom: 0;
@@ -689,7 +877,7 @@ $blueTextColor: #0010FF;
     }
 
     h2 {
-      color: #F7F7F7;
+      color: #f7f7f7;
       text-align: center;
       margin: 0 15px 0 15px;
     }
@@ -722,7 +910,6 @@ $blueTextColor: #0010FF;
         margin-left: 100px;
       }
 
-
       a {
         min-width: 100%;
         cursor: pointer;
@@ -732,7 +919,6 @@ $blueTextColor: #0010FF;
     }
 
     a:hover {
-      
       opacity: 1;
     }
   }
@@ -756,7 +942,6 @@ $blueTextColor: #0010FF;
   }
 }
 
-
 @media (max-width: 400px) {
   .transportes {
     margin-top: 20vh;
@@ -764,7 +949,6 @@ $blueTextColor: #0010FF;
 }
 
 @media (max-width: 380px) {
-
   .travel h1 {
     margin-top: 120px;
   }
@@ -779,7 +963,6 @@ $blueTextColor: #0010FF;
 }
 
 @media (max-width: 365px) {
-
   .travel h1 {
     margin-top: 30px;
   }
@@ -794,7 +977,6 @@ $blueTextColor: #0010FF;
 }
 
 @media (max-width: 325px) {
-
   .travel h1 {
     font-size: 35px;
     margin-left: 20px;
@@ -808,5 +990,4 @@ $blueTextColor: #0010FF;
     margin-top: 20vh;
   }
 }
-
 </style>
