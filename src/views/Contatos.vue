@@ -368,94 +368,6 @@ $textColor: #7179f4;
   }
 }
 
-@media (max-width: 1000px) {
-  .contacts {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    form {
-      margin-top: 50px;
-
-      input,
-      textarea {
-        width: 50vw;
-      }
-
-      .fButton {
-        width: 50vw;
-      }
-    }
-  }
-}
-
-@media (max-width: 500px) {
-  .hero {
-    height: 100vh;
-
-    svg {
-      width: 40px;
-      transform: rotate(90deg);
-    }
-
-    .ondeEstamos {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin: 0 0 30px 0;
-      flex-direction: row;
-    }
-
-    h1 {
-      font-size: 30px;
-      margin: 0;
-      margin-right: 10px;
-    }
-  }
-
-  .contacts {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    .apoio {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-
-      p {
-        padding: 0 50px 0 50px;
-        /* hyphens: auto; */
-      }
-
-      .chegar {
-        h1 {
-          font-size: 30px;
-        }
-
-        svg {
-          width: 100px;
-        }
-      }
-    }
-
-    form {
-      margin-top: 50px;
-
-      input,
-      textarea {
-        width: 70vw;
-      }
-
-      .fButton {
-        width: 70vw;
-      }
-    }
-  }
-}
-
 .modalSection {
   display: flex;
   justify-content: center;
@@ -508,6 +420,113 @@ $textColor: #7179f4;
       bottom: -200px;
       cursor: pointer;
     }
+  }
+}
+
+@media (max-width: 1300px) {
+  .ondeEstamos {
+    margin-bottom: 50px;
+  }
+  .localization {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 1000px) {
+  .contacts {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    form {
+      margin-top: 50px;
+
+      input,
+      textarea {
+        width: 50vw;
+      }
+
+      .fButton {
+        width: 50vw;
+      }
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .ondeEstamos {
+    margin-bottom: -50px;
+  }
+
+  .localization {
+    margin-top: 50px;
+  }
+}
+
+@media (max-width: 500px) {
+  .hero {
+    height: 100vh;
+
+    .ondeEstamos {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin: 0px 0 20px 30px;
+      flex-direction: column;
+    }
+
+    h1 {
+      font-size: 30px;
+      margin: 0;
+      margin-right: 10px;
+    }
+  }
+
+  .contacts {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .apoio {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      p {
+        padding: 0 50px 0 80px;
+        hyphens: auto;
+      }
+
+      .chegar {
+        h1 {
+          font-size: 30px;
+        }
+
+        svg {
+          width: 100px;
+        }
+      }
+    }
+
+    form {
+      margin-top: 50px;
+
+      input,
+      textarea {
+        width: 70vw;
+      }
+
+      .fButton {
+        width: 70vw;
+      }
+    }
+  }
+}
+
+@media (max-width: 370px) {
+  .hero .ondeEstamos {
+    margin-bottom: -10px;
   }
 }
 </style>
