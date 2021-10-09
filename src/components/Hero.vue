@@ -300,4 +300,10 @@ export default defineComponent({
     top: 5vh;
   }
 }
+
+@media (max-width: 325px) {
+  .hero .spread-video > video {
+    top: 3vh;
+  }
+}
 </style>

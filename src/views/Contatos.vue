@@ -55,8 +55,8 @@
     </div>
     <form>
       <h1>Contacte-nos!</h1>
-      <label for="name">name *</label>
-      <input type="text" placeholder="name" required v-model="name" />
+      <label for="name">Nome *</label>
+      <input type="text" placeholder="Nome" required v-model="name" />
       <label for="email">Email *</label>
       <input type="email" placeholder="Email" required v-model="email" />
       <label for="assunto">Assunto *</label>
@@ -176,11 +176,9 @@ export default defineComponent({
     },
     async sendFormData() {
       if (!this.isFormFilled) {
-        console.log("returning");
         return;
       }
 
-      console.log("sending");
       this.sendingEmail = true;
       const formData = {
         sendTo: "informativa@aaue.pt",
@@ -238,7 +236,6 @@ $textColor: #7179f4;
     flex-direction: column;
     margin-left: 10vw;
     z-index: 1;
-    border: 2pxo solid red;
   }
 
   h1 {

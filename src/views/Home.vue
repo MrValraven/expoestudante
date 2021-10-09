@@ -1,8 +1,5 @@
 <template>
-  <Hero></Hero>
-  <section class="future">
-    <img id="futureBackground" src="@/assets/fundos/futuro.png" alt="" />
-
+  <Hero>
     <div class="datas">
       <h2>Início</h2>
       <h1>
@@ -14,6 +11,9 @@
       </h1>
       <h2>Fim</h2>
     </div>
+  </Hero>
+  <section class="future">
+    <img id="futureBackground" src="@/assets/fundos/futuro.png" alt="" />
     <div class="mainText">
       <h2>O futuro</h2>
       <div>
@@ -87,6 +87,45 @@ $primaryColor: #5a68e0;
 $darkerPrimaryColor: #7179f4;
 $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
 
+.datas {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-left: 6vw;
+  margin-bottom: 5vh;
+  color: $primaryColor;
+
+  h2 {
+    font-size: 56px;
+    font-weight: 300;
+    font-style: italic;
+  }
+
+  h1 {
+    display: flex;
+    align-items: center;
+    margin: 0vh 20px 0px 20px;
+    font-size: 56px;
+    font-weight: bold;
+  }
+
+  span {
+    font-size: 23px;
+    font-weight: bold;
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+
+  hr {
+    background: #0010ff;
+    margin-right: 5px;
+    margin-left: 5px;
+    height: 5px;
+    width: 100px;
+    border: none;
+  }
+}
+
 .future {
   position: relative;
   z-index: 0;
@@ -98,45 +137,6 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
     bottom: 0;
     width: 100%;
     overflow: hidden;
-  }
-
-  .datas {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    margin-left: 6vw;
-    margin-top: -14vh;
-    color: $primaryColor;
-
-    h2 {
-      font-size: 56px;
-      font-weight: 300;
-      font-style: italic;
-    }
-
-    h1 {
-      display: flex;
-      align-items: center;
-      margin: 0vh 20px 0px 20px;
-      font-size: 56px;
-      font-weight: bold;
-    }
-
-    span {
-      font-size: 23px;
-      font-weight: bold;
-      margin-right: 5px;
-      margin-left: 5px;
-    }
-
-    hr {
-      background: #0010ff;
-      margin-right: 5px;
-      margin-left: 5px;
-      height: 5px;
-      width: 100px;
-      border: none;
-    }
   }
 
   .mainText {
@@ -189,7 +189,7 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
         display: flex;
         flex-direction: column;
         margin-left: 10px;
-        margin-top: -50px;
+        margin-top: 10px;
         padding-left: 0;
       }
 
@@ -255,9 +255,7 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
     bottom: -35vh;
   }
 
-  .future .datas {
-    margin-top: -20vh;
-    margin-bottom: -5vh;
+  .datas {
     margin-left: 5vw;
   }
 
@@ -271,30 +269,44 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 @media (max-width: 1100px) {
-  .mainText div {
+  .future .mainText {
     h2 {
-      font-size: 2.5vw;
+      margin-top: 0;
+      padding-left: 50px;
     }
+    div {
+      padding-left: 75px;
+      h2 {
+        font-size: 56vw;
+        padding-left: 20px;
+      }
 
-    h1 {
-      font-size: 5vw;
+      h1 {
+        font-size: 80px;
+      }
     }
   }
 
-  .text {
-    width: 30%;
+  .future .localizacao {
+    margin-bottom: 0;
+
+    #evora {
+      margin-top: 0;
+      margin-bottom: -100px;
+    }
   }
 }
 
 @media (max-width: 1030px) {
+  .datas {
+    margin-bottom: 4vh;
+    margin-left: 30px;
+  }
+
   .future {
     #futureBackground {
       width: 100%;
       bottom: 0;
-    }
-    .datas {
-      margin-top: 0;
-      margin-left: 30px;
     }
 
     .mainText div .text p {
@@ -303,6 +315,45 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
 
     .localizacao #evora {
       margin-right: 80px;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .datas {
+    margin-bottom: -4vh;
+    margin-left: 30px;
+  }
+
+  .future #futureBackground {
+    bottom: 0vh;
+  }
+
+  .datas {
+    h1,
+    h2 {
+      font-size: 40px;
+    }
+  }
+
+  .future {
+    padding-top: 50px;
+
+    .mainText div {
+      h1 {
+        font-size: 50px;
+      }
+
+      #text {
+        margin-top: 0px;
+      }
+    }
+  }
+
+  .future .localizacao #evora {
+    margin-top: 20px;
+    h1 {
+      font-size: 40px;
     }
   }
 }
@@ -392,24 +443,59 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 @media (max-width: 430px) {
-  .future .datas {
-    margin-top: -15vh;
-    margin-left: 5px;
+  .datas {
+    margin-bottom: 3vh;
   }
+  .future {
+    padding-top: 10px;
+    padding-bottom: 110px;
 
-  .future .localizacao {
-    #evora {
-      margin-bottom: 20px;
-      margin-right: 20px;
+    .mainText {
+      h2 {
+        padding-left: 0;
+        margin-left: 25px;
+        font-size: 20px;
+      }
+
+      div {
+        padding-left: 0;
+        padding-right: 20px;
+        margin-bottom: 0;
+        h1 {
+          font-size: 40px;
+        }
+
+        #text {
+          width: 100%;
+
+          p {
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    .localizacao {
+      padding-bottom: 20px;
+
+      #evora {
+        margin-top: 20px;
+        margin-right: 10px;
+        i {
+          font-size: 30px;
+        }
+
+        h1 {
+          font-size: 20px;
+        }
+      }
     }
   }
 }
 
 @media (max-width: 375px) {
   .datas {
-    margin-left: 5vw;
-    margin-bottom: 3vh;
-
+    margin-bottom: 5vh;
     h1 {
       font-size: 25px;
     }
@@ -427,6 +513,10 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
     }
   }
 
+  .future {
+    padding-bottom: 0;
+  }
+
   .future .mainText div {
     margin-left: 50px;
   }
@@ -441,12 +531,6 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
 
 @media (max-width: 325px) {
   .future {
-    .datas {
-      h1 hr {
-        width: 40px;
-      }
-    }
-
     .mainText div h1 {
       font-size: 60px;
     }
@@ -455,8 +539,8 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
   .future .localizacao {
     margin-bottom: 0px;
     #evora {
-      margin-bottom: -20px;
-      margin-right: 15px;
+      margin-bottom: 5px;
+      margin-right: 10px;
     }
   }
 }
