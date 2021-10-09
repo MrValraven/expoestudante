@@ -1,80 +1,95 @@
 <template>
-    <section class="hero">
-      <div class="spread-video">
+  <section class="hero">
+    <div class="spread-video">
       <video v-if="!mobileMode" autoplay muted loop id="backgroundVideo">
-        <source src="@/assets/fundos/fundoAnimado.mp4" type="video/mp4">
+        <source src="@/assets/fundos/fundoAnimado.mp4" type="video/mp4" />
       </video>
-      <video v-else-if="mobileMode && isTablet" autoplay muted loop id="backgroundVideo">
-        <source src="@/assets/fundos/fundo16_10.mp4" type="video/mp4">
+      <video
+        v-else-if="mobileMode && isTablet"
+        autoplay
+        muted
+        loop
+        id="backgroundVideo"
+      >
+        <source src="@/assets/fundos/fundo16_10.mp4" type="video/mp4" />
       </video>
       <video v-else autoplay muted loop id="backgroundVideo">
-        <source src="@/assets/fundos/fundo9_16.mp4" type="video/mp4">
+        <source src="@/assets/fundos/fundo9_16.mp4" type="video/mp4" />
       </video>
-      </div>
-      <img src="@/assets/fundos/ondinhaHero.png" alt="">
-      <ul class="socials">
-        <li>
-            <a href="https://www.instagram.com/expoestudante/" target="_blank" rel="noreferrer noopenner">
-                <Instagram :color="iconColor" />
-            </a>
-        </li>
-        <li id="facebook">
-            <a href="https://www.facebook.com/ExpoEstudante" target="_blank" rel="noreferrer noopenner">
-                <Facebook :color="iconColor" />
-            </a>
-        </li>
-        <li id="linkedin">
-            <a href="https://www.linkedin.com/events/expoestudante6831256218653220864/" target="_blank" rel="noreferrer noopenner">
-                <Linkedin :color="iconColor" />
-            </a>
-        </li>
-      </ul>
-      <slot></slot>
-    </section>
+    </div>
+    <img src="@/assets/fundos/ondinhaHero.png" alt="" class="ondinhas" />
+    <ul class="socials">
+      <li>
+        <a
+          href="https://www.instagram.com/expoestudante/"
+          target="_blank"
+          rel="noreferrer noopenner"
+        >
+          <Instagram :color="iconColor" />
+        </a>
+      </li>
+      <li id="facebook">
+        <a
+          href="https://www.facebook.com/ExpoEstudante"
+          target="_blank"
+          rel="noreferrer noopenner"
+        >
+          <Facebook :color="iconColor" />
+        </a>
+      </li>
+      <li id="linkedin">
+        <a
+          href="https://www.linkedin.com/events/expoestudante6831256218653220864/"
+          target="_blank"
+          rel="noreferrer noopenner"
+        >
+          <Linkedin :color="iconColor" />
+        </a>
+      </li>
+    </ul>
+    <slot></slot>
+  </section>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import Facebook from '@/components/socials/Facebook.vue'
-import Instagram from '@/components/socials/Instagram.vue'
-import Linkedin from '@/components/socials/Linkedin.vue'
+import { defineComponent } from "vue";
+import Facebook from "@/components/socials/Facebook.vue";
+import Instagram from "@/components/socials/Instagram.vue";
+import Linkedin from "@/components/socials/Linkedin.vue";
 
 export default defineComponent({
-  name: 'Footer',
+  name: "Footer",
   data() {
-      return {
-          iconColor: "#FFFFFF",
-          mobileMode: false,
-          isTablet: false,
-      }
+    return {
+      iconColor: "#FFFFFF",
+      mobileMode: false,
+      isTablet: false,
+    };
   },
   components: {
-      Facebook,
-      Instagram,
-      Linkedin
+    Facebook,
+    Instagram,
+    Linkedin,
   },
   created() {
     this.handleResize();
-    window.addEventListener('resize', this.handleResize);
-  },
-  computed: {
+    window.addEventListener("resize", this.handleResize);
   },
   methods: {
-    handleResize () {
+    handleResize() {
       this.mobileMode = window.innerWidth <= 1015;
       this.isTablet = window.innerWidth <= 1015 && window.innerWidth >= 700;
     },
-  }
+  },
 });
 </script>
 
 <style lang="scss" scoped>
-
 .hero {
   z-index: 0;
   position: relative;
-  height: 100vh;
   display: flex;
+  height: 100vh;
   justify-content: flex-end;
   flex-direction: column;
 
@@ -84,8 +99,8 @@ export default defineComponent({
     width: 100%;
     z-index: -2;
   }
-  
-  .spread-video{
+
+  .spread-video {
     position: absolute;
     z-index: -2;
     height: 110vh;
@@ -126,7 +141,7 @@ export default defineComponent({
   .hero .spread-video {
     overflow: visible;
   }
-  
+
   .hero .spread-video > video {
     top: -4vh;
   }
@@ -148,7 +163,6 @@ export default defineComponent({
   }
 
   .hero {
-    
     .spread-video {
       overflow: hidden;
     }
@@ -156,23 +170,25 @@ export default defineComponent({
     img {
       bottom: 0;
     }
-
   }
-  
-  
 }
 
-
-@media (max-width: 1050px) and (max-height: 1400px) and (min-height: 1020px) {
-
+@media (max-width: 1050px) and (max-height: 1400px) and (min-height: 1030px) {
   .hero {
     height: 60vh;
+
+    .ondinhas {
+      bottom: 9vh;
+    }
+
+    .socials {
+      top: 15vh;
+    }
   }
 
   .hero .spread-video > video {
     top: 40vh;
   }
-
 
   .hero .spread-video {
     height: 100vh;
@@ -182,6 +198,20 @@ export default defineComponent({
 @media (max-width: 900px) {
   .hero .spread-video > video {
     top: 20vh;
+  }
+}
+
+@media (max-width: 800px) and (max-height: 1050px) and (min-height: 900px) {
+  .hero {
+    max-height: 50vh;
+
+    .socials {
+      top: 12vh;
+    }
+  }
+
+  .hero .spread-video > video {
+    top: 63vh;
   }
 }
 
@@ -226,31 +256,48 @@ export default defineComponent({
 
 @media (max-width: 420px) {
   .hero .spread-video > video {
-    top: 5vh;
+    top: 0vh;
+  }
+
+  .hero .ondinhas {
+    bottom: 5vh;
   }
 }
 
+@media (max-width: 420px) and (min-height: 800px) {
+  .hero .spread-video > video {
+    top: 11vh;
+  }
+
+  .hero .ondinhas {
+    bottom: 5vh;
+  }
+}
 
 @media (max-width: 380px) {
-  .hero .spread-video > video {
-    top: 11.5vh;
+  .hero .socials {
+    top: 65vh;
   }
 }
+
 @media (max-width: 380px) and (min-height: 700px) {
   .hero .spread-video > video {
-    top: 11.5vh;
+    top: 12vh;
   }
 
-  .hero img {
-    bottom: 13vh;
-    width: 150%;
+  .hero .ondinhas {
+    bottom: 15vh;
+    width: 100%;
+  }
+
+  .hero .socials {
+    top: 65vh;
   }
 }
 
 @media (max-width: 350px) {
   .hero .spread-video > video {
-    top: 12vh;
+    top: 5vh;
   }
 }
-
 </style>
