@@ -205,7 +205,7 @@ $blueTextColor: #0010ff;
 .hero {
   z-index: -15;
   position: relative;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -298,10 +298,22 @@ $blueTextColor: #0010ff;
   }
 }
 
+@media (max-width: 900px) {
+  .hero img {
+    top: 80vh;
+  }
+  .hero .info {
+    margin-bottom: 50px;
+  }
+}
+
 @media (max-width: 500px) {
   .hero {
     margin-top: 100px;
-    height: auto;
+
+    img {
+      top: 90vh;
+    }
     h2 {
       font-size: 30px;
       margin-left: 20px;
@@ -314,6 +326,15 @@ $blueTextColor: #0010ff;
 
     .info .infoText .locais ul li {
       font-size: 16px;
+    }
+  }
+}
+@media (max-width: 330px) {
+  .hero {
+    margin-top: 100px;
+
+    img {
+      top: 110vh;
     }
   }
 }
