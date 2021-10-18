@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <img class="bgImage" src="@/assets/navbar.svg" alt="" />
+    <!-- <img class="bgImage" src="@/assets/navbar.svg" alt="" /> -->
     <nav id="nav">
       <ul class="navLinks">
         <router-link to="/" class="navLi">
@@ -254,6 +254,10 @@ $underlineColor: #596ff0;
     justify-content: flex-end;
     z-index: 1000;
 
+    svg {
+      display: none;
+    }
+
     .navLinks {
       position: relative;
       display: flex;
@@ -263,10 +267,15 @@ $underlineColor: #596ff0;
         position: relative;
         padding: 20px;
         font-size: 22px;
+        margin: 10px 20px;
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        padding: 10px 40px;
+        background-color: white;
+        border-radius: 25px;
+        box-shadow: 0 5px 11px 0 rgba(50, 50, 50, 0.164);
 
         .navLink {
           margin: 0;
@@ -280,9 +289,15 @@ $underlineColor: #596ff0;
         }
       }
 
+      .dropdown {
+        padding: 10px 40px;
+        margin: 10px;
+        background-color: white;
+        border-radius: 25px;
+      }
+
       li {
         position: relative;
-        padding: 20px;
         font-size: 22px;
         display: flex;
         justify-content: center;

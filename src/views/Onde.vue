@@ -1,6 +1,6 @@
 <template>
   <section class="hero">
-    <img src="@/assets/onde.png" alt="" v-if="!mobileMode" />
+    <img src="@/assets/ondec.png" alt="" v-if="!mobileMode" />
     <h2>Onde</h2>
     <h1>Vai ser a expo?</h1>
     <div class="info">
@@ -582,131 +582,20 @@ $blueTextColor: #0010ff;
       }
     }
   }
-}
 
-@media screen and (max-width: 1700px) {
   .travel {
-    h1 {
-      margin-bottom: -70px;
-    }
-    .meios {
-      li {
-        margin-left: 55px;
-
-        &:nth-child(2) {
-          margin-left: 20px;
-        }
-
-        &:last-child {
-          margin-left: 60px;
-        }
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 1600px) {
-  .travel {
-    .meios {
-      margin-top: 31vh;
-
-      li {
-        margin-left: 35px;
-
-        &:nth-child(2) {
-          margin-left: 20px;
-        }
-
-        &:last-child {
-          margin-left: 30px;
-        }
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 1450px) {
-  .travel {
-    .meios {
-      li {
-        margin-left: 35px;
-
-        &:nth-child(2) {
-          margin-left: 0px;
-        }
-
-        &:last-child {
-          margin-left: 0px;
-        }
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 1400px) {
-  .travel {
-    .meios {
-      li {
-        margin-left: 25px;
-
-        a {
-          font-size: 18px;
-        }
-
-        &:nth-child(2) {
-          margin-left: -10px;
-        }
-
-        &:last-child {
-          margin-left: 0px;
-        }
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 1250px) {
-  .travel {
-    h1 {
-      margin-bottom: -100px;
-    }
-    .meios {
-      li {
-        margin-bottom: -20px;
-        margin-left: 0px;
-
-        a {
-          font-size: 16px;
-        }
-
-        &:nth-child(2) {
-          margin-left: -20px;
-        }
-
-        &:last-child {
-          margin-left: 0px;
-        }
-      }
-    }
-  }
-}
-
-@media (max-width: 1030px) {
-  .travel .meios {
-    margin-bottom: 0;
-    li {
+    ul li {
+      background-color: white;
+      border-radius: 25px;
+      padding: 10px 20px;
+      font-size: 14px;
+      text-align: center;
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: 0;
-      padding: 0;
-
-      &:last-child {
-        margin: 0;
-      }
 
       a {
-        font-size: 16px;
+        font-size: 14px;
       }
     }
   }
@@ -991,25 +880,21 @@ $blueTextColor: #0010ff;
     margin-top: 38vh;
     background-color: transparent;
     display: flex;
+    margin-left: 90px;
 
     li {
       width: 150px;
       padding: 5px;
-      margin-left: 70px;
-      margin-right: 30px;
+      margin: 0 30px;
       color: $headerTextColor;
       font-weight: 900;
       text-align: center;
-
-      &:last-child {
-        margin-left: 100px;
-      }
-
+      border: 1px solid $blueTextColor;
       a {
         min-width: 100%;
         cursor: pointer;
         opacity: 0.75;
-        font-size: 20px;
+        font-size: 14px;
       }
     }
 

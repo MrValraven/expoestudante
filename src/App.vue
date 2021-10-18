@@ -48,7 +48,8 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  max-width: 100vw;
+  max-width: 100%;
+  background-color: white;
 
   &::-webkit-scrollbar {
     width: 0.5rem;
