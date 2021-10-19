@@ -181,7 +181,7 @@ export default defineComponent({
 
       this.sendingEmail = true;
       const formData = {
-        sendTo: "informativa@aaue.pt",
+        sendTo: "expoestudante@aaue.pt",
         subject: this.assunto,
         message: {
           origem: "ExpoEstudante",

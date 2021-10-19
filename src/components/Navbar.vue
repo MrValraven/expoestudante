@@ -300,15 +300,18 @@ $underlineColor: #596ff0;
         position: relative;
         font-size: 22px;
         display: flex;
+        background-color: white;
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        padding-top: 40px;
+        z-index: 2;
 
         .subMenu {
-          z-index: 5000;
+          background-color: white;
+          padding-top: 40px;
 
           a {
-            background: transparent;
             color: $textColor;
             font-size: $fontSize;
             font-weight: bold;
