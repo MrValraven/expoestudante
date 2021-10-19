@@ -130,6 +130,7 @@ $transitionEase: cubic-bezier(0.075, 0.82, 0.165, 1);
   position: relative;
   z-index: 0;
   padding-bottom: 200px;
+  background-color: white;
 
   #futureBackground {
     position: absolute;
